@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "thesis"
+  author: "Morteza Ansarinia"
+  date: "11/28/2022"
+  chapters:
+    - index.qmd
+    - chapters/intro.qmd
+    - chapters/summary.qmd
+    - chapters/references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt  # report
+    toc: true
