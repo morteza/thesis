@@ -10,7 +10,7 @@ book:
     - chapters/abstract.qmd
     - chapters/introduction.qmd
     - index.qmd
-    - chapters/intro.qmd
+    - chapters/introduction.qmd
     - chapters/summary.qmd
     - chapters/references.qmd
 
@@ -20,5 +20,6 @@ format:
   html:
     theme: cosmo
   pdf:
-    documentclass: scrreprt  # report
+    documentclass: report
     toc: true
+    geometry: "left=3cm,right=2cm,top=2cm,bottom=2cm"
