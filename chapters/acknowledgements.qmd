@@ -1,7 +1,7 @@
-# Dedication
+# Dedication {.unnumbered}
 
 
 
-# Acknowledgements
+# Acknowledgements {.unnumbered}
 
 ...

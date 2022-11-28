@@ -6,13 +6,12 @@ book:
   author: "Morteza Ansarinia"
   date: "11/28/2022"
   chapters:
+    - index.qmd
     - chapters/acknowledgements.qmd
     - chapters/abstract.qmd
     - chapters/introduction.qmd
-    - index.qmd
-    - chapters/introduction.qmd
-    - chapters/summary.qmd
     - chapters/references.qmd
+    - chapters/conclusion.qmd
 
 bibliography: references.bib
 
@@ -22,4 +21,11 @@ format:
   pdf:
     documentclass: report
     toc: true
-    geometry: "left=3cm,right=2cm,top=2cm,bottom=2cm"
+    geometry:
+      - left=3cm
+      - right=2cm
+      - top=2cm
+      - bottom=2cm
+    include-in-header: 
+      text: |
+        \usepackage{ragged2e}

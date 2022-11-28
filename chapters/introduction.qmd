@@ -8,7 +8,7 @@ See @knuth84 for additional discussion of literate programming.
 +---------------+---------------+
 | Title         | Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
 +---------------+---------------+
-| Challenge     | Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
+|| Challenge     | Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
 +---------------+---------------+
 | Context       | Despite a large volume of publications, cognitive control remains a rather vague concept both theoretically and operationally (@REFs/baggetta). Literature reviews by human domain experts have had limited success in bringing such clarity: they are not exhaustive, can’t keep up with the rate of new publications, and may depict a biased, subjective perspective rather than an objective, quantitative view of the research field.
 +---------------+---------------+
@@ -24,3 +24,22 @@ See @knuth84 for additional discussion of literate programming.
 
 : Article 1 (CogText) {tbl-colwidths="[15,85]"}
 
+
+```{=latex}
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{CogPonder}
+\label{tbl-tldr-cogponder}
+\begin{tabular}{|p{0.15\linewidth}|p{0.80\linewidth}|}
+\hline
+    \textbf{Title} & \RaggedRight{\bf Modeling Response Time in Cognitive Control Tasks using PonderNet Framework}  \\ \hline
+    \textbf{Challenge} & \RaggedRight{Developing a shared account of response time for human data and artificial agents. \newline Understanding cognitive control would benefit from artificial models that are constrained by the numerous human capacities. One such defining (and measurable) property of human decision making is characterized by its gradual unfolding over time (i.e., response time; see @ratcliff2013 and @boeck2019).} \\ \hline
+ &  \\ \hline
+ &  \\ \hline
+ &  \\ \hline
+ &  \\ \hline
+ &  \\ \hline
+\end{tabular}
+\end{table}
+```
