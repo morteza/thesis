@@ -10,6 +10,7 @@ book:
     - chapters/abstract.qmd
     - chapters/0_introduction.qmd
     - articles/1_cogtext.qmd
+    - articles/2_cogenv.qmd
     - chapters/6_discussion.qmd
     - chapters/7_references.qmd
   appendices:
