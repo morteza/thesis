@@ -1,5 +1,6 @@
 # General Introduction
 
+
 It is said that humans are creatures of habit. But even habits are established and managed by a higher-order cognitive system—a human capacity that is observed in many conceivable situations and unmatched by any other species or modern artificial intelligence. My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven, which enables us to (a) produce complex, meaningful, context-dependent behavior, in uncertain environments, (b) inhibit prepotent responses, and (c) monitor and manage the cross-talk between conflicting tasks.
 
 

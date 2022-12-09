@@ -9,13 +9,14 @@ book:
     - index.qmd
     - chapters/abstract.qmd
     - chapters/0_introduction.qmd
+    - articles/1_cogtext.qmd
     - chapters/6_discussion.qmd
-    - chapters/references.qmd
+    - chapters/7_references.qmd
   appendices:
-    - appendices/appendix_a.qmd
-    - appendices/appendix_b.qmd
-    - appendices/appendix_c.qmd
-    - appendices/appendix_d.qmd
+    - articles/8_nback.qmd
+    - articles/9_behaverse.qmd
+    - articles/10_seqgen.qmd
+    - appendices/11_projects.qmd
 
 
 bibliography: references.bib
@@ -27,7 +28,7 @@ format:
     documentclass: report
     fontsize: 12pt
     papersize: a4paper
-    linestretch: 2
+    # linestretch: 1
     toc: true
     lof: true
     lot: true
@@ -36,6 +37,11 @@ format:
       - right=2cm
       - top=2cm
       - bottom=2cm
+
     include-in-header: 
-      text: |
-        \usepackage{ragged2e}
+      - text: |
+          \usepackage{ragged2e}
+          \usepackage{setspace}
+          \doublespacing
+          \usepackage{sectsty}
+          \allsectionsfont{\singlespacing}
