@@ -2,16 +2,21 @@ project:
   type: book
 
 book:
-  title: "thesis"
+  title: "Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience"
   author: "Morteza Ansarinia"
-  date: "11/28/2022"
+  date: last-modified
   chapters:
     - index.qmd
-    - chapters/acknowledgements.qmd
     - chapters/abstract.qmd
-    - chapters/introduction.qmd
+    - chapters/0_introduction.qmd
+    - chapters/6_discussion.qmd
     - chapters/references.qmd
-    - chapters/conclusion.qmd
+  appendices:
+    - appendices/appendix_a.qmd
+    - appendices/appendix_b.qmd
+    - appendices/appendix_c.qmd
+    - appendices/appendix_d.qmd
+
 
 bibliography: references.bib
 
@@ -20,7 +25,12 @@ format:
     theme: cosmo
   pdf:
     documentclass: report
+    fontsize: 12pt
+    papersize: a4paper
+    linestretch: 2
     toc: true
+    lof: true
+    lot: true
     geometry:
       - left=3cm
       - right=2cm
