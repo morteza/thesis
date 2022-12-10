@@ -73,9 +73,9 @@ The thesis comprises five research articles. Each of these articles are summariz
 
 \begin{table}[ht!]
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{CogText}
+\caption{TLDR; Chapter 1 (CogText)}
 \label{tbl-tldrCogText}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
 \hline
 
 \textbf{Title} & {\bf
@@ -112,9 +112,9 @@ The thesis comprises five research articles. Each of these articles are summariz
 
 \begin{table}[ht!]
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{CogEnv}
+\caption{TLDR; Chapter 2 (CogEnv)}
 \label{tbl-tldrCogEnv}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
 \hline
 
 \textbf{Title} & {\bf} \\ \hline
@@ -134,9 +134,9 @@ The thesis comprises five research articles. Each of these articles are summariz
 ```{=latex}
 \begin{table}[ht!]
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{CogPonder}
+\caption{TLDR; Chapter 3 (CogPonder)}
 \label{tbl-tldrCogPonder}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
 \hline
 
 \textbf{Title} & {\bf} \\ \hline
@@ -157,9 +157,9 @@ The thesis comprises five research articles. Each of these articles are summariz
 ```{=latex}
 \begin{table}[ht!]
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{Review}
+\caption{TLDR; Chapter 4 (Review)}
 \label{tbl-tldrReview}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
 \hline
 
 \textbf{Title} & {\bf} \\ \hline
@@ -180,9 +180,9 @@ The thesis comprises five research articles. Each of these articles are summariz
 ```{=latex}
 \begin{table}[ht!]
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{ACNets}
+\caption{TLDR; Chapter 4 (ACNets)}
 \label{tbl-tldrACNets}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
 \hline
 
 \textbf{Title} & {\bf} \\ \hline

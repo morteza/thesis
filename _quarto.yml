@@ -45,6 +45,7 @@ format:
       - text: |
           \usepackage{ragged2e}
           \usepackage{setspace}
+          \usepackage{colortbl}
           \doublespacing
           \usepackage{sectsty}
           \allsectionsfont{\singlespacing}
