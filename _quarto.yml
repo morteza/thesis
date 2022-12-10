@@ -1,5 +1,6 @@
 project:
   type: book
+  # execute-dir: project
 
 book:
   title: "Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience"
@@ -11,6 +12,7 @@ book:
     - chapters/0_introduction.qmd
     - articles/1_cogtext.qmd
     - articles/2_cogenv.qmd
+    - articles/4_oxfordch.qmd
     - chapters/6_discussion.qmd
     - chapters/7_references.qmd
   appendices:
