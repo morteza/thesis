@@ -1,1 +1,518 @@
-# ACNets
+Article Five
+# Resting-State Functional Connectivities Are Robust Predictors of Habitual Action Video Gaming Experience
+ 
+## Abstract
+Playing action video games has been reported to lead to broad cognitive benefits, implying that this form of cognitive training may be exploited for positive societal impact. Although the underlying cognitive and neural mechanisms are not yet fully understood, current accounts revolve around the idea that playing action video games enhances cognitive control—a general ability modern cognitive neuroscience suggests is the result of the coordination of a multitude of brain networks that may be highlighted by recording functional brain connectivity of people at rest. In this study we use resting-state fMRI functional connectivities to train a machine learning model to classify people as habitual action video gamers or non-gamers and investigate which aspects of functional brain connectivity affect the models classification accuracy most. Our results show that this classification is indeed possible, with the best model reaching an accuracy level of 72.6%. This result is important for both theoretical and practical reasons, as it adds to a growing body of evidence reporting long-term effects of action video gaming on the brain and demonstrates that resting-state imaging may be an effective research tool for studying cognitive training and transfer. Our results also show that what distinguishes action gamers from non-video game players most is not the activity in individual brain regions, nor the activity within individual specialized brain networks but rather the relationships between networks. This result is important in that it casts these cognitive training effects in the cognitive control framework in cognitive neuroscience, provides support to current theories of action video game training in psychology, and offers new insights into why action video game training generalizes to new cognitive tests.  
+
+More specifically, our analyses highlight the importance of the interplay between cognitive control networks on the one hand (the fronto-parietal and cingulo-opercular networks) and the sensorimotor network on the other, suggesting that action video gaming may optimize cognitive control for the purpose of enhanced perception and rapid action. Overall, this work advances our understanding of the effects of action video gaming, of cognitive training, and transfer effects as well as the neural basis of cognitive control and may ultimately lead to the development of effective cognitive training programs.
+
+
+## Introduction
+Playing action video games has been shown to enhance a broad range of cognitive abilities—including the ability to switch between different tasks, filtering out irrelevant information, and focusing on important stimuli—while leaving other abilities unaffected (e.g., bottom-up attention) [@bediou2018]. These results are important from a practical and theoretical point of view. Indeed, training cognition with action video games could be used for broad positive societal impact [see @cardosoleite2021 for a review].
+
+From a theoretical point of view, the mechanisms underlying the cognitive benefits of playing action video games are not yet fully understood. In psychology, the transfer effects of action video game play have been attributed to enhancements in task-specific processes [the “common demands hypothesis”; @oei2015], but also to domain-general abilities including reward processing [@west2015; @nahum2020], cognitive control [@aanguera2013; @west2020; @benady-chorney2020] and, most prominently, attentional control [@föcker2020; @bavelier2019]. To simplify, we will use “cognitive control” as an umbrella term to encompass related concepts (e.g., “executive control”, “attentional control”, “cognitive flexibility”) and conceptualize it broadly as “the coordination of mental processes and action in accordance with current goals and future plans” [@menon2020]. We purposefully ignore certain nuances and state that a main family of hypotheses pinpoint changes in cognitive control as the key consequence of action video game play that causes transfer effects to a broad range of cognitive tasks.
+
+In cognitive neuroscience, playing video games has been associated with numerous changes in brain structure (e.g., increased gray matter in the caudate nucleus and decreased gray matter in the hippocampus [@west2018] and brain function—the specifics of these changes however depend on the type of game being played and how it is played (for a review see Chapter 4).
+
+One study for example, used functional resonance imaging (fMRI) to record the brain activity of participants while they performed an attention demanding visual detection task in the presence of distractors. When contrasting habitual action video game players (AVGPs) with people who don’t play video games (i.e., non-video game players; NVGPs), it was clear that the frontoparietal brain network, a key neural actor in attention control, was *less* activated by increased attentional demands in AVGPs than in VGPs [@bavelier2012]. This type of result has been interpreted as implying increased top-down attentional control abilities in AVGPs compared to NVGPs: because the attentional system is more effective in AVGPs, their BOLD response increases less with increasing attentional demands [@green2012; @bavelier2019].
+
+The empirical evidence, both in experimental psychology and cognitive neuroscience is rich and the theoretical accounts too complex to be accurately depicted here. It is however fair to say that the main hypotheses regarding the transfer effects of action video games involve domain-general cognitive abilities (i.e., cognitive control) which are assumed to be subserved by networks of brain areas (e.g., the frontoparietal attentional network) rather than by a single brain area (e.g., the left prefrontal cortex). It appears then that a brain-wide systems approach would be invaluable to the study of action video game training and their transfer effects on brain and behavior. There have been recently important advances in applying graph-theoretical tools to cognitive neuroscience that are now providing new insights about brain function in general and cognitive control in particular [@menon2020; @zink2021]. By applying these new approaches to the study of action video gaming we hope to tell apart competing hypotheses and better understand the underlying mechanisms as well as our general understanding of human cognitive control systems.
+
+
+
+
+## A graph-theoretic approach to cognitive control in cognitive neuroscience
+
+### The brain is intrinsically organized into networks.
+It has become increasingly clear in cognitive neuroscience that the traditional, modular approach (where cognitive function X is performed by brain area Y) is limited [@poldrack2006]; and that instead we need to reason in terms of known systems and networks which interact with each other to generate intelligent behavior [@hutzler2012]. This is particularly true in the case of cognitive control, where the scientific evidence was unable to pinpoint a single cognitive control area and instead highlighted multiple control networks [@menon2020; @zink2021]. 
+
+For example, a large body of work recording fMRI while humans perform a variety of visuo-spatial attentional tasks has highlighted two attentional systems: a dorsal frontoparietal system involved in top-down attentional control (e.g., maintaining attentional focus on a stimulus) and a more ventral system responsible for bottom-up attention (e.g., detecting a danger) [@corbetta2002]. It is important to note that although these two networks are specialized and functionally separate, their coordination is required for adaptive behavior and thus the two systems must interact. More specifically, in this particular model, the ventral system is thought to act as a circuit breaker, interrupting activity in the top-down system when an important signal calls for immediate attention.
+
+In recent years, many computational approaches have been developed to directly model brain activity as a timeseries of interacting brain networks (as opposed to previous work inferring networks from snapshots of average co-activation patterns) and to adopt a more systematic study of the relationships between brain networks and cognition across many tasks. Using such graph-theoretic approaches on multi-task fMRI datasets [@cole2013], on resting-state datasets [@dosenbach2010; @dosenbach2008] or both [@dadi2020], researchers have identified several brain networks as playing key roles in cognitive control (see below). It is important to note that these networks do not represent the ground truth yet; there are inconsistencies across methods, some subjectivity in the choice of hyperparameters and limitations in the current computational approaches (e.g., a given brain area can be assigned to only one network by most standard methods). As our methods and datasets will improve, so will the validity and accuracy of the highlighted functional networks.
+
+### The cognitive control brain networks
+Multiple brain networks, relevant to the current study, have been identified in the literature and are presented below. These networks are part of a parcellation atlas which assigns brain voxels to a brain region, and brain regions to networks. Alternative methods led to alternative parcellations, meaning that a given brain region may be assigned to different networks depending on the parcellation or even not be assigned at all, and some networks exist only in some parcellations but not others.
+
+#### The Dosenbach2010 atlas
+In a cross-task analysis of 10 cognitive tasks, **Dosenbach2010** atlas identified 160 regions over the whole brain that were consistently active during cognitive control tasks [@dosenbach2007; @dosenbach2010]. Those regions served as seeds to extract a graph from the resting-state fMRI. Edges of the graph were weighted by the correlation between respective resting-state time-series and then thresholded to identify six networks, to which they assign specific roles based on their involvement in cognitive tasks. These networks include 
+1) the fronto-parietal network (FPN) includes regions in the dorsolateral prefrontal cortex, inferior parietal lobe, dFC, ventral anterior prefrontal cortex, and IPS (for more details see, supplementary material). The FPN is thought to be involved in the rapid adjustments to real-time changes in tasks demands. 
+2) cingulo-opercular network (CON) includes regions in the anterior prefrontal cortex, ventral prefrontal cortex, basal ganglia, anterior insula, adjoining fronto-insular cortex, thalamus, precuneus, superior temporal, temporoparietal junction, and dorsal anterior cingulate cortex. The CON is thought to be involved in maintaining attention and stable task set-maintenance.
+3) Sensorimotor network (SMN) includes regions in precentral gyrus and mid insular, supplementary motor area (SMA), preSMA, superior parietal. SMN is involved in integration of sensory information and motor movements. 
+4) Occipital network includes regions in primary visual cortex (V1) and secondary visual cortices (V2). Occipital network is involved in  visual processing, 
+5) Cerebellum network includes regions in lateral, medial, and inferior cerebellum. Cerebellum is thought to be indirectly related to task performance and may be involved in generating error codes (Fiez1996).
+6) Default mode network (DMN) includes ventromedial prefrontal cortex, ventrolateral prefrontal cortex, inferior temporal, post cingulate gyrus, and angular gyrus. DMN is thought to activate when there is no attentional demand. It may not directly be involved in cognitive control, but may influence cognitive functions indirectly [greicius2004; @anticevic2012; @brandman2020]. Once this atlas is applied, activities in 160 seeds are mapped to one of those six networks.
+
+
+#### The Gordon 2014 atlas
+The Gordon2014 atlas is a surface-based parcellation that was derived from boundary maps of BOLD activations in two resting-state fMRI datasets. This atlas identifies 13 cortical networks. Below we present the most relevant ones for our purpose. For a list of coordinates of regions and corresponding networks see supplementary materials [for a full list and description of these networks, see @gordon2016].
+
+Cingulo-opercular network (aka CON),
+Frontopatietal network (aka FPN), 
+DorsalAtt, (aka DAN); centered on the intraparietal cortex and superior frontal cortex, is involved in top-down goal-directed selection of stimuli and responses. Regions of the dorsal network show sustained activation when subjects are cued to attend to a feature of stimulus (attention set).
+VentralAtt, (aka VAN); centered on the temporoparietal cortex and inferior frontal cortex, is specialized for the detection of behaviorally relevant stimuli, particularly when they are salient or unexpected. 
+Default mode network (aka DMN), 
+Cingulo-parietal network (aka CPN) includes regions in anterior cingulate cortex, ventral and dorsal parts of the precuneus, inferior temporal cortex, and lateral parietal cortex, and superior frontal cortex. This network has been  often observed when the subjects do not perform any task (i.e., resting).
+Sensorimotor network (hand),
+Sensorimotor (mouth), 
+Salience network (SN) includes a set of regions with hubs in dorsal anterior cingulate and ventral anterior insular cortices. It receives inputs from limbic and sensory regions and is often attributed to monitoring and dynamic switching.
+Auditory network includes regions in superior temporal gyrus, and is thought to process auditory information.
+Visual network is located in the occipital lobe, and is thought to process sensory inputs originating from the eyes.
+Retrosplenial temporal (aka RTSC) is located immediately behind the corpus callosum. The function of this region isn't yet fully understood, but it's suggested to be involved in mediating between perceptual and memory functions because of its proximity to visual cortex and hippocampal regions.
+unassigned set of regions. The regions that were not assigned to any networks were not excluded from further analysis, but rather labeled as "unassigned".
+
+It is important to note that this atlas is particularly important in the context of studying the effects of action video gaming because it comprises the two attentional networks that are often cited in this context [@föcker2018; @corbetta2007]; namely the dorsal and the ventral attention networks (DAN), And Second, the ventral attention network (VAN).
+
+#### The DiFuMo atlas
+In addition to the two parcellation atlases listed above, we included in this study a more recent data-driven atlas, called DiFuMo, which has been developed on a large structural and functional dataset rather than prior research on cognitive control [@dadi2020]. The reasons to include DiFuMo is that DiFuMo may be less biased by theoretical considerations and highlight networks that are more stable because of a larger dataset.
+
+DiFuMo differs slightly from Dosenbach2010 and Gordon2014 atlases as it is a probabilistic functional parcellation that is extracted from thousands of task-fMRI and rs-fMRI scans, with different versions of DiFuMo, identifying varying numbers of regions (i.e. 64, 128, 256, 512, or 1024 regions). Hence, voxels across the whole brain to either 64, 128, 258, 512, or 1024 regions. We used the mapping for 64 regions, each of which was mapped to seventeen networks proposed by @yeo2011. For each region, DiFuMo provides an anatomical name, MNI152 coordinates, the mapping of regions to networks defined in @yeo2011, and the ratios of white matter, gray matter, and CSF. We mapped voxels to regions and then applied the mappings to map regions to networks. Coordinates of the DiFuMo regions and their corresponding assignment to brain networks is provided in the supplementary materials.
+
+## Measuring intrinsic networks can be studied during resting state.
+While task fMRI is frequently used to identify brain activities that are attributed to cognitive functions, spontaneous brain activities during rest (intrinsic networks) show substantial overlap with task-driven networks, both in their spatial organization and functional roles [@kraus2021; @varoquaux2020]—provided resting state brain activity is recorded for long enough [@birn2014]. 
+
+Indeed, if action video gaming impacts brain function, this impact should be manifest not only during the performance of cognitive tasks, but also during rest [@karaus2021; @cohen2008]. Moreover, domain general processes like cognitive control and attention, which are thought to be altered by action video game play, are processes that are common to many tasks and therefore one would expect that long-term coactivation of their corresponding brain networks during gaming to alter functional resting connectivity [@poldrack2015].
+
+This similarity between task-induced and intrinsic networks, makes resting-state recordings an invaluable tool to understand long-term effects of action video gaming on cognitive control networks. First, resting-state data may offer an effective way to measure individual differences in executive functions [@reineberg2015], cognitive control performance [FPN, Salience Network, CON, and DMN; see @menon2021 for a review], attention (VAN and DAN; see @corbetta2002 for a review), and numerous other behavioral dimensions [@seguin2020]. This could for example be useful to rapidly evaluate the efficiency of new cognitive training programs and evaluate to what extent they will transfer to new tasks. A second reason resting-state data is an interesting method in this context relates to the controversy around expectation effects (action gamers performing better because they believe they should perform better) rather than genuine cognitive improvements being responsible for some of the observed performance differences among AVGPs and NVGPs [@tiraboschi2019; @parong2022]. Resting-state data might provide a means to assess such differences, untainted by prior task experience or expectation effects.
+
+## Hypotheses
+
+The graph theoretic approach to cognitive control that we just presented allows us to cast cognitive theories in more explicit terms. According to the common demands theory one might expect to see changes only at the level of specific, specialized brain regions, but no changes at a systems level and possibly no changes that would not be visible in resting-state functional connectivity data. Alternatively, there is a class of theories predicting changes beyond the isolated brain region. Some researchers might for example expect to see changes specifically in the top-down attentional control system (DAN) but not for example in the bottom-up attentional system (VAN). This type of result would be in line with the notion that a domain-general subsystem (e.g., top-down attention) is enhanced by action video game play. Finally, some researchers may expect the effects of action video games to go beyond individual networks and affect cognitive control more broadly. This hypothesis would translate into changes in inter-network connectivity differences between AVGPs and NVGPs. A main goal of the present study is to test these three families of hypotheses (which are not mutually exclusive). Discriminating between these macro-hypotheses will not only help us understand the effects of action video games but also the breath of generalization effects as the broader the effect on the brain networks, the broader one would expect those changes to manifest as improved behavioral performance across a wider range of cognitive tasks.
+
+
+In addition to these macro-hypotheses, numerous more detailed predictions can be made. Among the six networks of the **Dosenbach2010** atlas, we specifically expect FPN, CON, and SMN to be diagnostic of AVGP, as these networks have been frequently highlighted in that literature. For instance, AVGPs have been reported to both be able to focus their attention better than NVGPs and to be less disrupted by distractors, while at the same time being more capable to switch between tasks [@bediou2018]. This phenomenology suggests more effective CON (for sustained performance) and FPN (for flexibility) networks. In addition, AVGPs have also been shown to outperform NVGPs on sensorimotor tasks  [@gozli2014; @green2006]. This increased behavioral performance may be linked to superior cognitive control abilities but could also result from changes in the SMN network itself. Changes in other networks of the Dosenbach2010 seem less likely (e.g., DMN, Cerebellum). It appears then that these three networks, FPN, CON and SMN, as well the relationships between them, may best characterize the functional connectivity differences between AVGPs and NVGPs.
+
+Among the 13 networks of the **Gordon2014** atlas, we expect AVGPs and NVGPs to differ mostly on the dorsal attentional network (DAN) and the frontoparietal networks (FPN). We expect no differences between AVGPs and NVGPs with respect to the remaining networks. In addition to these network-specific effects, one can make predictions about differences in inter-network relationships between AVGPs and NVGPs. Indeed, there is growing evidence that FPN and CON become more integrated with increased task demands and that their integration correlates with task performance [@cohen2014], even at the trial-by-trial level [@shine2016; @shine2018]. This being said, how exactly cognitive control is achieved within a neural network perspective is not yet fully understood [@menon2020; @zink2021] and the results of this study may perhaps contribute to that understanding.
+
+
+## Data
+For the purpose of this study, we used an unpublished resting-state fMRI dataset that was collected in a previous study [@föcker2018]. The dataset included a total of 32 subjects (16 AVGPs and 16 NVGPs) who participated in a resting-state fMRI session after completing several cognitive tasks in the scanner. The aim of the original study was to study enhanced attentional control in action video gamers. In that study, researchers excluded from their analyses 1 NVGP for being a music expert, and 2 AVGPs for being high media multitaskers [see @föcker2018 for details]. In this study, we decided to exclude none of the participants and to use the entire cohort of 32 subjects.
+
+The fMRI data were acquired using a Siemens TrioTim 3T scanner with an eight-channel head coil, 4mm isotropic resolution, 125 time points, TE/TR = 30/3000 ms, flip angle = 90°.Anatomical T1w images were defaced prior to the preprocessing to ensure participants' privacy. Overall, the resting-state dataset included a time series of 7 minutes and 30 seconds per subject.
+
+All the participants were volunteers and gave informed consent. In accordance with the Declaration of Helsinki, the Research Subject Review Board of the University of Rochester approved the study.
+
+A noteworthy point about the design of the study is that participants attended the resting-state fMRI scanning session after completing a task-fMRI session in which an auditory Posner-cueing task was used [see @föcker2018]. It is therefore possible that this task may have somewhat contaminated the subsequent resting-state functional connectivities [@hasson2009; Tailby2015; @lor2022]. In our particular case, the auditory Posner-cueing paradigm was designed to engage perceptual and attentional processes, both of which are thought to differ between AVGP and NVGP [@föcker2018]. Hence, observing AVGPs versus NVGPs differences in resting-state activities involving the auditory cortex may either reflect differences in intrinsic brain function and/or differences in task-related brain activation patterns that persist after completion of the task. It is therefore important to be cautious when interpreting the present results and to replicate this study using additional datasets.
+ 
+## Methods
+### Formal problem statement
+The goals of this study are (a) to evaluate whether intrinsic brain functioning (as assessed using resting-state fMRI data) differs between action video game players and non-video gamers and (b) whether the observed differences (if there are any) are compatible with domain-specific theory (specialized individual networks) or far-transfer theory (cross-talk between networks). 
+
+We trained a computational model to classify people as habitual action video gamers (AVGP) or non-action video gamers (NVGP) using their resting-state functional connectivity data. We expect the accuracy of the model to correctly classify unseen participants as AVGP vs NVGP exceed the chance level. If this is indeed the case, we will further investigate the fitted model to understand the causes of its performance (e.g., by identifying the most diagnostic resting-state functional connectivities in the model). Our hypothesis is that both inter- and intra-network connectivities contribute to classification performance, with the inter-network connectivities playing however a bigger role.
+
+The classification problem we want to tackle can be formulated as follows:
+
+$$X \in \mathbb{R}^{\text{|subjects|} \times \text{|networks|} \times \text{|timepoints|}}$$
+$$y \in \{\text{AVGP}, \text{NVGP}\}$$
+$$\hat{y}=f(X,\theta)$$
+$$\hat{\theta}= \underset{\theta}{\text{argmin}}|y-\hat{y}|$$
+
+
+
+Where $X$ is the resting-state functional connectivity matrix of the networks (see "Network Aggregation" section below for details), $y$ is the true label of the subject (either AVGP or NVGP), $f$ is a classification model that receives as input $X$ and outputs $\hat{y}$—a prediction of $y$ (label). The classification model has parameters $\theta$, which are learned from data while minimizing $y-\hat{y}$. These model parameters include the choice for a particular parcellation atlas and connectivity measure as well as model weights.
+
+Given this setting, the hypotheses of this study are (H1) resting-state connectivity (both within and between networks) is associated with habitual action video gaming experience, hence robustly classifies AVGP and NVGP, and (H2) difference between AVGP and NVGP extends beyond specialized networks (i.e., within network connectivity), that is it extends to the cross-talk between brain networks (i.e., between-networks connectivity). If we consider the connectivity pattern as a graph with brain networks as its nodes, and connectivity between networks as its edge, then the two hypothesis can be written formally as follows:
+
+`(\text{H1}) \ \ \hat\theta_{\text{nodes}} \cup \hat\theta_{\text{edges}} \in \text{Control Networks}`
+`(\text{H2}) \ \ |\hat\theta_{\text{nodes}}| < |\hat\theta_{\text{edges}}|`
+
+
+
+
+### Preprocessing
+
+Considering that even minor changes to the preprocessing steps can affect the result of the analysis [@lindquist2019], we used a reproducible pipeline for the entire preprocessing stage. Specifically, we opted for MRIQC [v21.0.0rc2; @esteban2017] for data quality checks and fMRIPrep [v20.2 LTS; @esteban2019] for preprocessing, without making any modifications to the default parameters. The only exception was that we skipped the skull stripping because the scans were already defaced for privacy reasons (see suppl. Figure 1).
+
+
+For each participant, the preprocessing pipeline resulted in 125 images of size 64*64*64 isomorphic 4mm voxels in the MNI152NLin2009cAsym common space [@ciric2021]. The preprocessing pipeline extracted an additional set of motion-based artifacts which was further removed from the signals by applying confound regression during the parcellation step (described below). Note that using the extracted motion signals did not differ between AVGPs and NVGPs. Indeed, the performance of a AVGP vs NVGP classifier did not exceed chance level (chance level=50%, mean validation accuracy=51%, SD=18%, 100-repeated 4-fold cross-validated; see supplementary materials).
+
+All the additional preprocessing decisions were made automatically based on the "simple" denoising strategy in the Nilearn package [v0.9, @abraham2014] which recommends high pass filtering at 0.1 Hz, 6 degree head motion correction, basic CSF component removal, demeaning, no global signal removal, no scrubbing, no compcor correction, and no ICA-AROMA [see @fox2005; @Abraham2014; @NilearnConfounds for details]. We also examined whether the removed confounds, motion as well as other signals, differed between AVGP and NVGP groups. We observed no significant difference between AVGP and NVGP with respect to the removed confounds (see supplementary materials).
+
+### Data analysis pipeline
+
+
+Figure 1. Data analysis pipeline. All data were first preprocessed using a standard procedure (step 1). The same steps were applied irrespective of the AVGP/NVGP label of participants. This preprocessed data then served as input to the next step which aimed to train and diagnose a AVGP versus NVGP classifier (see text for details).
+
+
+The complete data analysis pipeline is illustrated in Figure 1. All data were first preprocessed using a standard procedure (step 1 in Figure 1, see "Preprocessing" for details). The same steps were applied irrespective of the AVGP/NVGP label of participants. This preprocessed data then served as input to the next step which aimed to train a AVGP versus NVGP classifier (step 2 in Figure 1).
+
+To train our model to classify participants as AVGP versus NVGP, we first split the data into a training set and a testing set (by randomly assigning participants to either subset). Next we performed a sequence of operations on the training set, which include confound removal, parcellation (i.e., mapping time-series of voxels to time-series of regions according to a given parcellation atlas), network aggregation (i.e., mapping time-series of regions to time-series of networks as defined in the atlas), connectivity extraction (i.e., calculate connectivity metrics for the network time-series) and ultimately the classification model (see Figure 1, step 2). For the classification model we used a support vector machine (SVM with linear kernel and L1 regularization) as this type of model is often used as a first baseline. Following best practices in machine learning [@poldrack2020] we compute the accuracy of the classification on the test dataset (i.e., on data from participants that were not used to train the model). This is to ensure that the model will generalize to other participants and is not overfitting the training data. Finally, the whole procedure was repeated 100 times to ensure the metrics were representative of the data and not of a specific random split of the data.
+
+The next step of the data analysis pipeline (step 3 in Figure 1) takes as input the fitted model and aims to understand what features of the input data are responsible for the observed classification accuracy.  More specifically, we used permutation importance to assess the contribution of functional connectivity features on the models’ prediction accuracy. In this procedure, the importance of a given feature is quantified by how much the prediction accuracy of the model decreases as a result of randomly shuffling the values of that feature. In addition to permutation importance, we also applied SHAP analysis—a more recent machine learning technique used to interpret fitted models. While permutation importance focuses on the models accuracy, SHAP analysis focuses on what features are responsible for the models output (i.e., classifying a person as an AVGP regardless of whether that person is or is not an AVGP). The results of the SHAP analysis are discussed in the supplementary materials.
+
+These were the broad data analysis steps involved in this study. Below we present further details about each step.
+
+### Evaluation of the classifier
+The cross-validated pipeline was trained on 75% of the data (24 subjects) and evaluated on the remaining (8 subjects). The training/testing step was repeated 100 times on randomized splits of the data (hence 100-repeated 4-fold stratified and shuffled cross validation). As a result of this repeated cross-validation, the prediction performance of the model was measured by the distribution of 100 accuracies on the test sets.
+
+The cross-validated steps included parcellation (three candidates), factoring voxels to networks (see below), calculating functional connectivity measures (four candidates), flattening the upper triangular connectivity matrix, normalization, model-based feature selection (selecting half of the features based on linear L1-regularized SVM coefficients), and a classifier (linear L1-regularized SVM).
+
+For each cross-validation split, a new model was created, separately trained on the training set, before recording its prediction accuracy on the test set. To optimize hyper-parameters of the pipeline, we used grid search tuning on the training set (75% of the entire dataset or 24 subjects) with 5-fold cross validation. The hyper-parameters included whether to standardize features or not, and the SVM regularization parameter, all of which were evaluated by the classification accuracy on the validation folds. Test splits were not used to tune or train the model.
+
+#### Parcellation
+
+Grouping data from voxels into meaningful brain regions allows both to reduce the complexity and noise in the data but also to inject semantics in the data [i.e., brain regions and networks are more meaningful than isolated voxels; @varoquaux2013]. Because no single parcellation atlas emerged dominant single best parcellation atlas even for an individual subject [@salehi2020], we opt for using three different parcellation atlases as the parameter of the classification model: 1) Dosenbach2010, 2) Gordon2014, 3) DiFuMu64 (See the supplementary material for a list of parcellation parameters).
+
+To create a reduced and more meaningful spatial representation of brain function we aggregated voxels into regions according to the selected parcellation atlases (Dosenbach2010, Gordon2014, and DiFuMo64; see "Introduction" for more details and motivations on selecting these atlases). This step first produced region-wise time-series (step 1) and then network-wise time-series (step 2).
+ 
+We first used the maximum likelihood method to estimate time-series of the defined regions in the atlases (i.e., parcels or spatial maps) from a set of preprocessed voxel-wise time-series.
+
+`(Step 1) \ \ \hat{U}_r = \underset{U_r}{\text{argmin}} \norm{Y -U_{r}V_{p->r}}`
+`Y  \in \R^{t\timesp}`, `U_r  \in \R^{t\timesr}`, `V_{p->r}  \in \R^{p\timesk}`
+`t` time points, `p` voxels, `r` regions, `n` networks
+
+
+
+$$\hat{U}_r$$ here represents the maximum-likelihood estimate of the region-wise time-series, $Y$ is the observed voxel-wise preprocessed time-series, $U_r$ is the tested region time-series, and $V_{p->r}$ is the mapping of each voxel to regions from the atlas. The atlases and data instances were both resampled to a 2mm resolution. We used Nilearn (v0.9) to mask the brain and resample images. Ultimately, this step yielded parcel-wise subject-level time-series for the regions in the atlases.
+
+We then aggregated regions into networks in order to obtain a representation that is semantically relevant, and produced network-wise time-series. The reason to aggregate regions into networks was twofold. First, regions may become active during several cognitive functions which makes it challenging to attribute regions to specific cognitive functions [@poldrack2006]. Second, one region may belong to multiple networks, so they may become active in different contexts and processes. By assigning semantics to the networks (rather than regions), the model would be simpler (yet less comprehensive), which makes it possible to interpret the results in terms of general cognitive functions that are commonly related to cognitive control (e.g., attention, inhibition, multitasking, or working memory to name a few) rather than sparse activation in regions [@varoquaux2013; @dadi2020b]. Smaller number of features is also important for computational and statistical traceability of the model (e.g., 7 networks instead 135 networks in Dosenbach2010 atlas) . For instance, empirical benchmarks show that the baseline classification algorithm that we use (binary SVM) works best when there are fewer features [@li2022].
+
+In order to estimate the network time-series, we applied the same maximum likelihood methods as the one used to aggregate voxel-wise time-series into region-wise time-series.
+
+`(2) \ \ \hat{U}_n = \underset{U_n}{\text{argmin}} \norm{\hat{U}_r -U_nV_{r->n}}`
+`U_n  \in \R^{t\timesn}; \ V_{r->n}  \in \R^{n\timesr}`
+
+
+$$\hat{U}_n$$ represents time-series for each networks of a given atlas, $$\hat{U}_r$$ is the estimated region-wise time-series extracted in the previous step 1, $U_n$ is the candidate network-wise time-series, and $V_{r->n}$ is the mapping of the regions to networks as defined by the parcellation atlas. For every network in the atlas, this step resulted in one time-series.
+
+Aggregating voxels into networks allows to compute a functional connectivity matrix that shows relationships between networks rather than between regions or voxels. The diagonal values of the network functional connectivity matrix would further represent within-network activities.
+
+
+
+#### Functional connectivity metrics
+Given the network-level time-series, we calculated functional connectivity matrices that measure the relationship between networks. We computed five alternative resting-state functional connectivities metrics: covariance, Pearson's correlation, partial correlation, tangent projection of covariance, and precision (sparse inverse covariance). For $n$ networks, the connectivity matrix would contain $n^2$ values. As the connectivity matrices were symmetric, we flattened the upper triangular part of the matrix (including diagonal values) and used the resulting vector as the input to the classification task.
+
+#### AVGP vs NVGP classifier
+As the final step of the pipeline, we fitted a binary classifier that receives participants’ vectorized functional connectivity matrices and predicts their label (AVGP or NVGP). Choices of parcellation atlases and connectivity measures we then contrasted in terms of prediction accuracy on the out-of-sample test set.
+
+More specifically, we trained an L1-regularized linear SVM classifier and prior to that in the classification pipeline included standardization (removing the mean and scaling), model-based feature selection, and dimensionality reduction (PCA), for which hyper-parameters were optimized based on the training set (see Figure 1 and cross-validation section for details). We trained the model on 75% of the data, and validated it on the remaining 25% (8 subjects). The classification was independently trained 100 times and in each iteration the prediction accuracy of the model was evaluated on the test set. This resulted in 100 numerical values that represented the goodness-of-fit for a given set of parameters (i.e., atlas name and connectivity measure) and hyperparameters.
+
+#### Model diagnostics
+Feature ranking is a common first step when aiming to explain machine learning models. To measure and rank the contribution of each resting-state functional connectivity to the classification performance, we used cross-validated permutation importance. Permutation importance is a model-agnostic technique where the importance of a feature is measured by the change in the accuracy when the feature is shuffled [@molnar2022]. However, permutation importance is more appropriate for datasets with uncorrelated features—this is not the case here since spatial dependence between adjacent and overlapping brain regions might result in multicollinearity between network connectivities. To partially address this limitation, we used repeated cross-validated permutation importance techniques to not only extract the feature importance but to infer confidence intervals for the measured importance. We repeated the permutation procedure 100 times, yielding 100 measurements for each train/test split. This procedure was repeated 1000 times with 4-fold cross validation to compute confidence intervals on feature importance.
+
+Permutation importance measures the impact of individual features on the performance of the model; it may still suffer from interaction between features [@mcgovern2019]. This limitation is mainly addressed in techniques such as multi-pass permutation importance where the correlation between features is broken by keeping previously assessed features permuted while assessing the new features. This provides an improved interpretation of model performance, yet for models that produce suboptimal predictions, interpreting the output of the model rather than its performance may provide a deeper understanding of how individual features and their interaction contribute to a prediction. Therefore, we also performed an additional feature importance analysis using SHAP values (SHapley Additive exPlanations). While permutation importance methods focus on the impact of features on a model's performance, SHAP values focus on understanding what features are responsible for the output of the model, irrespective of whether the prediction is correct or not. Additionally, in SHAP values analysis the correlation between features is broken by considering the effects of all the other features and interactions between features. As we only applied SHAP analysis to one specific model (i.e., the model with highest prediction accuracy), the results of the SHAP analysis are presented separately in the supplementary materials. We are however expected to see similar ranking of features in both the permutation importance test and the SHAP analysis.
+
+Finally, we expected that the prediction accuracy of the classification model would be affected by particular combinations of parcellation atlases and connectivity metrics. There are indeed different streams of evidence and reasoning that led to the development of those parcellations and metrics and these may be more or less relevant for the purpose of AVGP vs NVGP classification. The Dosenbach2010 atlas, for instance, results from an attempt to identify networks that enable cognitive control—this atlas may therefore be more relevant in our analysis than atlas that were developed for other purposes. To assess which parcellation, metrics and their combination were most effective in terms of classification accuracy, we used Bayesian model comparison; the details of this analysis are provided in the supplementary materials.
+
+## Results
+
+### Participants can be accurately classified as AVGPs versus NVGP based on their resting state functional connectivities. {.unnumbered}
+
+We trained machine learning models to classify unseen participants as either AVGPs or NVGPs (see Methods). The best predictive model classified participants with a 72.6% accuracy (95% CI [69.9, 75.4]), which is substantially above the 50% chance level (i.e., train/test splits were stratified and half of the participants in the sample were action video gamers). These results are robust and cannot be attributed to chance or overfitting. Indeed,  the model performance was validated on unseen participants and it was unable to make accurate predictions on random data. More specifically, when randomly shuffling participants group membership within a bootstrapped permutation test, the model yielded an average classification performance of 50% (95% CI [47, 53])—considering this distribution of bootstrapped classification accuracies as an empirical null distribution, the probability of observing a classification accuracy of 72.6% is only p=0.015. These results are important because they clearly show that action video gamers and non-gamers have different functional brain connectivity patterns during rest. 
+
+As explained earlier, the specific data analysis results of fMRI data may vary considerably depending on details of the data analysis pipeline. To ensure that our results are robust, we systematically evaluated multiple parcellations and connectivity metrics. The model with the highest classification accuracy used the Dosenbach2010 parcellation atlas and the partial correlation connectivity metric (see Figure 2).
+
+This type of analysis begs several additional questions. A first question asks to what extent particular choices of parcellation or connectivity metrics impact the model's classification accuracy (e.g., are some atlases more effective than others?). Figure 2 displays the classification accuracy for each combination of parcellation and connectivity metric used in this study. It appears from this figure that both of these choices do indeed have a major influence on the prediction accuracy, with parcellation playing a major role (i.e., overall, the Dosenbach2010 atlas yields higher accuracy levels than DiFuMo64) and connectivity metric a somewhat lesser role (i.e., partial correlations are more effective than simple correlations). These effects were quantified and confirmed using Bayesian model comparisons (for details, see supplementary materials).
+
+A second question we want to address is to what extent the interpretation of the results depends on specific methodological choices. That is, beyond their impact on classification accuracy, do specific data analysis choices affect the conclusions about which aspects of brain function differ among  AVGPs and NVGPs. This question will be addressed in the next section.
+
+
+Figure 2. AVGPs vs NVGPs classification accuracy as a function of parcellation and connectivity metric. The distribution of cross-validated out-of-sample prediction accuracies are displayed in orange for the actual data and in gray for a shuffled version of the data (to form an empirical null distribution; see text for details). Dots and diamonds represent the mean of the distribution; error bars represent the 95% confidence intervals. This figure shows that new participants can be accurately classified as AVGPs vs NVGPs based on their resting state connectivity with the best model reaching an accuracy of 72.6%. Classification accuracy varies however considerably with the specific parcellation and connectivity metric used. The black triangle on the X-axis shows the prediction accuracy using motion confounds; the observed accuracy (51%) was not significantly different from chance (see supplementary materials for details). 
+
+
+
+### Resting-state functional connectivity differences between AVGPs and NVGPs are not circumscribed to a specialized brain network: they involve multiple networks and interplay between them.  {.unnumbered}
+
+The previous results show that resting-state fMRI data can be used to accurately classify participants as AVGPs vs NVGPs. Now we want to investigate which aspects of the resting state data are responsible for that prediction accuracy. For example, functional brain networks have been identified as being responsible for attentional control [e.g., @corbetta2007]. If habitual action video gaming alters a specific network one would expect that network to be an important feature in a classification model. Habitual action video gaming could however have broader effects on brain function and alter multiple networks or even the relationships between those networks.
+
+To determine how each network and connectivity between networks contributes to the model’s classification accuracy, we performed permutation importance analysis on the 6 top performing classifiers—those that perform better than chance level. 
+The permutation feature importance method assigns an importance score to each input feature by evaluating how much randomly shuffling the values of that features would decrease the model’s classification accuracy (for details, see section "Model diagnostics").
+
+The permutation importance results are displayed in Figure 3. When focusing on the best model (in terms of classification accuracy)—that is the model that uses the Dosenbach2010 parcellation and the partial correlation metric—it is clear that the connectivity between the cingulo-opercular network and the sensorimotor network (CON-SMN) is the most important feature. The second most important feature is  the connectivity between the fronto-parietal network and the sensorimotor network (FPN-SMN).
+
+It is interesting, and perhaps surprising even, that the best performing model is one where the connectivity within individual brain networks that have previously been associated with cognitive control, in particular FPN and CON, is discarded (i.e., the within-network connectivity is quantified only when using the tangent or precision connectivity metric). Connectivity within networks, more specifically within CON, is only ranked third in the third best performing model (i.e., when using the tangent as the connectivity metric on the Dosenbach2010 atlas); in all other cases, the influence of individual networks seems negligible. 
+
+Overall, it appears that the relationships between networks play a much bigger role in discriminating AVGPs from NVGPs than the networks themselves (e.g., the importance of FPN is negligible). In particular the present analysis suggests that habitual action gaming may affect how cognitive control networks (FPN and CON) interface with the sensorimotor network (SMN).
+
+### Key results are robust to changes in the data analysis pipelines. {.unnumbered}
+
+Are these results robust to changes in parcellation and connectivity metric? Answering this question is somewhat challenging because different atlases identify different networks with different semantic interpretations which thus leads us to somehow compare apples to oranges. This being said, when considering the cases using the Dosenbach2010 atlas, it appears that the results are very reliable (see Figure 3). Indeed the top two features—which involve inter-network connectivities—are the same across variations in connectivity metric. When considering the cases using the Gordon2014 parcellation, the results highlight again the importance of relationships between networks. However, the specific networks are somewhat different. In particular, in these cases we observe that the  connectivity between the Auditory network and the FPN network has the highest impact on classification accuracy (note that Dosenbach2010 does not include an Auditory network). The consistency of the results across variation of connectivity metric is however greatly reduced when using Gordon2014 parcellation rather than Dosenbach2010. One of the factors that determines this consistency is the model's prediction accuracy (i.e., models closer to chance performance will yield less consistent feature importance ranks) and thus our interpretation of the results should weight feature importance ranks by the models classification accuracy.
+
+
+Figure 3. Permutation features importance of the top 6 AVGPs versus NVGPs classification models ordered by classification accuracy (see Figure 2). Each panel shows the 12 most important features (ordered by importance) for a given classifier, which is characterized by an atlas (i.e., Dosenbach2010 versus Gordon2014) and a connectivity metric (e.g., partial correlation, precision). Error bars represent 95% confidence intervals.
+
+
+
+## Discussion
+<classification is possible>
+In this study we have shown that using resting-state functional brain connectivity it is possible to reliably classify new participants (i.e., participants whose data were not used to train the classifier) as a habitual action video gamer player (AVGPs) or a non-video game player (NVGPs). This result is important for several reasons. First, these differences in resting-state data provide additional support to the growing literature documenting the correlates and consequences of action video game play, and new insights regarding the underlying neural mechanisms. Second, this result supports the notion that resting-state data may be used to study the correlates and consequences of action video game play (and possibly other forms of media consumption) on brain function in a way that is both time-effective and less contaminated by potential expectation and placebo effects [@boot2011]. Finally, this result suggests that resting-state brain connectivity data may be an invaluable tool in the quest to develop effective cognitive training programs. The rapid measurement of changes in brain connectivity may be able to detect subtle training-induced effects (with the specific pattern of brain changes being likely related to the breath of transfer). In addition, resting-state connectivity can easily be measured repeatedly [for example to assess dose-response curves; @chopin2019]. This is in stark contrast to traditional behavioral measures where participants may get better at a test each time they are exposed to that same test, confounding the benefits of the training program with the learning effects on a specific test [@green2014; @green2019].
+ 
+The second main result of this study concerns the overall patterns of brain connectivity that are important in classifying new participants as AVGPs versus NVGPs and how these patterns relate to current theories of cognitive training and transfer using action video games. We group current theories into three main families. The first family assigns action video gaming effects to improvements in specific brain areas and predicts no AVGP vs NVGP differences in resting-state connectivity. The second family of hypotheses, states that action video gaming is associated with improvements in specific functional networks (for example, a more effective dorsal fronto-parietal network supporting top-down visuo-spatial attentional control). Finally, the third family of hypotheses states that action video games affects cognitive control more broadly, which manifests in changes in the relationships between functionally specialized brain networks (i.e., a reconfiguration of brain networks, a more efficient coordination of multiple networks). Our results show very clearly that the main differences in brain connectivity between AVGPs and NVGPs are at this higher-level, inter-network connectivity level. This result is incompatible with views blaming action video game effects exclusively on specific cognitive processes, or on specific domain-general cognitive functions and also provides some insights about why playing action video games may yield broad transfer effects.
+
+The third key result of this study concerns the specific networks and inter-network relationships highlighted by our analyses. Previous work has shown that the results of brain imaging analysis can vary substantially depending on details of those analyses [@botvinik-nezer2020]. To yield more robust conclusions, we adopted a data analysis strategy that involved testing many combinations of parameters and choices and evaluating the impact of those combinations on the end results [@dadi2019]. In line with past work, we observe indeed that some results are highly dependent on specific methodological choices while others are more robust. 
+
+More specifically, we tested three parcellation atlases and five connectivity metrics. Our results show that the choice of parcellation atlas has a major impact on a machine learning model's ability to accurately classify participants as AVGPs versus NVGPs: Dosenbach2010 parcellation atlas yielded overall better classification performance than either Gordon2014 and DiFuMo parcellation atlases. This result may seem surprising because DiFuMo is grounded in a much larger data collection than Dosenbach2010. We speculate that the Dosenbach2010 performs best in this context because it is grounded in a more careful selection of tasks. Alternatively, DiFuMo may perform worse because by aggregating data from multiple contexts without formally accounting for context (e.g., within a hierarchical model), DiFuMo may wash out some important distinctions. Regarding connectivity metric, their impact on classification accuracy is also clear, although perhaps less dramatic. For example, quantifying relationships between brain regions or networks led to higher classification accuracy when using partial correlation rather than simple correlations. This result may indicate that although the correlation between two nodes may be high due to external factors (all nodes are co-activated), what seems to matter most is the specific association between nodes that cannot be accounted for by other nodes. More work is needed to understand why some metrics perform better than others. This is not a trivial question and it implies that before a satisfactory response is found, future research should adopt a robust methodology and test multiple connectivity metrics rather than arbitrarily picking a specific one. 
+This being said, our results show rather consistently that the best atlas for our purposes is Dosenbach2010, and that features that are highlighted as important among the best performing models are consistent across variations of connectivity metric. This consistency across parameter variations increases the confidence in the results we report in the next section.
+
+The fourth and final set of results of this study concerns the specific networks and inter-network relationships highlighted by our analyses. Within our set of models, those using the Dosenbach2010 parcellation performed best and some of those using Gordon2014 performed above chance level. 
+
+When using Dosenbach2010, the most important features in the data to accurately classify participants as AVGPs vs NVGPs were the relationships between the cingulo-opercular network (CON) and the sensori-motor network (SMN) on the one hand, and the relationship between the fronto-parietal network (FPN) and the SMN on the other hand. 
+
+The FPN and CON networks are hypothesized to work in tandem to provide both the stability and the flexibility required for adaptive cognitive control. More specifically, CON is associated with task-set maintenance that promotes long-term stable control while FPN has been associated with moment-to-moment control that is demanded for flexible, stimulus-driven control. Interestingly, in our results, the direct relationship between these two networks is not discriminative of AVPGs vs NVPGs; what is discriminative, however, is the relationships between these two networks and the sensorimotor network. 
+
+That is, the predictive performance of such classification relied mostly on the interplay between control networks and lower perceptual networks rather than activities within a specific brain network. One potential explanation for the observed interplay may lie in the computational mechanisms involved in the connectivities between control networks and lower perceptual networks. Previous research has suggested that the integration of information from multiple brain networks is crucial to successfully exert cognitive control over behavior, as it allows for the flexible use of various sources of information to make predictions [@jiang2017]. For example, the control networks may help to prioritize certain sources of information and guide the allocation of computational resources, while the lower sensorimotor networks may provide detailed sensory input and fast motor response. This dynamic interplay between control and perceptual brain networks may be a key factor in the ability of AVGPs to achieve high levels of performance.
+
+The Gordon2014 atlas yielded overall lower classification accuracies and a reduced consistency in the feature importance ranks across connectivity metrics. Yet, this atlas is particularly interesting in the present context because it comprises two networks that are often cited in the context of action video gaming: the dorsal attentional system (DAN) that is responsible for top-down attention and the ventral attentional system (VAN) that is responsible for bottom-up attention. On their own, neither of these two networks seem important to classify participants as AVGPs vs NVGPs. This result seems at odds with other results using task-related fMRI and may [e.g., @bavelier2012]. There are however several potential explanations for this pattern of results. Perhaps there are differences, but they are just not as important as other ones. Perhaps a better parcellation would yield stronger effects and perhaps there are network relationships that are apparent only during task performance and not during rest. More work is needed to tell these apart.
+
+The most important feature when using the Gordon2014 atlas was the relationship between the fronto-parietal network and the auditory network. To the best of our knowledge, this relationship was not to be expected. We believe that it does not reflect a stable difference between AVGPs and NVGPs but rather is a temporary consequence of the specific task participants completed just prior to the resting-state recording (an attention demanding, auditory Posner-cueing task). This is a very interesting result per se as it suggests that cognitive tasks have a different short-term impact on resting-state connectivity depending on participants' gaming status. It also makes the point that post-task resting state connectivity reconfiguration effects may be an interesting new type of measurement to take in the context of studying cognitive control, cognitive training and transfer effects.
+
+
+## Limitations and future research
+The generalizability of our current conclusions are limited by the dataset we have used. Indeed, in this study we used only a single dataset, which included a limited number of participants and a relatively short resting-state recording period. The methods developed in this study can however easily accommodate additional datasets and we leave it for future work to replicate and extend the present results.
+
+In addition, in the current dataset, the resting-state data was recorded after participants completed a cognitive task. It is possible that performing that task tainted the resting-state brain activity [@lor2022]. More specifically, participants completed a demanding attention task that required paying attention to auditory cues—the highlighted CON-SEN connectivity when using the Dosenbach2010 atlas and the Auditory-FPN connectivity when using the Gordon2014 atlas may therefore not be intrinsic to participants resting state brain activity but instead reflect AVGPs versus NVGPs neural differences during task performance. To clarify this point, the current analysis must be replicated on a separate dataset where no cognitive task is completed prior to recording resting-state fMRI.
+
+It seems plausible to us that the differences we report here on functional brain connectivity among AVGPs and NVGPs is caused by playing action video games. At this stage, such a statement is however speculative. It will be necessary to run an actual training study to establish a causal relationship between playing action video games, increased inter-network connectivity and behavioral transfer effects. It is also possible that long-term effects of playing action video games which may be observed when studying habitual gamers (like in this study) are rather different from the short term effects that one might observe in cognitive training studies. This calls for caution when interpreting results and for studies combining multiple methods and types of participants.
+
+In this study we established that brain connectivity differed between AVGPs and NVGPs; we did not establish however that these same connectivity indicators simultaneously account for changes in behavioral performance. It could be that brain metrics that are useful to discriminate AVGPs from NVGPs are different from the brain metrics that explain high versus low behavioral performance. Furthermore, while past research has demonstrated a strong overlap between task-induced and resting-state brain connectivity, the possibility remains of there being important differences. Some differences in brain function between AVGPs and NVGPs may only emerge during task performance while some differences observed during resting-state may vanish when people engage in a specific task. Again, we leave these important research questions for future research.
+
+Our results are in line with a growing body of work in showing the value of using graph-theoretic approaches to study brain function and its relationships with cognition [@zink2021]. While there has been tremendous progress in this approach over the past decade, more work is still needed. Of particular value is recent theoretical work aiming to explain cognitive control from a network perspective [@menon2022]. This type of work is important not only to the study of the effects of action video gaming, but more generally to our understanding of how the brain supports intelligent behavior in humans.
+
+
+## Conclusion
+By unveiling the mechanisms underlying the effects of playing action video games on brain function we can further our understanding of transfer of cognitive training and devise more effective training programs for positive societal impact. The results of this study show that new participants can be accurately classified as habitual action video game players or non-video game players based on their resting-state functional brain connectivity. What distinguishes the brain connectivity most between these two groups of people are not changes in isolated brain regions or even functional networks but rather the cross-talk between multiple networks, in particular between cognitive control networks on the one hand and a sensorimotor network on the other. These results are important because they suggest that the broad cognitive transfer effects observed after training with action video games may result from a reconfiguration of cognitive control networks. 
+
+
+## Supplementary Materials
+
+ 
+Figure S1.  The effect of skipping skull stripping. It was necessary to skip the skull stripping step of the preprocessed T1w images of MRIQC  because the scans were already defaced. The left panel in this figure shows a scan with skull stripping and the right panel, without skull stripping. As can be seen in this figure, by skipping skull stripping the recognition of the brain volumes became more accurate.
+
+### Parcellations
+
+Dosenbach2010 parcellation atlas
+Figure Supp1 shows the networks as defined in Dosenbach2010 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding networks, see [@dosenbach2010; @REF/NilearnDosenbach2010].
+
+Figure Supp1. Dosenbach2010 networks (see Introduction in the main text for details).
+Gordon2014 Parcellation
+Figure Supp2 shows the networks as defined in Gordon2014 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding networks, see [@gordon2016; @REF/NilearnGordon2014].
+
+
+Figure Supp2. Gordon2014 networks (see Introduction in the main text for details).
+
+DiFuMo64
+Figure Supp3 shows the networks as defined in DiFuMo64 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding *Yeo2011-17* networks, see [@REF/DiFuMo; @NilearnDiFuMo; @yeo2011].
+
+
+Figure Supp3. DiFuMo64 networks (see Introduction in the main text for details).
+
+### Motion is not a classifiers of AVGPs
+Participants’ motion is a major confound in the analysis of resting-state functional connectivity. It can create spurious functional connectivity particularly when there are systematic differences between groups of participants [@power2011]. Furthermore, previous research has highlighted sensorimotor differences between AVGPs and NVGPs [@gozli2014; @green2006]; these differences may be masked or confounded with behavior induced brain activations during resting-state. Hence, before interpreting group differences in functional connectivity it is important to assess participants' movement behavior so that functional connectivity group differences can be accurately interpreted as genuine differences in brian function rather than as movement-induced artifacts.
+
+
+To ensure that group differences in functional connectivity can be attributed to the cognitive functions rather than motion, we extracted motion-related data (6 variables; see @fox2005 for more details) and used that data to train a support vector machine (SVM)  to classify AVGPs from NVGPs. The rationale of this analysis is that if the motion data differs among these two groups of participants, it should be possible to classify participants as AVGPs vs NVGPs based on their motion patterns. If instead, there are no differences in motion behavior between these two groups of participants, the classifier should perform at chance level.
+
+We trained a binary support vector machine classifier (linear L1-regularized SVM) to predict AVGP or NVGP based on their motion confounds. The accuracy of the classifier was evaluated on out-of-sample test data (100-repeated 4-fold cross validation). The results show that the performance of the classifier is not significantly different from chance (accuracy = 51%; see Figure 2). This suggests that motion confounds in habitual action video gamers and non-gamers are equivalent and that group differences in functional brain connectivity are unlikely related to group differences in motion behavior. Following standard practice, we removed the motion confounds from the resting-state signals as part of standard preprocessing step (see the "Preprocessing" section).
+
+
+### Classifying habitual AVGP using intrinsic functional connectivities depends on the parcellation technique as well as the connectivity measure
+
+In this study we used a robust methodology, testing multiple parcellation and connectivity metrics. Here we want to quantify how these different choices impact the results (i.e., the accuracy of the AVGPs vs. NVGPs classifier). To do so, we used a Bayesian model that estimated the effect of parcellation choice and connectivity metric choice on prediction accuracy. The bayesian model aimed to fit the following formula:
+
+$$
+y ~ P + C + P:C
+$$
+
+where $y$ represents prediction accuracy (in percent), $P$ is categorical variable representing the choice of parcellation atlas (three levels including Dosenbach2010, Gordon2014, and DiFuMo), $C$ is a categorical variable representing the choice of connectivity metric (five levels including Pearson's correlation, partial correlation, tangent, covariance, and precision), and $P:C$ is the interaction between parcellations and connectivity metrics.
+
+We used the evaluation scores from the cross-validated classification pipeline described in Methods section (100-repeated 4-fold cross-validation), which resulted in 100 measurements per each combination of $P$ and $C$ (in total, 1500 data points for $y$). We then used the Bambi package (v0.9.0; @REF/Bambi) to fit the Bayesian model depicted in Figure SXX. As shown in the graph, we contrasted all choices for $P$ against *DiFuMo* as the baseline reference, and choices for $C$ against *correlation* as the baseline reference. To fit the posterior distributions, we used NUTS (“no U-turn sampler”) with 4 chains, 500 tuning samples (discarded before sampling from posteriors), and 2000 samples drawn from the posterior.
+
+
+Figure Supp2: Bayesian model fitted to the choice of atlas ($P$), choice of connectivity metric ($C$), and prediction accuracy ($y$); See Formula Supp-1. We used full-rank coding of categorical variables ($P$ and $C$), with $C$=`correlation` being the baseline reference.
+
+The results are shown in the table and figures below. Overall, they show that choices of parcellation atlas and connectivity metric have a big impact on the results. For our purposes, the best parcellation atlas is Dosenbach2010 and the best connectivity metric is the partial correlation. 
+
+
+
+mean
+sd
+hdi_3%
+hdi_97%
+mcse_mean
+mcse_sd
+ess_bulk
+ess_tail
+r_hat
+atlas[Dosenbach2010]
+3.82
+0.125
+3.595
+4.059
+0.001
+0.001
+7179
+5456
+1
+atlas[DiFuMo64]
+2.946
+0.125
+2.717
+3.186
+0.003
+0.002
+2186
+4449
+1
+atlas[Gordon2014]
+2.939
+0.123
+2.703
+3.165
+0.001
+0.001
+7424
+6133
+1
+atlas:kind[Gordon2014, tangent]
+1.345
+0.251
+0.859
+1.809
+0.004
+0.003
+3416
+4463
+1
+test_score_sigma
+1.235
+0.023
+1.191
+1.277
+0
+0
+11057
+5883
+1
+atlas:kind[Gordon2014, covariance]
+1.006
+0.251
+0.515
+1.449
+0.004
+0.003
+3462
+5423
+1
+atlas:kind[Dosenbach2010, tangent]
+0.984
+0.248
+0.522
+1.448
+0.004
+0.003
+3260
+5279
+1
+atlas:kind[Dosenbach2010, partial_correlation]
+0.875
+0.248
+0.388
+1.33
+0.004
+0.003
+3658
+4118
+1
+atlas:kind[Gordon2014, partial_correlation]
+0.748
+0.247
+0.299
+1.223
+0.004
+0.003
+3418
+5515
+1
+kind[precision]
+0.584
+0.178
+0.267
+0.925
+0.003
+0.002
+3068
+5223
+1
+atlas:kind[Gordon2014, precision]
+0.156
+0.246
+-0.312
+0.607
+0.004
+0.003
+3434
+4634
+1
+kind[partial_correlation]
+0.113
+0.177
+-0.235
+0.433
+0.003
+0.002
+3229
+4641
+1
+atlas:kind[Dosenbach2010, covariance]
+-0.287
+0.251
+-0.757
+0.182
+0.005
+0.003
+2893
+3790
+1
+atlas:kind[Dosenbach2010, precision]
+-0.296
+0.251
+-0.758
+0.183
+0.004
+0.003
+3491
+5051
+1
+kind[tangent]
+-0.304
+0.177
+-0.647
+0.022
+0.003
+0.002
+3107
+5010
+1
+kind[covariance]
+-0.376
+0.177
+-0.72
+-0.051
+0.003
+0.002
+2889
+4148
+1
+
+
+Table S1. A Bayesian model comparison analysis shows that the choice of parcellation atlas is the main feature of the classifiers with higher accuracy. In general, choosing Dosenbach2010 atlas and precision connectivity measure would improve classification accuracy on the test set. Results from a "y ~ P * C" model (which reads "accuracy ~ atlas * metric" ) are shown in the table. Note that the table show contrasts against the baseline reference of correlation connectivity metric.
+
+
+Figure Supp-2. Comparing the choice of atlas and connectivity metric on classification performance. Error bars represent 2 standard deviations. We used full-rank coding of categorical variables with baseline reference being correlation connectivity metric ($C$=`correlation`).
+
+### SHAP Analysis
+
+The permutation feature importance method presented in the main text identifies the importance of individual features in the machine learning model that predicted AVGPs vs NVGPs. Alternatively, SHAP (SHapley Additive exPlanations) values are a method for explaining the *output* of a machine learning model. They provide a breakdown of the contribution of each feature to the model's output, taking into account the interactions between features. The main difference between permutation importance and SHAP values is that permutation importance only considers the effect of a single feature on model performance, while SHAP values consider the effects of all features and their interactions. Additionally, permutation importance is a measure of feature importance, while SHAP values are a method for explaining model predictions.
+
+Here we ask a somewhat complementary question to the feature importance analysis: what role do features play in the choices made by the classifier? For example, which features determine most misclassifications?
+
+We further applied SHAP analysis to assess the importance of individual features on classification output (e.g., in binary classification, probabilities of assigning a given observation to two possible outcomes) while considering the effects of other features and their interactions [@lundberg2017]. Note that we only report here the results of the SHAP analysis on the best performing classification model (i.e., Dosenbach2010 model with partial correlation connectivity metric; see main text for details). The results of this analysis are illustrated in Figure SXX. As in the permutation importance analysis, the three most important features in SHAP are the  CON-SMN, FPN-SMN, and CON-FPN connectivities.
+
+Next, we ask which features contribute most to misclassifying participants. As shown in the Figure SXX, misclassified outputs also relied on a similar set of features as correct classification. But the ranking of features based on their importances is different between hits and misses. For the hit predictions, the order of importance as measured by absolute mean SHAP values matches the ranking of features produced by permutation feature importance (Figure 3); yet for miss predictions, the order is not the same, suggesting some other networks (rather than CON-SMN) may compensate despite the lack of AVGP experience.
+
+SHAP analysis offers even more debugging tools to analyze the fitted classifier and contribution of input features, i.e., resting-state functional connectivity. For instance, SHAP allows to differentiate "leading" from "misleading" features by separating the contribution of features to the misclassified predictions (miss) and correctly classified predictions (hit). Misleading features are those that contribute to misclassification of some data. In present studies, for instance, misclassified subjects can be interpreted in terms of compensating connectivities, that is some other connectivities rather than diagnostic ones would contribute to the classification. In this case, SHAP values for "miss" predictions would provide a means to identify connectivities that may be responsible for NVGPs to be misclassified as AVGPs — through cognitive functions that results in connectivity patterns of NVGP subjects to be more similar to the patterns in AVGP, possibly through compensating superior abilities (e.g., expertise in music, sport, or other video games).
+
+In brief, this specific analysis showed that CON-SMN, FPN-SMN, and FPN-CON connectivities contribute the most to the prediction, regardless of its correctness. This further supports the claim that inter-network connectivities contribute the most to the difference in intrinsic brain networks between action video gamers and non-gamers. CON for instance enables in maintaining attention, FPN enables moment-to-moment control, and SMN enables motor movement and sensory processing. More importantly, Resuls support the previously presented results in the main textresults show that habitual action video gaming has a greater impact on cognitive functioning by influencing the cross-talk between the networks rather than activities within specialized within-network. In the context of this thesis, this also supports the view that attentional and cognitive control, if in fact targeted by playing action video games, relies on a distributed set of large-scale brain networks with distinct cognitive functions.
+
+
+Figure supp4: Shap decision plot for correctly classified (left) and misclassified (right) data points. The plot reads from top to bottom, showing the impact of each connectivity to the model output, i.e., probability of classifying as non-video gamer (NVGP). Network features are ordered, from top to bottom, by their importance in the data.
+

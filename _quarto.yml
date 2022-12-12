@@ -13,6 +13,7 @@ book:
     - articles/1_cogtext.qmd
     - articles/2_cogenv.qmd
     - articles/4_oxfordch.qmd
+    - articles/5_acnets.qmd
     - chapters/6_discussion.qmd
     - chapters/7_references.qmd
   appendices:
