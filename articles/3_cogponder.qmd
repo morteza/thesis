@@ -1,5 +1,7 @@
 
-# Modeling Response Time in Cognitive Control Tasks using PonderNet Framework
+<!-- # Modeling Response Time in Cognitive Control Tasks using PonderNet Framework -->
+
+# CogPonder: Towards a Computational Framework of General Cognitive Control
 
  
 ## Abstract {.unnumbered}
@@ -133,7 +135,7 @@ Equation 3 ($L_{\text{time}}$) requires computing the similarly (via KL divergen
 #### Model architecture: CogPonder instantiation
 Figure 1b describes the general template for a CogPonder model. CogPonder is a framework that can be instantiated in many different ways. Here we chose a specific implementation to perform the Stroop and N-back tasks, noting nevertheless that other implementations are equally valid and that for other tasks more complex instantiations might be needed. Our goal is to demonstrate the value of the framework, not the value of this specific instantiation of the framework.
 
-For the Operator in the model (see Figure 1b) we used a simple neural network with one dense linear layer and ReLU activation. The Controller includes two separate networks: a recurrent network and a halting network. The recurrent network is a GRUCell that iteratively computes inputs to the Operator. At each iteration $s$ it computes $H_s$ and serves it as the input to the Operator. The halting network approximates the probability of halting at each time step ($$lambda_s$$). It is a fully connected linear layer with ReLU activation that receives as input $H_s$ and determines the halting of the CogPonder model at a given time point $s$ within a trial and the emission of the output for that trial.
+For the Operator in the model (see Figure 1b) we used a simple neural network with one dense linear layer and ReLU activation. The Controller includes two separate networks: a recurrent network and a halting network. The recurrent network is a GRUCell that iteratively computes inputs to the Operator. At each iteration $s$ it computes $H_s$ and serves it as the input to the Operator. The halting network approximates the probability of halting at each time step ($lambda_s$). It is a fully connected linear layer with ReLU activation that receives as input $H_s$ and determines the halting of the CogPonder model at a given time point $s$ within a trial and the emission of the output for that trial.
 
 Finally, the decision to halt or to continue processing is made at each processing step $s$ within a given trial based on a biased coin flip (Bernoulli sample with probability of $\lambda_s$), which is emitted by the halting network (see Figure 1b).
 
@@ -154,7 +156,7 @@ We also assumed that the minimum human response time for each task was the non-d
 
 ## Results
  
-Our first goal is to determine if the same CogPonder model can learn to perform two different tasks using data from one human participant. Figure 2 shows the total loss ($$L_{\text{total}}$$, as defined in Equation 3) computed on the test data as a function of the number of epochs during the training phase. It is apparent from this figure that CogPonder does indeed learn in both tasks, with the loss reaching an asymptote after about 400 epochs (i.e., iteration through the training dataset). This figure also demonstrates that because of its design, CogPonder (like PonderNet) can take advantage of modern deep learning software to efficiently fit complex models.
+Our first goal is to determine if the same CogPonder model can learn to perform two different tasks using data from one human participant. Figure 2 shows the total loss ($L_{\text{total}}$, as defined in Equation 3) computed on the test data as a function of the number of epochs during the training phase. It is apparent from this figure that CogPonder does indeed learn in both tasks, with the loss reaching an asymptote after about 400 epochs (i.e., iteration through the training dataset). This figure also demonstrates that because of its design, CogPonder (like PonderNet) can take advantage of modern deep learning software to efficiently fit complex models.
 
  
 
