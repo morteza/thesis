@@ -12,7 +12,8 @@ book:
     - chapters/0_introduction.qmd
     - articles/1_cogtext.qmd
     - articles/2_cogenv.qmd
-    - articles/4_oxfordch.qmd
+    - articles/3_cogponder.qmd
+    - articles/4_review.qmd
     - articles/5_acnets.qmd
     - chapters/6_discussion.qmd
     - chapters/7_references.qmd

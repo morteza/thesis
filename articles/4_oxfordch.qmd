@@ -33,14 +33,14 @@ A wide range of commercial video games have been used in psychological research 
  
 ::: {#fig-expdesign layout-ncol=1}
 
-![](../resources/4_oxfordch/figures/intervention_design.png)
+![](../resources/4_review/figures/intervention_design.png)
 
 Intervention design to evaluate the causal impact of playing a specific type of video games on cognition (here termed experimental game). Participants are randomly assigned to play experimental video games or control video games. The training program typically requires at least 8 hours, and typically tens of hours of gameplay, distributed over weeks or months. Participants’ cognitive skills are first evaluated on a battery of tests (pre-test) and tested again after completion of their training (post-test). If playing the experimental video games specifically improves the cognitive abilities assessed, then we expect the experimental group to improve more from pre- to post-test than the control group.
 :::
  
 ```{r table1, echo = FALSE, results = "asis"}
 library(knitr)
-game_desc <- readxl::read_xlsx("../resources/4_oxfordch/data/game_genre_descriptions_20190927.xlsx", sheet = 1)
+game_desc <- readxl::read_xlsx("../resources/4_review/data/game_genre_descriptions_20190927.xlsx", sheet = 1)
 kable(game_desc, caption = "Main 'classical' video game categories cited in the reviewed literature. These categories are based on the Video Game Questionnaire from the Bavelier lab. We provide in the supplemental materials the current version of the video game questionnaire and the selection criteria used in the Bavelier laboratory (version September 2019). The game categories it lists are motivated by research considerations and not by industry classifications. Yet, examples of games and our labels for game categories have evolved over the years in concert with the changing landscape of video games.")
 ```
  
@@ -51,14 +51,14 @@ Twenty years ago, researchers noticed by chance that study participants playing 
  
 
 ::: {#fig-expsala layout-ncol=1}
-![](../resources/4_oxfordch/figures/intervention_games_sala.png)
+![](../resources/4_review/figures/intervention_games_sala.png)
 
 List of commercial video games used in cognitive training studies from @sala2018. This list contains a wide range of video game genres that have been used for training in the scientific literature (e.g., first person shooters, racing games, puzzle games, real-time strategy games, sports games) as well as non-video games (Space Fortress). Large differences in experiences between different game genres (a fast-paced multiplayer FPS is nothing like a slow paced, single player puzzle game) render the interpretation of any such results (positive, negative or null impact on cognition) quite difficult. This figure counts the number of publications cited in @sala2018 that used a particular video game (out of a total of 63 publications). Note that a publication could involve multiple experiments, each using potentially a different set of video games.
 :::
  
 
 ::: {#fig-ctrlsala layout-ncol=1}
-![](../resources/4_oxfordch/figures/control_games_sala.png)
+![](../resources/4_review/figures/control_games_sala.png)
 
 List of activities used as control treatment in video-game based training studies from @sala2018. Control treatments vary widely from playing video games to playing paper-and-pencil games; this makes it difficult to abstract the construct measured by such studies. This figure counts the number of publications cited in @sala2018 that used a particular video game or activity (out of a total of 63 publications). Note that a publication could involve multiple experiments, each using potentially a different set of video games.
 :::
@@ -76,14 +76,14 @@ and perhaps even academic topics such as reading [@franceschini2015] or mathemat
  
 
 ::: {#fig-expben layout-ncol=1}
-![](../resources/4_oxfordch/figures/intervention_games_ben.png)
+![](../resources/4_review/figures/intervention_games_ben.png)
 
 List of action video games (all first person shooter games; FPS) used for cognitive training according to @bediou2018. Focusing on this specific video game genre substantially reduces the number of games titles but still represents a major portion of the scientific literature (contrast this with Figure \\@ref(fig:fig-expsala)). This figure counts the number of publications cited in @bediou2018 that used a particular video game (out of a total of 23 publications). Note that a publication could involve multiple experiments, each using potentially a different set of video games.
 :::
  
 
 ::: {#fig-ctrlben layout-ncol=1}
-![](../resources/4_oxfordch/figures/control_games_ben.png)
+![](../resources/4_review/figures/control_games_ben.png)
 
 List of games used in the active control treatment when action video games were tested for cognitive training as tabulated by @bediou2018. This list includes only commercial video games (with the exception of the Sight Training program; contrast this with \\@ref(fig:fig-ctrlsala)).  This figure counts the number of publications cited in @bediou2018 that used a particular video game (out of a total of 23 publications). Note that a publication could involve multiple experiments, each using potentially a different set of video games.
 :::
