@@ -1,6 +1,6 @@
 # CogEnv: A Reinforcement Learning Environment for Cognitive Tests
  
-## Abstract
+## Abstract {.unnumbered}
 Understanding human cognition involves developing computational models that mimic and possibly explain behavior; these are models that “act” like humans and produce similar outputs when facing the same inputs. To facilitate the development of such models and ultimately further our understanding of the human mind we created CogEnv—a reinforcement learning environment where artificial agents interact with and learn to perform cognitive tests and can then be directly compared to humans. By leveraging CogEnv, cognitive and AI scientists can join efforts to better understand human cognition: the relative performance profiles of human and artificial agents may provide new insights on the computational basis of human cognition and on what human abilities artificial agents may lack.
 
 
