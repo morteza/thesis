@@ -8,8 +8,6 @@ book:
   date: last-modified
   chapters:
     - index.qmd
-    - chapters/abstract.qmd
-    - chapters/0_introduction.qmd
     - articles/1_cogtext.qmd
     - articles/2_cogenv.qmd
     - articles/3_cogponder.qmd
@@ -20,8 +18,8 @@ book:
   appendices:
     - articles/8_nback.qmd
     - articles/9_behaverse.qmd
-    - articles/10_seqgen.qmd
-    - appendices/11_projects.qmd
+    # - articles/10_seqgen.qmd
+    # - appendices/11_projects.qmd
 
 
 bibliography: references.bib
@@ -43,7 +41,6 @@ format:
       - right=2cm
       - top=2cm
       - bottom=2cm
-
     include-in-header: 
       - text: |
           \usepackage{ragged2e}
@@ -52,3 +49,7 @@ format:
           \doublespacing
           \usepackage{sectsty}
           \allsectionsfont{\singlespacing}
+
+    include-before-body: 
+      - file: chapters/abstract.tex
+      - file: chapters/acknowledgments.tex

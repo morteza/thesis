@@ -125,7 +125,7 @@ Considering that even minor changes to the preprocessing steps can affect the re
 
 For each participant, the preprocessing pipeline resulted in 125 images of size 64*64*64 isomorphic 4mm voxels in the MNI152NLin2009cAsym common space [@ciric2021]. The preprocessing pipeline extracted an additional set of motion-based artifacts which was further removed from the signals by applying confound regression during the parcellation step (described below). Note that the extracted motion signals did not differ between AVGPs and NVGPs. Indeed, the performance of a AVGP vs NVGP classifier using those motion signals did not exceed chance level (chance level=50%, mean validation accuracy=51%, SD=18%, 100-repeated 4-fold cross-validated; see supplementary materials).
 
-All the additional preprocessing decisions were made automatically based on the "simple" denoising strategy in the Nilearn package [v0.9, @abraham2014] which recommends high pass filtering at 0.1 Hz, 6 degree head motion correction, basic CSF component removal, demeaning, no global signal removal, no scrubbing, no compcor correction, and no ICA-AROMA [see @fox2005; @abraham2014; @nilearn-confounds for details]. We also examined whether the removed confounds, motion as well as other signals, differed between AVGP and NVGP groups. We observed no significant difference between AVGP and NVGP with respect to the removed confounds (see supplementary materials).
+All the additional preprocessing decisions were made automatically based on the "simple" denoising strategy in the Nilearn package [v0.9, @abraham2014] which recommends high pass filtering at 0.1 Hz, 6 degree head motion correction, basic CSF component removal, demeaning, no global signal removal, no scrubbing, no compcor correction, and no ICA-AROMA [see @fox2005; @abraham2014; @NilearnConfounds for details]. We also examined whether the removed confounds, motion as well as other signals, differed between AVGP and NVGP groups. We observed no significant difference between AVGP and NVGP with respect to the removed confounds (see supplementary materials).
 
 ### Data analysis pipeline
 
@@ -304,7 +304,7 @@ The effect of skipping skull stripping. It was necessary to skip the skull strip
 ### Parcellations
 
 #### Dosenbach2010 parcellation atlas
-@fig-acnets-dosenbach2010 shows the networks as defined in Dosenbach2010 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding networks, see [@dosenbach2010; @REF/NilearnDosenbach2010].
+@fig-acnets-dosenbach2010 shows the networks as defined in Dosenbach2010 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding networks, see [@dosenbach2010; @NilearnDosenbach2010].
 
 ::: {#fig-acnets-dosenbach2010 layout-ncol=1}
 ![](../resources/5_acnets/atlas/dosenbach2010.png)
@@ -313,7 +313,7 @@ Dosenbach2010 networks.
 :::
 
 #### Gordon2014 parcellation atlas
-@fig-acnets-gordon2014 shows the networks as defined in Gordon2014 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding networks, see [@gordon2016; @REF/NilearnGordon2014].
+@fig-acnets-gordon2014 shows the networks as defined in Gordon2014 parcellation atlas. For a full list of regions, their MNI coordinates, and corresponding networks, see [@gordon2016].
 
 
 ::: {#fig-acnets-gordon2014 layout-ncol=1}
