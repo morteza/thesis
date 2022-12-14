@@ -242,10 +242,3 @@ In this document, we focused only on a few key concepts; other ideas are present
 Behavioral data is fundamental in cognitive sciences and there is clearly a need for standards to organize such data so it can be efficiently analyzed, shared and reused. Here we emphasized several key issues and presented constructs we believe are essential for structuring behavioral data and which currently seem to be used inconsistently.
 
 Much remains to be discussed. To keep this document short and decrease the likelihood of its content becoming obsolete as our standards evolve, we decided to focus here only on key points and refer the reader to the online documentation of the behaverse data model (see [behaverse.github.io/data-model](https://behaverse.github.io/data-model/)).
-
-
-
-
-References
-Import from ArXiv
-
