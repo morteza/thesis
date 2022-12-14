@@ -35,9 +35,9 @@ format:
     fontsize: 12pt
     papersize: a4paper
     # linestretch: 1
-    toc: false
-    lof: false
-    lot: false
+    toc: true
+    lof: true
+    lot: true
     geometry:
       - left=3cm
       - right=2cm

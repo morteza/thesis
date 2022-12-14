@@ -2,7 +2,3 @@
 
 This is the abstract.
 
-
-\tableofcontents
-\listoffigures
-\listoftables

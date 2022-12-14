@@ -9,46 +9,61 @@ Understanding the computations underlying human cognition is vital for scientifi
 
 One productive strategy has been to develop cognitive architectures [e.g., ACT-R, @anderson2004]. Alternatively, recent developments in AI allow the application of flexible, generic architectures to solve a wide variety of problems. Their ability to do (or not do) so may reveal computational constraints underlying specific tasks [@yang2019]. Reinforcement Learning (RL) seems particularly well suited to model performance in cognitive tests as they typically involve the presentation of a stream of stimuli and the execution of a discrete set of actions followed by a reward signal that may drive learning [@mnih2015].
 
-Despite the relevance and potential of RL to model cognition, there is currently no easy way to train RL models on the same cognitive tests that are used to assess humans. Here we present CogEnv, a configurable multi-task environment for RL agents to emulate cognitive tests. Under the hood, CogEnv uses DeepMind’s AndroidEnv [toyama2021] to run the Behaverse cognitive assessment battery [see \href{https://behaverse.org}{behaverse.org}]. Behaverse tasks are customizable at many levels, allowing the construction of a large number of randomized trials for training RL agents. In the following sections, we present the technical details of CogEnv and its ability to run RL agents on cognitive tests.
+Despite the relevance and potential of RL to model cognition, there is currently no easy way to train RL models on the same cognitive tests that are used to assess humans. Here we present CogEnv, a configurable multi-task environment for RL agents to emulate cognitive tests. Under the hood, CogEnv uses DeepMind’s AndroidEnv [@toyama2021] to run the Behaverse cognitive assessment battery (see \href{https://behaverse.org}{behaverse.org}). Behaverse tasks are customizable at many levels, allowing the construction of a large number of randomized trials for training RL agents. In the following sections, we present the technical details of CogEnv and its ability to run RL agents on cognitive tests.
 
 
 ## Technical Specification
-We simulate a real-time RL environment, where the environment, upon receiving an observation, invokes a callback method in the agent. We use AndroidEnv to run and manage the Behaverse cognitive assessment battery in a virtual Android device. A set of task-specific parsers then decodes screenshots, event streams, and system logs to extract numerical rewards and symbolic observations (see Figure 1). The reward and the observed state are then sent to the agent via the callback. CogEnv then waits for the agent to respond with an action, and issues a timeout if no response occurred within a duration specified by the cognitive test.
+We simulate a real-time RL environment, where the environment, upon receiving an observation, invokes a callback method in the agent. We use AndroidEnv to run and manage the Behaverse cognitive assessment battery in a virtual Android device. A set of task-specific parsers then decodes screenshots, event streams, and system logs to extract numerical rewards and symbolic observations (see @fig-cogenv-figure1). The reward and the observed state are then sent to the agent via the callback. CogEnv then waits for the agent to respond with an action, and issues a timeout if no response occurred within a duration specified by the cognitive test.
 
 
+::: {#fig-cogenv-figure1 layout-ncol=1}
 
-Figure 1: Overall architecture of CogEnv. CogEnv communicates with AndroidEnv via Protocol Buffer messages and manages access to the Behaverse events. $O_t$ is the screenshot of the task at time t, $O^{\prime}_t$ is the extra observations extracted from the Behaverse events including information about the task and stimuli, $r_t$ is the reward, and $A_t$ is the agent's action.
+![](../resources/2_cogenv/figure1.png)
+
+Overall architecture of CogEnv. CogEnv communicates with AndroidEnv via Protocol Buffer messages and manages access to the Behaverse events. $O_t$ is the screenshot of the task at time t, $O^{\prime}_t$ is the extra observations extracted from the Behaverse events including information about the task and stimuli, $r_t$ is the reward, and $A_t$ is the agent's action.
+:::
+
 
 ### Tasks
-CogEnv currently runs four Behaverse tasks (see Figure 2) selected to cover main components of cognitive control (see Chapter 1). In the Belval Matrices test for example, agents are shown a matrix of symbols on a 3x3 grid, where one of the cells of the matrix has been removed, and they are tasked to identify the missing cell from a set of eight options (panel D of Figure 2). The Belval Matrices can randomly generate a large number of test items of varying difficulty and structure, which makes this test interesting for human and artificial learning studies.
+CogEnv currently runs four Behaverse tasks (see @fig-cogenv-figure2) selected to cover main components of cognitive control (see Chapter 1). In the Belval Matrices test for example, agents are shown a matrix of symbols on a 3x3 grid, where one of the cells of the matrix has been removed, and they are tasked to identify the missing cell from a set of eight options (panel D of @fig-cogenv-figure2). The Belval Matrices can randomly generate a large number of test items of varying difficulty and structure, which makes this test interesting for human and artificial learning studies.
 
 
+::: {#fig-cogenv-figure2 layout-ncol=1}
 
-Figure 2: Screenshot ($O_t$) of four Behaverse tasks. A) Digit Span (working memory), B) N-Back (working memory), C) Trail Making Test (cognitive flexibility), and D) Belval Matrices (matrix reasoning). See \href{https://behaverse.org}{behaverse.org}.
+![](../resources/2_cogenv/figure2.png)
+
+Screenshot ($O_t$) of four Behaverse tasks. A) Digit Span (working memory), B) N-Back (working memory), C) Trail Making Test (cognitive flexibility), and D) Belval Matrices (matrix reasoning). See \href{https://behaverse.org}{behaverse.org}.
+:::
+
 
 ### Timing
 CogEnv supports both step-lock (where the environment pauses between two consecutive actions) and real-time mode (where the environment runs asynchronously from the agent). A real-time environment is necessary to study the timing of actions: in cognitive psychology, human behavior is typically evaluated in terms of both accuracy and speed.
 
 ### Action space
-Each test defines a discrete action space that is in fact bounded tap gestures on the buttons of the graphical interface. The Action Coordinator component (see Figure 1) automatically constructs a sequence of AndroidEnv gestures (TAP, TOUCH, and LIFT) that together perform the requested action as a set of movements in the emulated device.
+Each test defines a discrete action space that is in fact bounded tap gestures on the buttons of the graphical interface. The Action Coordinator component (see @fig-cogenv-figure1) automatically constructs a sequence of AndroidEnv gestures (TAP, TOUCH, and LIFT) that together perform the requested action as a set of movements in the emulated device.
 
 ### Observation space
 CogEnv asynchronously invokes and waits for the agent to act. The invocation is accompanied by a screenshot of the Behaverse screen, as well as the reward value and symbolic representations of the task state extracted from the logs and event streams.
 
 ## Comparing humans and artificial agents
-CogEnv allows us to compare human and artificial agents on the exact same cognitive tests, generating for both the same type of data that can be analyzed using a common data analysis pipeline. Figure 3 illustrates how such comparisons may yield new insights.
+CogEnv allows us to compare human and artificial agents on the exact same cognitive tests, generating for both the same type of data that can be analyzed using a common data analysis pipeline. @fig-cogenv-figure3 illustrates how such comparisons may yield new insights.
 
-We collected data (accuracy and response time) from 200 human participants completing 20 items of the Belval Matrices (see Figure 3) and are currently training a selection of discrete control agents on the same test  \cite<i.e., DQN and R2D2 from the Acme Tensorflow library; see>{hoffman2020, toyama2021}: agents are trained on 1000 randomly generated items and tested on a set of 20 unseen test items, the exact same used with human participants.
+We collected data (accuracy and response time) from 200 human participants completing 20 items of the Belval Matrices (see @fig-cogenv-figure3) and are currently training a selection of discrete control agents on the same test  [i.e., DQN and R2D2 from the Acme Tensorflow library\; see @hoffman2020;@toyama2021]: agents are trained on 1000 randomly generated items and tested on a set of 20 unseen test items, the exact same used with human participants.
 
 Contrasting human and artificial agents may yield one of the following main scenarii: **(A)** The artificial agent mimics the human performance profile well, suggesting it captures something fundamental about human cognition and that its study may help us better understand humans. **(B)** The artificial agent performs the task well but displays a different performance profile than humans. This could suggest that there are in fact several ways of solving the task and that the human performance profile has a characteristic computational signature. **(C)** The artificial agent performs like humans on some items but very differently on others. This may indicate that humans use a mixture of cognitive strategies or that the artificial agent needs to be augmented to perform human-like.
 
 Whatever the case may be, it is clear that the comparison of human versus artificial agents, as well as the comparison among artificial agents provides a unique source of information that significantly augments our ability to make sense of human behavior in cognitive tests.
 
+::: {#fig-cogenv-figure3 layout-ncol=1}
 
-Figure 3: Hypothetical scenarios when comparing the performance of humans versus computational agents (see text).
+![](../resources/2_cogenv/figure3.png)
+
+
+Hypothetical scenarios when comparing the performance of humans versus computational agents (see text).
+:::
+
 
 ## Conclusion
 Cognitive tests play a central role in the study of human cognition. We introduced CogEnv, a framework that runs cognitive tests within a virtual environment that enables training and evaluating artificial agents in a way that is directly comparable to human studies. CogEnv also provides a way to study cognitive tests and how learning to perform well in one cognitive test might transfer to others.
-
 
 Environments like CogEnv have proven quite useful in other fields, e.g., AnimalAI 3 for animal cognition [@crosby2020] and RecSym for recommendation systems [@ie2019]. We believe that CogEnv can complement other approaches (e.g., cognitive architectures) and hope it will yield new insights on human cognition and help coordinate efforts across disciplines to better understand the computational foundations of cognitive performance.

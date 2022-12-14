@@ -1,4 +1,4 @@
-# General Discussion
+# General Discussion {.unnumbered}
 
 #### On the importance of cognitive control research {.unnumbered}
 Psychology is tasked to make sense of what humans do, and what humans do depends on what happens in their immediate environment [@miller1960]. One ability that is of utmost importance to human functioning is to exercise cognitive control which enables pursuing goals in a changing world, avoiding prepotent responses, and effectively generalizing prior experiences to new situations. Due to its ubiquitous presence in everything we do, cognitive control plays a crucial role in our daily lives, long-term achievements, and health. Accordingly, the possibility to enhance cognitive control in a way that transfers to real life situations could have important implications.

@@ -1,10 +1,7 @@
-Appendix A:
-A Formal Framework for Structured N-Back Stimuli Sequences
+# A Formal Framework for Structured N-Back Stimuli Sequences
 
-Morteza Ansarinia
-Dominic Mussack
-Paul Schrater
-Pedro Cardoso-Leite
+Morteza Ansarinia, Dominic Mussack, Paul Schrater, Pedro Cardoso-Leite
+
 
 ## Abstract {.unnumbered}
 Numerous cognitive tasks, like the n-back, employ sequences of stimuli to target particular cognitive functions. These sequences are generated to satisfy specific criteria but the generation process typically induces unintentional statistical structure in the sequences which may not only affect performance but also alter the strategies participants use to complete the task.
