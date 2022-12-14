@@ -1,198 +1,55 @@
 # General Introduction
+It is said that humans are creatures of habit. But even habits are established and managed by a higher-order cognitive system—a human capacity expressed in innumerous  situations that remains unmatched by any other species or artificial intelligence. My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
 
+The role this ability plays in daily life is evident, for instance, when making pizza! We first need to plan a sequence of tasks, from creating a shopping list, buying the ingredients, preheating the oven while proofing the dough, pausing the preparation of the toppings because the oven is beeping, and possibly multitasking to wash the dishes while cooking. Some skilled chefs can make great pizza on a stovetop burner rather than an oven, demonstrating that their ability to make pizza can generalize and transfer from one environment to another. Tasks like making pizza are complex because they require a variety of cognitive functions, including planning, multitasking, task switching, attention, flexibility, monitoring, handling feedback, practice, and generalization, to name just a few. Yet most people can routinely perform such complex tasks.
 
-It is said that humans are creatures of habit. But even habits are established and managed by a higher-order cognitive system—a human capacity that is observed in many conceivable situations and unmatched by any other species or modern artificial intelligence. My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven, which enables us to (a) produce complex, meaningful, context-dependent behavior, in uncertain environments, (b) inhibit prepotent responses, and (c) monitor and manage the cross-talk between conflicting tasks.
+Goal-driven higher cognition is of utmost importance to humans as it determines many aspects of our lives (e.g., academic and professional success, social relationships, health). Unfortunately, we don’t yet fully understand how this type of higher-order cognition works and how to improve it for the benefit of individuals and society. There are, however, many ideas, theories, and experimental work across multiple scientific fields that we can draw from.
 
+Here, I will apply a multidisciplinary approach to clarify what this specific higher-order cognition is and how it operates in computational, quantitative terms. There are two primary motivations for me to focus on computational/quantitative accounts. First, they may provide principled ways towards understanding and developing interventions to improve humans’ goal-directed cognition; a large body of work indicates this is indeed possible but we currently lack a clear theoretical framework to understand why and how those effects come about. Second, there have been important advances in artificial intelligence in recent years and these may benefit our understanding of human cognition. Conversely, the study of human cognition may, as it has several times in the past, lead to insights that benefit new developments in artificial intelligence.
 
-The role this ability plays in daily life is evident, for instance, when making pizza! We first need to plan a sequence of tasks, from creating a shopping list, buying the ingredients, preheating the oven while proofing the dough, pausing the preparation of the toppings because the oven is beeping, and possibly multitasking to wash the dishes while cooking. Some skilled chefs can make great pizza on a stovetop burner rather than an oven, demonstrating that their ability to make pizza can generalize and transfer from one environment to another.
+The scientific concept that best characterizes what I referred to as "goal-driven higher-order cognition" is "cognitive control", as articulated in @badre2020 and @cohen2017. In this context, cognitive control is an umbrella term for a set of processes that generate and monitor plans and actions in pursuit of evolving goals, often in noisy environments. Other related terms used (sometimes interchangeably) in the scientific literature include for instance "executive functions", "attentional control", "executive control", and "self-regulation". For consistency and simplicity, I will only refer to "cognitive control" in the remainder of this thesis, acknowledging, as have many before, that this is a complex and to a large extent ill-defined concept.
 
+# Exploring cognitive control across cognitive sciences disciplines
+This thesis is interdisciplinary and grounded in cognitive sciences. In particular, it applies principles and techniques from cognitive psychology, neuroscience, and artificial intelligence as these are key fields in which cognitive control related questions have been extensively investigated. This interdisciplinarity offers synergies that support the systematic study of cognitive control using modern tooling, and the development of artificial agents that may benefit from human-like control abilities by aligning to human cognitive functioning [@russell2020].
 
-Tasks like making pizza are complex because they require a variety of cognitive functions, including planning, multitasking, task switching, attention, flexibility, monitoring, handling feedback, practice, and generalization, to name just a few. Yet most people can routinely perform such complex tasks.
+## Cognitive Psychology and Neuroscience
+In cognitive psychology, concepts that capture higher-order cognitive abilities such as cognitive control are difficult to define—and consequently also to quantify. This may in part be due to cognitive control being related to many other psychological constructs [see @cohen2017], and to its role in explaining task-dependent, contextual phenomena [Appendix A; @ralph2014; @otto2013]. It may also be due to the more general limitation of psychological constructs being low-dimensional representations of distributed brain mechanisms [@jolly2019; @zink2021]. Nevertheless, to understand cognitive control, psychologists have devised a variety of theoretical constructs and cognitive tasks [see Chapter 1 and @baggetta2016] the relationships between which are not always very clear. This lack of a cohesive understanding calls for conceptual and empirical clarifications about what researchers mean by cognitive control and how to quantify it. Greater clarity and an integrated framework of cognitive control is required to advance the field.
 
+In this regard, greater clarity may come from recent machine learning advances in natural language processing which have made it possible to analyze a large body of texts in order to identify and connect underlying ideas [@angelov2020; @dieng2020; @beam2021]. Computational techniques such as ontologies and large language models can be leveraged to parse the ever-growing research on cognitive control in order to develop a cohesive framework that provides a holistic and pragmatic view of cognitive control that shows how cognitive control is conceptualized and operationalized in the scientific literature. This type of integrative work seems critical to make sense of currently disparate research that comprises many psychological constructs and computational models, several brain mechanisms, and multiple cognitive tasks.
 
-Goal-driven higher cognition is of utmost importance to humans as it determines many aspects of our lives (e.g., academic and professional success, social relationships, health). Unfortunately, we don’t yet fully understand how this type of higher-order cognition works and how to improve it for the benefit of individuals and society. There are, however, many ideas, theories, and experimental works across multiple scientific fields that we can draw from.
+An integrated and formal account of cognitive control would be invaluable for programs aiming to improve cognitive control abilities in humans. Given the role of cognitive control on daily functioning, long-term achievements, and psychological health [@diamond2019; @moffitt2011], for example, the possibility to improve cognitive control in a way that transfers to real life could have important implications across a wide range of use cases (e.g., rehabilitation, healthy aging, education, peak performance). The study of cognitive training and its consequences is also important from a theory perspective as interventional methods (as in cognitive training regimes) offer a means to causally test computational theories of cognitive control.
 
+Despite the ubiquity of cognitive training studies [@bediou2018], we currently lack a satisfactory theory of how training on specific tasks generalizes to new ones [@REF/LackOfTransferTheory; @moreau2014]. It's not entirely clear which interventions impact the cognitive systems and how they do so—including what neural mechanisms in the brain enable cognitive control, how they are impacted by cognitive training and how this impact causes the behavioral outcomes.
 
-Here, I will apply a multidisciplinary approach to get a better understanding of what this specific higher-order cognition is and how it operates in computational, quantitative terms. There are two primary motivations for me to focus on computational/quantitative accounts. First, they may provide principled ways towards understanding and developing interventions to improve humans’ goal-directed cognition; a large body of work indicates this is indeed possible but we currently lack a clear theoretical framework to understand why and how those effects come about. Second, there have been important advances in artificial intelligence in recent years and these may benefit our understanding of human cognition. Conversely, the study of human cognition may, as it has several times in the past, lead to insights that benefit new developments in artificial intelligence.
+Currently, the main theories in this context revolve around one of two types of hypotheses. The first states that cognitive training interventions train multiple elementary cognitive processes and to the extent that new tasks rely on those same processes (or a subset of them), transfer effects will be observed on those new tasks [@logan1988; @logan2017]. An alternative class of hypotheses state that cognitive training enhances domain-general abilities which are involved in virtually all cognitive tasks—among these domain-general abilities, cognitive, and attentional control are the most prominent [@anguera2013; @green2008]. Which of these (if any) are true, remains an open question and part of the difficulty in making progress is the lack of theories that would allow predictions of how certain forms of training would or would not transfer to which other tasks. 
 
-
-The scientific concept that best characterizes what I referred to as "goal-driven higher-order cognition" is "cognitive control", as articulated in [@Badre2020] and [@Cohen2017]. In this context, cognitive control is an umbrella term for a set of processes that generate and monitor plans and actions in pursuit of evolving goals, often in noisy environments. Other related terms used (sometimes interchangeably) in the scientific literature include for instance "executive functions", "attentional control", "executive control", and "self-regulation". For consistency and simplicity, I will only refer to "cognitive control" in the remainder of this thesis, acknowledging, as have many before, that this is a complex and to a large extent ill-defined concept.
-
-
-## Exploring cognitive control across cognitive sciences disciplines
-This thesis is interdisciplinary and grounded in cognitive sciences. In particular, it applies principles and techniques from cognitive psychology, neuroscience, and artificial intelligence as these are key fields in which cognitive control related questions have been extensively investigated. This interdisciplinarity offers synergies that support the systematic study of cognitive control using modern tooling, and the development of artificial agents that may benefit from human-like control abilities by aligning to human cognitive functioning [@Russell2020].
-
-
-### Cognitive psychology and neuroscience
-In cognitive psychology, concepts that capture higher-order cognitive abilities such as cognitive control are difficult to define—and consequently also to quantify. This may in part be due to cognitive control being related to many other psychological constructs [see @Cohen2017], and to its role in explaining task-dependent, contextual phenomena [@Ralph2014; @Otto2013, @AnsariniaCCN2019NBack]; it may also be due to the more general limitation of psychological constructs being low-dimensional representations of distributed brain mechanisms [@Jolly2018; @Zink2021]. Nevertheless, to understand cognitive control, psychologists have devised a variety of theoretical constructs and cognitive tasks [@Baggetta2016; @Ansarinia2022CogText] the relationships between which are not always very clear. This lack of a cohesive understanding calls for conceptual and empirical clarifications about what researchers mean by cognitive control and how to quantify it. Greater clarity and an integrated framework of cognitive control is required to advance the field.
-
-In this regard, greater clarity may come from recent machine learning advances in natural language processing which have made it possible to analyze a large body of texts and identify and connect underlying ideas [@Angelov2020; @Dieng2020; @Beam2021]. Computational techniques such as ontologies and large language models can be leveraged to parse the ever-growing research on cognitive control in order to develop a cohesive framework that provides a holistic and pragmatic view of cognitive control that shows how cognitive control is conceptualized and operationalized in the scientific literature. This type of integrative work seems critical to make sense of currently disparate research that comprises many psychological constructs and computational models, several brain mechanisms, and multiple cognitive tasks.
-
-An integrated and formal account of cognitive control would be invaluable for programs aiming to improve cognitive control abilities in humans. Given the role of cognitive control on daily functioning, long-term achievements, and psychological health [@Diamond2019; @Moffitt2011], for example, the possibility to improve cognitive control in a way that transfers to real life could have important implications across a wide range of use cases (e.g., rehabilitation, healthy aging, education, peak performance). The study of cognitive training and its consequences is also important from a theory perspective as interventional methods (as in cognitive training regimes) offer a means to causally test computational theories of cognitive control.
-
-Despite the ubiquity of cognitive training studies [@REF/CogTrainingTrend], we currently lack a satisfactory theory of how training on specific tasks generalizes to new ones [@REF/LackOfTransferTheory; @Moreau2014]. It's not entirely clear which interventions impact the cognitive systems and how they do so—including what neural mechanisms in the brain enable cognitive control, how they are impacted by cognitive training and how this impact causes the behavioral outcomes.
-
-Currently, the main theories in this context revolve around one of two hypotheses. The first states that cognitive training interventions train multiple elementary cognitive processes and to the extent that new tasks rely on those same processes (or a subset of them), transfer effects will be observed on those new tasks [@Logan1988; @Logan2017]. An alternative class of hypotheses state that cognitive training enhances domain-general abilities which are involved in virtually all cognitive tasks—among these domain-general abilities, cognitive, and attentional control are the most prominent [@Anguera2013; @Green2008]. Which of these (if any) are true, remains an open question and part of the difficulty in making progress is the lack of theories that would allow predictions of how certain forms of training would or would not transfer to which other tasks. 
-
-The study of action video game training is of particular interest in cognitive control research. There is now a large body of research, including many training studies, that have established that playing specifically action video games causes improvements in performance across a broad range of cognitive tasks [@bediou2018]—some of which generalize to real-life abilities [@franceschini2012]—and there is also an increasing body of research investigating the neural mechanisms involved in video game play and their effects [@CardosoLeite2021]. These constitute a fertile ground to build cognitive control theories and bridging a gap between experimental psychology, cognitive neuroscience, and computational cognitive sciences; brain function may for instance inspire new computational theories and behavioral experiments that involve cognitive control and generalization. In addition, action video games may offer cognitive neuroscientists a practical and safe means to causally study cognitive control and may also provide new cognitive control assessments tools that may be more effective and valid than traditional batteries of tasks. Finally, the idea that effective cognitive training requires specific complex tasks, such as action video games, and is mostly ineffective when using simple cognitive task [@owen2010] seems to imply that as a field we need to study cognition within those complex tasks rather than focusing solely on standard cognitive tests, like the Stroop task for example. This calls for a paradigm shift in studying cognitive control which may benefit from modern technological advances in artificial intelligence [@zink2021; @Perone2021; @doebel2020; @botvinick2022].
+The study of action video game training is of particular interest in cognitive control research. There is now a large body of research, including many training studies, that have established that playing specifically action video games causes improvements in performance across a broad range of cognitive tasks [@bediou2018]—some of which generalize to real-life abilities [@franceschini2012]—and there is also an increasing body of research investigating the neural mechanisms involved in video game play and their effects (see Chapter 4). These constitute a fertile ground to build cognitive control theories and bridging a gap between experimental psychology, cognitive neuroscience, and computational cognitive sciences. Brain function may for instance inspire new computational theories and behavioral experiments that involve cognitive control and generalization. In addition, action video games may offer cognitive neuroscientists a practical and safe means to causally study cognitive control and may also provide new cognitive control assessments tools that may be more effective and valid than traditional batteries of tasks. Finally, the idea that effective cognitive training requires specific complex tasks, such as action video games, and is mostly ineffective when using simple cognitive task [@owen2010] seems to imply that as a field we need to study cognition within those complex tasks rather than focusing solely on standard cognitive tests, like the Stroop task for example. This calls for a paradigm shift in studying cognitive control which may benefit from modern technological advances in artificial intelligence [@zink2021; @perone2021; @doebel2020; @botvinick2022].
 
 To sum up, cognitive neuroscience and psychology face two main challenges: (a) gain greater clarity on the cognitive control constructs (what it is and how to measure it), and (b) understand what features of the cognitive system (i.e., the agent) and what features of the task (i.e., the environment) determine cognitive control, its functioning, and generalization in humans. Chapters 1, 2, and 3 aim to tackle these challenges.
 
-### Artificial intelligence
-The field of artificial intelligence provides a unique perspective on human cognition; it is not merely a set of tools for interpreting experimental data. In fact, recent advances in machine learning have dramatically changed our ability to build accurate and scalable models of human cognition that previously relied on minimal theoretical frameworks and limited data [@Hu2022]. That is, modern cognitive science requires not only understanding cognitive control from a neural and psychological basis [@Lindsay2020] but also understanding the computational mechanisms and to build artificial agents that are aligned and comparable to human cognition [@Botvinick2022].
+## Artificial intelligence
+The field of artificial intelligence provides a unique perspective on human cognition. Recent advances in machine learning have dramatically changed our ability to build accurate and scalable models of human cognition that previously relied on minimal theoretical frameworks and limited data [@ho2022]. That is, modern cognitive science requires not only understanding cognitive control from a neural and psychological basis [@lindsay2020] but also understanding the computational mechanisms and to build artificial agents that are aligned and comparable to human cognition [@botvinick2022].
 
-#### Control in artificial intelligence
-Since its conception, artificial intelligence researchers have sought to develop computational models that mimic human intelligence. Unsurprisingly then, cognitive control has been investigated in artificial intelligence early on [@Miller1960].
+### Control in artificial intelligence
+Since its conception, artificial intelligence researchers have sought to develop computational models that mimic human intelligence. Unsurprisingly then, cognitive control has been investigated in artificial intelligence early on [@miller1960].
 
-What does cognitive control look like in AI? Ideas in AI related to cognitive control have taken many forms. In its most abstract conception, control has been associated with optimizing parameters of computational models to allow them to learn how to perform a task and achieve a specific goal [@bensoussan2020]. This limited view of control can be nevertheless very powerful when it is implemented in advanced model architectures that allow for the emergence of complex behavior. Indeed, this approach has been very successful in designing generic artificial agents capable of performing many different, complex tasks at the same time [@Reed2022a; @yang2019].
+*What does cognitive control look like in AI?* Ideas in AI related to cognitive control have taken many forms. In its most abstract conception, control has been associated with optimizing parameters of computational models to allow them to learn how to perform a task and achieve a specific goal [@bensoussan2020]. This limited view of control can be nevertheless very powerful when it is implemented in advanced model architectures that allow for the emergence of complex behavior. Indeed, this approach has been very successful in designing generic artificial agents capable of performing many different, complex tasks [@reed2022; @yang2019].
 
-There are, however, more elaborate views of cognitive control that have emerged over the past decade, inspired by research in computational cognitive science [@ho2022]. One such view offers that humans may entertain two internal systems when performing a task: a model-free system and a model-based system [@Daw2011]. In essence, the model-free system learns a policy (i.e., "how to act") that maps states (e.g., stimuli) to actions (i.e., "responses"). This system is fast but simple and task-specific and it may thus generate errors and limit generalization. The other system is model-based, meaning that in the process of learning a policy, the system exploits its understanding of how the world works (e.g., by incorporating beliefs about state-transition in the decision making process). This system is slower and more "effortful" but it may also be more flexible and lead to higher performance levels. What is interesting about this model is that it has been used to evaluate human behavior. The results of that work show that not only do humans rely on both systems [@dolan2013], but the extent to which they do so depends on how much resources they have [@Otto2014]. For example, by putting people in a stressful situation it can be observed that their reliance on the model-free system increases presumably because internal resources are deviated towards addressing the stressor [@Otto2013].
+There are, however, more elaborate views of cognitive control that have emerged over the past decade, inspired by research in computational cognitive science [@ho2022]. One such view offers that humans may simultaneously entertain two internal systems when performing a task: a model-free system and a model-based system [@daw2011]. In essence, the model-free system learns a policy (i.e., "how to act") that maps states (e.g., stimuli) to actions (i.e., "responses"). This system is fast but simple and task-specific and it may thus generate errors and limit generalization. The other system is model-based, meaning that in the process of learning a policy, the system exploits its understanding of how the world works (e.g., by incorporating beliefs about state-transition in the decision making process). This system is slower and more "effortful" but it may also be more flexible and lead to higher performance levels. What is interesting about this work is that it has been used to evaluate human behavior. The results of that work show that not only do humans rely on both systems [@dolan2013], but the extent to which they do so depends on how much resources they have [@otto2015]. For example, by putting people in a stressful situation it can be observed that their reliance on the model-free system increases presumably because internal resources are deviated towards addressing the stressor [@otto2013].
 
-Recent work shows that in addition to accounting for human phenomena, this idea of "two systems" may in fact be grounded in computational principles [@Moskovitz2022]. More specifically, this framework posits the existence of two systems where one of the systems aims to perform a task well, while the other system aims in addition to simplify itself (by minimizing its description length) an idea that resonates in psychology with the concepts like automation of behavior, habit formation and the reduction of effort with practice. A key motivation for a system to be implemented in this way is not only the long-term reduction of computational resources but also its ability to generalize to new tasks as simpler models will need to discard more minute elements that are specific to a task and may thus generalize more than the full model.
+Recent work shows that in addition to accounting for human phenomena, this idea of "two systems" may in fact be grounded in computational principles [@moskovitz2022]. More specifically, this framework posits the existence of two systems where one of the systems aims to perform a task well, while the other system aims in addition to simplify itself (by minimizing its description length) an idea that resonates in psychology with the concepts like automation of behavior, habit formation and the reduction of effort with practice. A key motivation for a system to be implemented in this way is not only the long-term reduction of computational resources but also its ability to generalize to new tasks as simpler models will need to discard more minute elements that are specific to a task and may thus generalize more than the full model.
 
-Other interesting ideas in this context includes what we call "recycling" [or the active attempt to match what was previously learned to a new situation rather than starting from scratch; @Tomov2021] and "modularity"—the idea that complex behavior may emerge from models that are composed of computationally specific building blocks [@Yang2019]. These are just a few of the many ideas that are relevant in this field and that offer new avenues for the study of cognitive control both in psychology and computer science. 
+Other interesting ideas in this context includes what we call "recycling" [or the active attempt to match what was previously learned to a new situation rather than starting from scratch; @tomov2021] and "composition"—the idea that complex behavior may emerge from models that are composed of computationally specific building blocks [@yang2019]. These are just a few of the many ideas that are relevant in this field and that offer new avenues for the study of cognitive control both in psychology and computer science. 
 
-### The value and challenges of interdisciplinary research
+## The value and challenges of interdisciplinary research
 It is clear from the literature reviewed above, that there is great scientific and practical value in aiming to bridge the gaps between psychological and computer sciences; computational models can inform psychological theories and vice versa. 
 
-It is important to note that both in psychology and in artificial intelligence, the concept of generalization is a major current scientific challenge. Humans are endowed with unique abilities to flexibly adapt their behavior and generalize what they’ve learned in one context to new, never-before seen situations [@Tenenbaum2011]. Playing action video games, for example, is thought to improve cognitive control abilities and generalize to a broad set of tasks, ranging from visual contrast perception [@Chopin2019] to reading [@Franceschini2017]. The mechanisms underlying these human generalization abilities remain, however, largely unknown. Current artificial agents, on the other hand, have very limited generalization abilities despite their tremendous success in performing complex tasks well [@Chollet2019]. To be more specific, these models are able to generalize from a training dataset to unseen test datasets that follow the same distribution of data (e.g., a cat-dog classifier can classify new images of cats and dogs; i.e., these models are robust) but they cannot easily generalize to new tasks (e.g., a cat-dog classifier can also play chess; i.e., these models are not flexible). It appears then that there are great opportunities for psychology and artificial intelligence to join forces and develop new models of cognitive control that could help us both better understand the human mind and develop the next generation of artificial agents.
+It is important to note that both in psychology and in artificial intelligence, the concept of generalization is a major current scientific challenge. Humans are endowed with unique abilities to flexibly adapt their behavior and generalize what they’ve learned in one context to new, never-before seen situations [@tenenbaum2011]. Playing action video games, for example, is thought to improve cognitive control abilities and generalize to a broad set of tasks, ranging from visual contrast perception [@chopin2019] to reading [@franceschini2017]. The mechanisms underlying these human generalization abilities remain, however, largely unknown. Current artificial agents, on the other hand, have very limited generalization abilities despite their tremendous success in performing complex tasks well [@chollet2019]. To be more specific, these models are able to generalize from a training dataset to unseen test datasets that follow the same distribution of data (e.g., a cat-dog classifier can classify new images of cats and dogs; i.e., these models are robust) but they cannot easily generalize to new tasks (e.g., a cat-dog classifier can’t play chess; i.e., these models are not flexible). It appears then that there are great opportunities for psychology and artificial intelligence to join forces and develop new models of cognitive control that could help both better understand the human mind and develop the next generation of artificial agents.
 
-A key step towards making this happen is to make it possible, and even easy, to compare human and artificial agents directly. There are many cases where this has been successfully done at the single task level [e.g., [@Daw2011;Otto2013; otto2014]]. There is comparatively less work comparing human and artificial agents across multiple tasks [e.g., @Yang2019; @Mnih2015)]. Yet, as stated by [@Yang2019]: "The brain has the ability to flexibly perform many tasks, but the underlying mechanism cannot be elucidated in traditional experimental and modeling studies designed for one task at a time." A virtual environment allowing human and artificial agents to perform the exact same battery of tasks would be highly valuable and support the integration of cognitive control theories across psychology and artificial intelligence. It may help ground cognition in computational terms (e.g., which types of tasks can be performed by a given computational architecture and which cannot, @Yang2019; @Mnih2015), provide new insights and concepts to both psychology and computer science [@Laird2017; @Stocco2021; @Christian2016], offer benchmarks for human and artificial agents as well as their comparison (relative performance profiles; @REF/RLBenckmarks), lead to the development of new tasks (e.g., tasks that are diagnostic of types of artificial agents and that could be tested on humans; @REF/NewHumanTasksThatWorkForRL), and perhaps new computational architectures that truely generalize [@Chollet2019].
+A key step towards making this happen is to make it possible, and even easy, to compare human and artificial agents directly. There are many cases where this has been successfully done at the single task level [e.g., @daw2011;otto2013; otto2014]. There is comparatively less work comparing human and artificial agents across multiple tasks [e.g., @yang2019; @mnih2015]. Yet, as stated by [@yang2019]: "The brain has the ability to flexibly perform many tasks, but the underlying mechanism cannot be elucidated in traditional experimental and modeling studies designed for one task at a time." A virtual environment allowing human and artificial agents to perform the exact same battery of tasks would be highly valuable and support the integration of cognitive control theories across psychology and artificial intelligence. It may help ground cognition in computational terms (e.g., which types of tasks can be performed by a given computational architecture and which cannot, @yang2019; @mnih2015), provide new insights and concepts to both psychology and computer science [@laird2017; @stocco2021; @christian2016], offer benchmarks for human and artificial agents as well as their comparison (relative performance profiles;), lead to the development of new tasks (e.g., tasks that are diagnostic of types of artificial agents and that could be tested on humans;), and perhaps new computational architectures that truely generalize [@chollet2019].
 
 
-## Current research
+# Current research
 The main strategy in this thesis has been to establish a broader, interdisciplinary view of cognitive control that can be conceptually, computationally, and empirically studied and integrates work within and across scientific fields. In line with this strategy, the current work explores a diverse set of approaches that together aim to better delineate the fuzzy concept of cognitive control.
 
-The thesis comprises five research articles. Each of these articles are summarized in the following information sheets and discussed as a whole in the general discussion. Together this work illustrates, I hope, the benefits of the synergy between experimental psychology, neuroscience, and artificial intelligence in the study of cognitive control and opens up interesting future research directions.
-
-\newpage
-
-## TLDR; Information sheets
-
-```{=latex}
-
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{TLDR; Chapter 1 (CogText)}
-\label{tbl-tldrCogText}
-\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf
-    Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
-}  \\ \hline
-
-\textbf{Challenge} & {
-    Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
-} \\ \hline
-
-\textbf{Context} & {
-    Despite a large volume of publications, cognitive control remains a rather vague concept both theoretically and operationally \cite{Baggetta2016}. Literature reviews by human domain experts have had limited success in bringing such clarity: they are not exhaustive, can’t keep up with the rate of new publications, and may depict a biased, subjective perspective rather than an objective, quantitative view of the research field.
-} \\ \hline
-\textbf{Why it matters} & {
-    Greater clarity on cognitive control and its measurement are critical to advance the field and integrate currently disparate research branches.
-} \\ \hline
-\textbf{Methods} &  {
-    We conducted automated text analysis on a large corpus of scientific abstract (+500K) downloaded from PubMed. We used a state-of-the-art language model (GPT-3) to encode scientific texts and create a joint view of cognitive control related constructs and tasks. This method allows the grounding of theoretical constructs on cognitive tasks (in the sense that tasks are used to measure the constructs) as well as the grounding of tasks on cognitive constructs (in the sense that constructs are used to theorize behavior in tasks). It also offers a unique holistic view of cognitive control constructs and tasks within a single knowledge graph.
-} \\ \hline
-\textbf{Results} & {
-    The results confirm the complex nature of cognitive control, explain the difficulty of defining cognitive control and may lead to new theoretical and empirical insights. We conclude that cognitive control can’t be assessed using a single task and should instead be measured using a battery of tasks (varying contexts and demands) or more complex tasks (e.g., video games). We also conclude that as a construct cognitive control may benefit from being decomposed into smaller, better defined constructs to make progress in the field.
-} \\ \hline
-\textbf{Output} & {
-    The article was accepted as a conference paper for the CogSci2022 conference, the preprint is published on ArXiv \cite{Ansarinia2022CogText} and will be submitted for publication soon. The dataset is available on \href{https://huggingface.co/datasets/morteza/cogtext}{huggingface.co/datasets/morteza/cogtext}, and the code is publicly available on \href{https://github.com/morteza/CogText}{github.com/morteza/CogText}. \newline
-    The methods and implications are further described in Chapter 1 (page \pageref{articles-cogtext}).
-} \\ \hline
-\end{tabular}
-\end{table}
-```
-
-\newpage
-
-```{=latex}
-
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{TLDR; Chapter 2 (CogEnv)}
-\label{tbl-tldrCogEnv}
-\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
-
-\newpage
-
-```{=latex}
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{TLDR; Chapter 3 (CogPonder)}
-\label{tbl-tldrCogPonder}
-\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
-
-
-\newpage
-
-```{=latex}
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{TLDR; Chapter 4 (Review)}
-\label{tbl-tldrReview}
-\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
-
-
-\newpage
-
-```{=latex}
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{TLDR; Chapter 4 (ACNets)}
-\label{tbl-tldrACNets}
-\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{0.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
+The thesis comprises five research articles. Each of these articles are summarized in the following information sheets and discussed as a whole in the general discussion. Together this work illustrates, I hope, the benefits of the synergy between experimental psychology, neuroscience, and artificial intelligence in the study of cognitive control and opens up interesting future research perspectives.
