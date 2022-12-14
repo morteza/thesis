@@ -55,7 +55,7 @@ In this section we describe how typical behavioral data currently available in p
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
 \caption{Data Consistency Levels. It is our understanding that current standards in behavioral sciences places us within levels 0 to 1.}
 \label{tbl-belha-DCScale}
-\begin{tabular}{>{\raggedright\arraybackslash}p{.2\textwidth}>{\raggedright\arraybackslash}p{0.8\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{.15\textwidth}>{\raggedright\arraybackslash}p{0.8\textwidth}}
 
 \toprule
 Level     & Description\\
