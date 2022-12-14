@@ -189,7 +189,7 @@ CogPonder behavior is comparable to human behavior. CogPonder captures the overa
 :::
 
 
-::: {#fig-cogponder-figure3 layout-ncol=1}
+::: {#fig-cogponder-figure4 layout-ncol=1}
 
 ![](../resources/3_cogponder/figure4-stroop.png)
 ![](../resources/3_cogponder/figure4-nback.png)
