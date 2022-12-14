@@ -2,7 +2,7 @@
 
 # General Introduction {.unnumbered}
 
-It is said that humans are creatures of habit. But even habits are established and managed by a higher-order cognitive system—a human capacity expressed in innumerous  situations that remains unmatched by any other species or artificial intelligence. My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
+It is said that humans are creatures of habit. But even habits are established and managed by a higher-order cognitive system—-a human capacity expressed in innumerous  situations that remains unmatched by any other species or artificial intelligence. My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
 
 The role this ability plays in daily life is evident, for instance, when making pizza! We first need to plan a sequence of tasks, from creating a shopping list, buying the ingredients, preheating the oven while proofing the dough, pausing the preparation of the toppings because the oven is beeping, and possibly multitasking to wash the dishes while cooking. Some skilled chefs can make great pizza on a stovetop burner rather than an oven, demonstrating that their ability to make pizza can generalize and transfer from one environment to another. Tasks like making pizza are complex because they require a variety of cognitive functions, including planning, multitasking, task switching, attention, flexibility, monitoring, handling feedback, practice, and generalization, to name just a few. Yet most people can routinely perform such complex tasks.
 
@@ -233,11 +233,120 @@ The thesis comprises five research articles. Each of these articles are summariz
 \newpage
 
 
+
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Title**     | Training Cognition with Video Games                                                                   |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Challenge** | Clarifying the relationship between training cognitive control with action video games and its        |
+|              | transfer effects by reviewing behavioral and brain evidence.                                          |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Context**   | Experience impacts brain functioning and structure and there is now considerable evidence that        |
+|              | specific training regimes can improve cognitive control. In particular, playing action video games,   |
+|              | as opposed to other kinds of games, has been shown to cause improvements across a broad range of      |
+|              | cognitive abilities [@bediou2018]. Although there is no satisfactory explanation of these effects yet,|
+|              | one prominent view states that video games improve cognitive/attentional control abilities and that   |
+|              | this improvement in cognitive control explains the transfer effects [@green2012a].                    |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Why it**    | Training cognition in a way that transfers to real life has many practical implications (e.g.,        |
+|**matters**   | rehabilitation, healthy aging, education, peak performance). Understanding the underlying mechanisms  |
+|              | would allow us to devise more effective interventions.  The study of transfer effects is important    |
+|              | because it offers a setting to test cognitive control theories in a non-trivial way. We currently have|
+|              | no satisfactory theory that could account for how training on one task would impact performance on a  |
+|              | never seen before task. Understanding transfer requires developing computational models that can      |
+|              | perform multiple tasks—this is a general goal that computational cognitive control models aim for.    |
+|              | The study of training effects and their consequences is also important because they offer a means to  |
+|              | causally test computational theories. Finally, the study of behavior during video game play poses     |
+|              | interesting new questions to cognitive control scientists. Video games are complex interactive        |
+|              | environments that engage cognitive systems in multiple, context dependent ways. Studying behavior     |
+|              | during video game play may offer new insights on cognitive control that are relevant in the real      |
+|              | world and that might not be apparent when using elementary cognitive tests.                           |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Method**    | This chapter reviews the behavioral and neuroimaging literature on the cognitive consequences of      |
+|              | playing various genres of video games.                                                                |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Results**  | Our review highlights that different genres of video games have different effects on cognition.       |
+|              | Action video games—as defined by first and third person shooter games—have been associated with       |
+|              | greater cognitive enhancement, especially when it comes to cognitive control and top-down attention,  |
+|              | than puzzle or life-simulation games. Playing action video games seems also to impact reward          |
+|              | processing, spatial navigation, and reconfiguration of attentional control networks in the brain.     |
+|              | Interpretations of the effects of playing action video games on behavior and the brain have been      |
+|              | attributed to various psychological constructs, in particular attentional control, quick processing of|
+|              | sensory information, and rapid responses.                                                             |
+|              |                                                                                                       |
+|              | These results suggest that cognitive training interventions need to be endowed with specific game     |
+|              | mechanics for them to generate cognitive benefits, presumably by enhancing cognitive control          |
+|              | abilities. We discuss what those game mechanics might be and call for a more systematic assessment of |
+|              | the relationship between video game mechanics and cognition. We also note that as video games become  |
+|              | more and more advanced (i.e., mixing genres and game-play styles within the same video game), it will |
+|              | become increasingly difficult to study and understand their effects on cognition.                     |
+|              | This article lays a foundation for the study of cognitive and brain functioning using video games and |
+|              | illustrates the value of this approach to investigate general cognitive control.                      |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Output**   | The article has been published as a peer-reviewed book chapter [@cardoso-leite2021]. It is further    |
+|              | provided in Chapter 4.                                                                                |
++--------------+-------------------------------------------------------------------------------------------------------+
+
 : Chapter 4 (Review) information sheet {#tbl-tldr-review}
 
 \newpage
 
+
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Title**     |                              |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Challenge** |  |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Context**   |             |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Why it**    |         |
+|**matters**   |                                                                |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Method**    |                                             |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Results**  |                                            |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Output**   |                      |
++--------------+-------------------------------------------------------------------------------------------------------+
+
 : Chapter 5 (ACNets) information sheet {#tbl-tldr-acnets}
+
+
+
+```{=latex}
+\begin{table}[ht!]
+\small
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{Chapter 5 (ACNets) information sheet}
+\label{tbl-tldr-acnets}
+\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Title} & {\bf
+    Neural correlates of habitual action video games playing in control-related brain networks.
+} \\ \hline
+\textbf{Challenge} & {
+    Test the idea that action video game play affects neural functioning in ways that are compatible with cognitive control hypotheses according to which action video gaming improves cognitive control which in turn explains improved performance across a wide range of cognitive tests (i.e., transfer).
+} \\ \hline
+\textbf{Context} & {
+    On the one hand, research shows that playing action video games improves cognitive performance across a wide range of cognitive tasks, presumably by enhancing people's cognitive control abilities (Bediou et al., 2018). On the other, the cognitive neuroscience literature has highlighted integration of several functional brain networks as being important for cognitive control [@menon2020]. These two sets of theories have not yet been empirically confronted despite there being great value to do so. Indeed, there are competing hypotheses regarding the effects of action video gaming—some highlighting domain-general abilities (e.g., attention, cognitive control), others focusing on domain-specific ones (e.g., response speed). These alternative views make rather different predictions regarding changes in brain function (e.g., changes in specific functional networks vs changes in specific areas). \newline Similarly, research on functional brain networks has highlighted numerous cognitive control networks. There are however some inconsistencies across such theories. Studying the impact of playing action video games provides a means to empirically test those theories and improve our understanding of how those networks work.
+} \\ \hline
+\textbf{Why it mattes} & {
+    The study of the differences in functional brain networks between habitual action video game players and non-video game players can advance our understanding of both the mechanisms underlying the action video game training effects and the neural mechanisms supporting cognitive control in general. \newline Confirming that action video game play affects cognitive control (via its functional neural underpinnings) has important implications for the study of cognitive training. It also has practical value as it would offer cognitive neuroscientists a new tool to causally study cognitive control. Finally, this type of work could lay a foundation towards bridging a gap between experimental psychology, cognitive neuroscience and computational cognitive sciences (brain function may for instance inspire new computational theories and behavioral experiments).
+} \\ \hline
+\textbf{Methods} & {
+    We curated a dataset collected by [@föcker2018]. The dataset comprises resting-state fMRI data (7 minutes and 30 seconds, or 125 time points) and task-fMRI data from a total of 32 human subjects (16 habitual action video gamers and 16 non-gamers). The original study focused on task-fMRI; here we analyze the resting-state data. \newline We developed a machine learning pipeline to investigate the differences between habitual action video gamers and non-video gamers in terms of their functional resting-state brain connectivities, focusing in particular on networks associated with cognitive control. We used a robust approach to preprocess, remove confounds, parcellate, aggregate networks, and extract resting-state functional connectivity measures from the BOLD signals. The whole pipeline was cross-validated, and several arbitrary choices in the preprocessing were considered as hyperparameters of the model (for example parcellation atlas and connectivity measure). We trained a classifier to discriminate unseen participants as action video gamers versus non-gamers based on their resting-state functional connectivities. We then investigated what features were responsible for the model prediction accuracy by applying a permutation feature importance test. Additionally, SHAP analyses were conducted to investigate the contribution of each feature to the output (not the accuracy) of the model.
+} \\ \hline
+\textbf{Results} & {
+    Our model is able to classify unseen participants as action video game players based only on their resting state functional connectivities with an accuracy of 72.6%. This high level of accuracy demonstrates the value of resting state functional data to study action video gaming. Interestingly, the performance of the classifier depended on the specifics of the method used (i.e., parcellation technique, type of connectivity metric), supporting the utility of the robust/exhaustive methodology employed in this study. Investigating why the classification was successful shows that there is in fact no specialized network that differs among the two groups of participants. Instead, it is the interplay between networks that matters most, and in particular the interplay between the cingulopercular and the sensorimotor networks and between the frontoparietal and the sensorimotor networks—a result that is robust to variations in parcellation and connectivity metric. These results do not support the view that individual networks are enhanced by action video game play and suggest instead a mechanism that involves a reconfiguration of a collection of networks. These results provide new insights and have clear implications for both theories of action video game training and for cognitive neuroscientific theories of cognitive control in the human brain. 
+} \\ \hline
+\textbf{Output} & {
+    The article is being prepared for journal submission. The code is available on \href{https://github.com/morteza/ACNets}{github.com/morteza/ACNets}. The method and results are described in Chapter 5.
+} \\ \hline
+
+\end{tabular}
+\end{table}
+```
+
 
 \normalsize
 \doublespacing
