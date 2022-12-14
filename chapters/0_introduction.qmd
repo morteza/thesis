@@ -57,132 +57,184 @@ The thesis comprises five research articles. Each of these articles are summariz
 
 \newpage
 
-## TLDR; Information sheets
+## TL;DR information sheets
+\singlespacing
+\small
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Title**    | Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific              |
+|              | Literature: The Example of Cognitive Control                                                          |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Challenge**| Gain clarity on what is meant by cognitive control in the scientific literature and how               |
+|              | it can be measured empirically.                                                                       |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Context**  | Despite a large volume of publications, cognitive control remains a rather vague concept              |
+|              | both theoretically and operationally [@baggetta2016]. Literature reviews by                           |
+|              | human domain experts have had limited success in bringing such clarity: they are not                  |
+|              | exhaustive, can't keep up with the rate of new publications, and may depict a biased,                 |
+|              | subjective perspective rather than an objective, quantitative view of the research field.             |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Why it**   | Greater clarity on cognitive control and its measurement are critical to advance the field            |
+| **matters**  | and integrate currently disparate research branches.                                                  |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Method**   | We conducted automated text analysis on a large corpus of scientific abstract (+500K)                 |
+|              | downloaded from PubMed. We used a state-of-the-art language model (GPT-3) to encode                   |
+|              | scientific texts and create a joint view of cognitive control related constructs and                  |
+|              | tasks. This method allows the grounding of theoretical constructs on cognitive tasks                  |
+|              | (in the sense that tasks are used to measure the constructs) as well as the grounding of              |
+|              | tasks on cognitive constructs (in the sense that constructs are used to theorize behavior             |
+|              | in tasks). It also offers a unique holistic view of cognitive control constructs and tasks            |
+|              | within a single knowledge graph.                                                                      |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Results**  | The results confirm the complex nature of cognitive control, explain the difficulty of                |
+|              | defining cognitive control and may lead to new theoretical and empirical insights. We                 |
+|              | conclude that cognitive control can't be assessed using a single task and should instead              |
+|              | be measured using a battery of tasks (varying contexts and demands) or more complex tasks             |
+|              | (e.g., video games). We also conclude that as a construct cognitive control may benefit               |
+|              | from being decomposed into smaller, better defined constructs to make progress in the                 |
+|              | field.                                                                                                |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Output**   | The article was accepted as a conference paper for the CogSci2022 conference, the preprint            |
+|              | is published on ArXiv [@ansarinia2022] and will be submitted for publication soon. The                |
+|              | dataset is available on                                                                               |
+|              | [huggingface.co/datasets/morteza/cogtext](https://huggingface.co/datasets/morteza/cogtext)            |
+|              | ,and the code is publicly available on                                                                |
+|              | [github.com/morteza/CogText](https://github.com/morteza/CogText).                                     |
+|              |                                                                                                       |
+|              | The methods and implications are further described in Chapter 1.                                      |
++--------------+-------------------------------------------------------------------------------------------------------+
 
-```{=latex}
-
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{CogText}
-\label{tbl-tldrCogText}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf
-    Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
-}  \\ \hline
-
-\textbf{Challenge} & {
-    Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
-} \\ \hline
-
-\textbf{Context} & {
-    Despite a large volume of publications, cognitive control remains a rather vague concept both theoretically and operationally \cite{Baggetta2016}. Literature reviews by human domain experts have had limited success in bringing such clarity: they are not exhaustive, can’t keep up with the rate of new publications, and may depict a biased, subjective perspective rather than an objective, quantitative view of the research field.
-} \\ \hline
-\textbf{Why it matters} & {
-    Greater clarity on cognitive control and its measurement are critical to advance the field and integrate currently disparate research branches.
-} \\ \hline
-\textbf{Methods} &  {
-    We conducted automated text analysis on a large corpus of scientific abstract (+500K) downloaded from PubMed. We used a state-of-the-art language model (GPT-3) to encode scientific texts and create a joint view of cognitive control related constructs and tasks. This method allows the grounding of theoretical constructs on cognitive tasks (in the sense that tasks are used to measure the constructs) as well as the grounding of tasks on cognitive constructs (in the sense that constructs are used to theorize behavior in tasks). It also offers a unique holistic view of cognitive control constructs and tasks within a single knowledge graph.
-} \\ \hline
-\textbf{Results} & {
-    The results confirm the complex nature of cognitive control, explain the difficulty of defining cognitive control and may lead to new theoretical and empirical insights. We conclude that cognitive control can’t be assessed using a single task and should instead be measured using a battery of tasks (varying contexts and demands) or more complex tasks (e.g., video games). We also conclude that as a construct cognitive control may benefit from being decomposed into smaller, better defined constructs to make progress in the field.
-} \\ \hline
-\textbf{Output} & {
-    The article was accepted as a conference paper for the CogSci2022 conference, the preprint is published on ArXiv \cite{Ansarinia2022CogText} and will be submitted for publication soon. The dataset is available on \href{https://huggingface.co/datasets/morteza/cogtext}{huggingface.co/datasets/morteza/cogtext}, and the code is publicly available on \href{https://github.com/morteza/CogText}{github.com/morteza/CogText}. \newline
-    The methods and implications are further described in Chapter 1 (page \pageref{articles-cogtext}).
-} \\ \hline
-\end{tabular}
-\end{table}
-```
-
-\newpage
-
-```{=latex}
-
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{CogEnv}
-\label{tbl-tldrCogEnv}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
+: Chapter 1 (CogText) information sheet {#tbl-tldr-cogtext}
 
 \newpage
 
-```{=latex}
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{CogPonder}
-\label{tbl-tldrCogPonder}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Title**    | CogEnv: A Virtual Environment for Contrasting Human and Artificial Agents across Cognitive Tests      |                                                          |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Challenge**| Modeling the environment: develop a virtual environment that allows the direct comparison of human    |
+|              | versus artificial agents and thus supports the integration of cognitive control theories across       |
+|              | psychology and artificial intelligence.                                                               |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Context**  | There have been important advances in artificial intelligence but those advances are not readily      |
+|              | accessible to psychological scientists. Similarly, psychological scientists have developed tasks,     |
+|              | concepts, and theories that might not be accessible or perceived as relevant by computer scientists.  |
+|              | One impediment to a shared understanding is the lack of an interoperable environment in which both    |
+|              | human and artificial agents can interact with the exact same tasks.                                   |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Why it**   | Being able to record and directly compare behavior from both human and artificial agents opens up many|
+| **matters**  | new possibilities. It may help ground cognition in computational terms \[e.g., which types of tasks   |
+|              | can be performed by a given computational architecture and which can't\\; \@yang2019; \@mnih2015\],   |
+|              | offer benchmarks for human and artificial agents as well as their comparison (relative performance    |
+|              | profiles), lead to the development of new tasks (e.g., tasks that are diagnostic of types of          |
+|              | artificial agents and that could be tested on humans), and new computational models. It also allows to|
+|              | train a given artificial agent on a battery of tasks and to study task correlation and transfer       |
+|              | effects (i.e., training on one task leads to improved performance on other tasks depending on how     |
+|              | "similar" the tasks are) that can be compared with and tested on human participants.                  |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Method**   | We developed CogEnv, a virtual environment that lets us interface both human and artificial agents to |
+|              | perform the exact same computerized battery of cognitive tasks. A wide range of artificial agents can |
+|              | be tested with this battery, provided they follow a common protocol (i.e., use pixels/symbols as      |
+|              | input, process reward signals, and emit action). The data collected from these agents is in the same  |
+|              | shape and format as human data and can thus be processed using the exact same data analysis code that |
+|              | is typical in experimental psychology (thus facilitating the direct comparison of human and artificial|
+|              | agents). As a proof of concept, we successfully trained baseline RL agents to perform a battery of    |
+|              | cognitive tasks for which we also collected human data.                                               |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Results**  | The overall framework is operational and appears very promising. A preliminary investigation          |
+|              | illustrates the idea that the comparison of performance/error profiles of human versus baseline RL    |
+|              | agents may reveal  aspects of human cognitive control that are yet to be addressed by artificial      |
+|              | agents.                                                                                               |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Output**   | The article was accepted and published as a conference paper for the CCN2022 conference. The code is  |
+|              | available at [github.com/morteza/CogEnv](https://github.com/morteza/CogEnv).                          |
+|              |                                                                                                       |
+|              | The method and implications of the proposed environment and expected performance profiles are further |
+|              | described in Chapter 2.                                                                               |
++--------------+-------------------------------------------------------------------------------------------------------+
 
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
+: Chapter 2 (CogEnv) information sheet {#tbl-tldr-cogenv}
 
-\end{tabular}
-\end{table}
-```
+\newpage
+
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Title**     | CogPonder: Towards a Computational Framework of General Cognitive Control                             |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Challenge** | Modeling the agent: developing a shared account of response times for human and artificial agents     |
+|              | using a new type of computational model that functionally decouples control from controlled processes.|
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Context**   | Computational models embody our theoretical understanding in an explicit and testable way. Current    |
+|              | computational models of cognitive control are lacking in important ways. In psychology, cognitive     |
+|              | control models tend to be designed for specific tasks (e.g., Stroop) which makes it hard to study     |
+|              | cognitive control in general (e.g., across a battery of tasks, while playing video games or in        |
+|              | real-life activities). Computer science, on the other hand, has recently been able to develop         |
+|              | artificial agents that can perform complex tasks. However, computer scientists typically ignore       |
+|              | resource limitations and how long it takes for an agent to make decisions and act (in some cases,     |
+|              | the environment is "paused" for the agent computation to be completed).                               |
+|              |                                                                                                       |
+|              | A defining (and measurable) property of human cognitive processing is that it takes time and that this|
+|              | amount of time varies depending on numerous factors in a meaningful way [i.e., response time\; see    |
+|              | @ratcliff2013; @deboeck2019]. The exertion of cognitive control impacts response times and this impact|
+|              | is a major source of information in psychological research [e.g., "task-switching costs"\;            |
+|              | @monsell2003].                                                                                        |
+|              | What is missing then is a new type of computational model of cognitive control that is flexible enough|
+|              | to be used in combination with any model (hence being able to address more complex tasks), which      | 
+|              | decouples control from operation in a way that might be theoretically meaningful and which offers     |
+|              | computational scientists a means to add control mechanisms to their computational models.             |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Why it**    | The envisioned computational models would benefit psychology by offering a principled means to        |
+|**matters**   | investigate cognitive control across a wide range of situations as well as the possibility to exploit |
+|              | innumerous complex models that have been developed in computer science. It would also benefit computer|
+|              | science by offering a principled and computationally practical (i.e., differentiable, modular) means  |
+|              | to augment existing computational models with control abilities resulting in time varying responses.  |
+|              | The comparison of response time profiles across human and artificial agents furthermore may offer     |
+|              | insights benefitting both disciplines.                                                                |
++--------------+-------------------------------------------------------------------------------------------------------+
+|**Method**    | We propose a general deep learning framework that functionally decouples control (generating varying  |
+|              | response times) from the decision making processes (making choices). The framework involves a         |
+|              | controller that acts as a wrapper around any computational models (that "perceive" the environment    |
+|              | and generate "actions" on that environment) and controls when the model should stop its processing    |
+|              | and output a choice (this is known as the halting problem).                                           |
+|              |                                                                                                       |
+|              | This model is inspired by the Test-Operate-Test-Exit (TOTE) architecture [@miller1960] that conceives |
+|              | control as a recurrent mechanism that ultimately halts a computational process once a specific        |
+|              | condition has been met. We instantiated TOTE using PonderNet, a recent deep learning framework for    |
+|              | adaptive computing. By controlling the halting, the fameworks allows to continuously control how much |
+|              | resources are dedicated to the decision making agent and jointly affects the choices (accuracy) and   |
+|              | response speed of the system.                                                                         |
+|              |                                                                                                       |
+|              | We implemented CogPonder, a flexible, differentiable end-to-end deep learning model that can perform  |
+|              | the same cognitive tests that are used in cognitive psychology to test humans. We then trained        |
+|              | CogPonder to perform two cognitive control tasks (i.e., Stroop and N-back)  while at the same time    |
+|              | aligning it with human behavior. Next we compared the behavior of CogPonder  (i.e., accuracy and      |
+|              | response times distributions)  with the behavior of humans.                                           |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Results**  | CogPonder can be trained to perform cognitive tests and generates behavior that is similar to human   |
+|              | behavior across multiple experimental conditions. CogPonder therefore provides a means for further    |
+|              | investigating both human cognition and the computational models.                                      |
+|              |                                                                                                       |
+|              | The proposed model is very flexible (i.e., CogPonder can wrap around any deep learning model so is    |
+|              | unattached to specific model choices) and can be extended in many ways (e.g., using more advanced     |
+|              | computational techniques to perform complex tasks). Most importantly, the proposed framework          |
+|              | explicitly connects human behavior to artificial agents that produce human-like behaviors on a        |
+|              | battery of cognitive control tasks. The framework thus provides interesting new insights and research |
+|              | opportunities for both psychological and computer science.                                            |
++--------------+-------------------------------------------------------------------------------------------------------+
+| **Output**   | The manuscript will be submitted for publication soon. The code is available at                       |
+|              | [github.com/morteza/CogPonder](https://github.com/morteza/CogPonder). The method and results of the   |
+|              | proposed computational model of response time are further described in Chapter 3.                     |
++--------------+-------------------------------------------------------------------------------------------------------+
+
+: Chapter 3 (CogPonder) information sheet {#tbl-tldr-cogponder}
+
 
 
 \newpage
 
-```{=latex}
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{Review}
-\label{tbl-tldrReview}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
 
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
-
+: Chapter 4 (Review) information sheet {#tbl-tldr-review}
 
 \newpage
 
-```{=latex}
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{ACNets}
-\label{tbl-tldrACNets}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
+: Chapter 5 (ACNets) information sheet {#tbl-tldr-acnets}
 
-\textbf{Title} & {\bf} \\ \hline
-\textbf{Challenge} & {} \\ \hline
-\textbf{Context} & {} \\ \hline
-\textbf{Why it mattes} & {} \\ \hline
-\textbf{Methods} & {} \\ \hline
-\textbf{Results} & {} \\ \hline
-\textbf{Output} & {} \\ \hline
-
-\end{tabular}
-\end{table}
-```
+\normalsize
+\doublespacing
