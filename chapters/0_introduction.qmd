@@ -53,3 +53,137 @@ A key step towards making this happen is to make it possible, and even easy, to 
 The main strategy in this thesis has been to establish a broader, interdisciplinary view of cognitive control that can be conceptually, computationally, and empirically studied and integrates work within and across scientific fields. In line with this strategy, the current work explores a diverse set of approaches that together aim to better delineate the fuzzy concept of cognitive control.
 
 The thesis comprises five research articles. Each of these articles are summarized in the following information sheets and discussed as a whole in the general discussion. Together this work illustrates, I hope, the benefits of the synergy between experimental psychology, neuroscience, and artificial intelligence in the study of cognitive control and opens up interesting future research perspectives.
+
+
+
+\newpage
+
+## TLDR; Information sheets
+
+```{=latex}
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{CogText}
+\label{tbl-tldrCogText}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Title} & {\bf
+    Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
+}  \\ \hline
+
+\textbf{Challenge} & {
+    Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
+} \\ \hline
+
+\textbf{Context} & {
+    Despite a large volume of publications, cognitive control remains a rather vague concept both theoretically and operationally \cite{Baggetta2016}. Literature reviews by human domain experts have had limited success in bringing such clarity: they are not exhaustive, can’t keep up with the rate of new publications, and may depict a biased, subjective perspective rather than an objective, quantitative view of the research field.
+} \\ \hline
+\textbf{Why it matters} & {
+    Greater clarity on cognitive control and its measurement are critical to advance the field and integrate currently disparate research branches.
+} \\ \hline
+\textbf{Methods} &  {
+    We conducted automated text analysis on a large corpus of scientific abstract (+500K) downloaded from PubMed. We used a state-of-the-art language model (GPT-3) to encode scientific texts and create a joint view of cognitive control related constructs and tasks. This method allows the grounding of theoretical constructs on cognitive tasks (in the sense that tasks are used to measure the constructs) as well as the grounding of tasks on cognitive constructs (in the sense that constructs are used to theorize behavior in tasks). It also offers a unique holistic view of cognitive control constructs and tasks within a single knowledge graph.
+} \\ \hline
+\textbf{Results} & {
+    The results confirm the complex nature of cognitive control, explain the difficulty of defining cognitive control and may lead to new theoretical and empirical insights. We conclude that cognitive control can’t be assessed using a single task and should instead be measured using a battery of tasks (varying contexts and demands) or more complex tasks (e.g., video games). We also conclude that as a construct cognitive control may benefit from being decomposed into smaller, better defined constructs to make progress in the field.
+} \\ \hline
+\textbf{Output} & {
+    The article was accepted as a conference paper for the CogSci2022 conference, the preprint is published on ArXiv \cite{Ansarinia2022CogText} and will be submitted for publication soon. The dataset is available on \href{https://huggingface.co/datasets/morteza/cogtext}{huggingface.co/datasets/morteza/cogtext}, and the code is publicly available on \href{https://github.com/morteza/CogText}{github.com/morteza/CogText}. \newline
+    The methods and implications are further described in Chapter 1 (page \pageref{articles-cogtext}).
+} \\ \hline
+\end{tabular}
+\end{table}
+```
+
+\newpage
+
+```{=latex}
+
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{CogEnv}
+\label{tbl-tldrCogEnv}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Title} & {\bf} \\ \hline
+\textbf{Challenge} & {} \\ \hline
+\textbf{Context} & {} \\ \hline
+\textbf{Why it mattes} & {} \\ \hline
+\textbf{Methods} & {} \\ \hline
+\textbf{Results} & {} \\ \hline
+\textbf{Output} & {} \\ \hline
+
+\end{tabular}
+\end{table}
+```
+
+\newpage
+
+```{=latex}
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{CogPonder}
+\label{tbl-tldrCogPonder}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Title} & {\bf} \\ \hline
+\textbf{Challenge} & {} \\ \hline
+\textbf{Context} & {} \\ \hline
+\textbf{Why it mattes} & {} \\ \hline
+\textbf{Methods} & {} \\ \hline
+\textbf{Results} & {} \\ \hline
+\textbf{Output} & {} \\ \hline
+
+\end{tabular}
+\end{table}
+```
+
+
+\newpage
+
+```{=latex}
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{Review}
+\label{tbl-tldrReview}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Title} & {\bf} \\ \hline
+\textbf{Challenge} & {} \\ \hline
+\textbf{Context} & {} \\ \hline
+\textbf{Why it mattes} & {} \\ \hline
+\textbf{Methods} & {} \\ \hline
+\textbf{Results} & {} \\ \hline
+\textbf{Output} & {} \\ \hline
+
+\end{tabular}
+\end{table}
+```
+
+
+\newpage
+
+```{=latex}
+\begin{table}[ht!]
+\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
+\caption{ACNets}
+\label{tbl-tldrACNets}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
+\hline
+
+\textbf{Title} & {\bf} \\ \hline
+\textbf{Challenge} & {} \\ \hline
+\textbf{Context} & {} \\ \hline
+\textbf{Why it mattes} & {} \\ \hline
+\textbf{Methods} & {} \\ \hline
+\textbf{Results} & {} \\ \hline
+\textbf{Output} & {} \\ \hline
+
+\end{tabular}
+\end{table}
+```
