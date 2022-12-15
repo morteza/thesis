@@ -1,5 +1,5 @@
 
-# CogPonder: Towards a computational framework of general cognitive control
+# CogPonder: Towards a Computational Framework of General Cognitive Control
 
  
 ## Abstract {.unnumbered}

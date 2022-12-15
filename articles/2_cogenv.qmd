@@ -1,4 +1,4 @@
-# CogEnv: A Reinforcement Learning Environment for Cognitive Tests
+# CogEnv: A Virtual Environment for Contrasting Human and Artificial Agents across Cognitive Tests
  
 Morteza Ansarinia, Brice Clocher, Aurélien Defossez, Emmanuel Schmück, and Pedro Cardoso-Leite
 
