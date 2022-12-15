@@ -1,9 +1,12 @@
 project:
   type: book
-  # execute-dir: project
+
+filters:
+  - filters/remove_titlepage.lua
 
 book:
   title: "Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience"
+  output-file: "PhDDissertationMortezaAnsarinia"
   author: "Morteza Ansarinia"
   date: last-modified
   chapters:
@@ -29,8 +32,6 @@ format:
   html:
     theme: cosmo
   pdf:
-    output-file: "PhD Dissertation - Morteza Ansarinia"
-    output-ext:  "pdf"
     documentclass: report
     fontsize: 12pt
     papersize: a4paper
@@ -54,5 +55,6 @@ format:
           \allsectionsfont{\singlespacing}
 
     include-before-body: 
+      - file: chapters/cover.tex
       - file: chapters/abstract.tex
       - file: chapters/acknowledgments.tex
