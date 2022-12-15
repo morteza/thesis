@@ -124,8 +124,8 @@ The thesis comprises five research articles. Each of these articles are summariz
 |              | human and artificial agents can interact with the exact same tasks.                                   |
 +--------------+-------------------------------------------------------------------------------------------------------+
 | **Why it**   | Being able to record and directly compare behavior from both human and artificial agents opens up many|
-| **matters**  | new possibilities. It may help ground cognition in computational terms \[e.g., which types of tasks   |
-|              | can be performed by a given computational architecture and which can't\\; \@yang2019; \@mnih2015\],   |
+| **matters**  | new possibilities. It may help ground cognition in computational terms [e.g., which types of tasks    |
+|              | can be performed by a given computational architecture and which can't\; @yang2019; @mnih2015],       |
 |              | offer benchmarks for human and artificial agents as well as their comparison (relative performance    |
 |              | profiles), lead to the development of new tasks (e.g., tasks that are diagnostic of types of          |
 |              | artificial agents and that could be tested on humans), and new computational models. It also allows to|
