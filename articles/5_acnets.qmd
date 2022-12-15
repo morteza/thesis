@@ -363,33 +363,33 @@ We used the evaluation scores from the cross-validated classification pipeline d
 ![](../resources/5_acnets/bayesian_model.png)
 
 
-Bayesian model fitted to the choice of atlas ($P$), choice of connectivity metric ($C$), and prediction accuracy ($y$); See Formula Supp-1. We used full-rank coding of categorical variables ($P$ and $C$), with $C$=`correlation` being the baseline reference.
+Bayesian model fitted to the choice of atlas ($P$), choice of connectivity metric ($C$), and prediction accuracy ($y$); See Formula Supp-1. We used full-rank coding of categorical variables ($P$ and $C$), with $C$=`correlation` and $P$=`DiFuMo64` being the baseline references.
 :::
 
 The results are shown in the @tbl-acnets-bayesian-results and @fig-acnets-bayesian-results below. Overall, they show that choices of parcellation atlas and connectivity metric have a big impact on the results. For our purposes, the best parcellation atlas is Dosenbach2010 and the best connectivity metric is the partial correlation. 
 
 \tiny
 
-|                                                  | **mean** | **sd** | **hdi_3%** | **hdi_97%** | **mcse_mean** | **mcse_sd** | **ess_bulk** | **ess_tail** | **r_hat** |
-|--------------------------------------------------|----------|--------|------------|-------------|---------------|-------------|--------------|--------------|-----------|
-| atlas\[Dosenbach2010\]                           | 3.82     | 0.125  | 3.595      | 4.059       | 0.001         | 0.001       | 7179         | 5456         | 1         |
-| atlas\[DiFuMo64\]                                | 2.946    | 0.125  | 2.717      | 3.186       | 0.003         | 0.002       | 2186         | 4449         | 1         |
-| atlas\[Gordon2014\]                              | 2.939    | 0.123  | 2.703      | 3.165       | 0.001         | 0.001       | 7424         | 6133         | 1         |
-| atlas:kind\[Gordon2014, tangent\]                | 1.345    | 0.251  | 0.859      | 1.809       | 0.004         | 0.003       | 3416         | 4463         | 1         |
-| test_score_sigma                                 | 1.235    | 0.023  | 1.191      | 1.277       | 0             | 0           | 11057        | 5883         | 1         |
-| atlas:kind\[Gordon2014, covariance\]             | 1.006    | 0.251  | 0.515      | 1.449       | 0.004         | 0.003       | 3462         | 5423         | 1         |
-| atlas:kind\[Dosenbach2010, tangent\]             | 0.984    | 0.248  | 0.522      | 1.448       | 0.004         | 0.003       | 3260         | 5279         | 1         |
-| atlas:kind\[Dosenbach2010, partial_correlation\] | 0.875    | 0.248  | 0.388      | 1.33        | 0.004         | 0.003       | 3658         | 4118         | 1         |
-| atlas:kind\[Gordon2014, partial_correlation\]    | 0.748    | 0.247  | 0.299      | 1.223       | 0.004         | 0.003       | 3418         | 5515         | 1         |
-| kind\[precision\]                                | 0.584    | 0.178  | 0.267      | 0.925       | 0.003         | 0.002       | 3068         | 5223         | 1         |
-| atlas:kind\[Gordon2014, precision\]              | 0.156    | 0.246  | -0.312     | 0.607       | 0.004         | 0.003       | 3434         | 4634         | 1         |
-| kind\[partial_correlation\]                      | 0.113    | 0.177  | -0.235     | 0.433       | 0.003         | 0.002       | 3229         | 4641         | 1         |
-| atlas:kind\[Dosenbach2010, covariance\]          | -0.287   | 0.251  | -0.757     | 0.182       | 0.005         | 0.003       | 2893         | 3790         | 1         |
-| atlas:kind\[Dosenbach2010, precision\]           | -0.296   | 0.251  | -0.758     | 0.183       | 0.004         | 0.003       | 3491         | 5051         | 1         |
-| kind\[tangent\]                                  | -0.304   | 0.177  | -0.647     | 0.022       | 0.003         | 0.002       | 3107         | 5010         | 1         |
-| kind\[covariance\]                               | -0.376   | 0.177  | -0.72      | -0.051      | 0.003         | 0.002       | 2889         | 4148         | 1         |
+|                                         |   mean |    sd |   hdi_3% |   hdi_97% |   mcse_mean |   mcse_sd |   ess_bulk |   ess_tail |   r_hat |
+|:----------------------------------------|-------:|------:|---------:|----------:|------------:|----------:|-----------:|-----------:|--------:|
+| Intercept                               |  2.948 | 0.125 |    2.72  |     3.19  |       0.002 |     0.002 |       2610 |       4279 |       1 |
+| P:C[Gordon2014, tangent]                |  1.346 | 0.25  |    0.858 |     1.785 |       0.004 |     0.003 |       3358 |       5024 |       1 |
+| y_sigma                                 |  1.235 | 0.023 |    1.193 |     1.279 |       0     |     0     |      12350 |       5695 |       1 |
+| P:C[Gordon2014, covariance]             |  1.006 | 0.247 |    0.557 |     1.48  |       0.004 |     0.003 |       3576 |       5031 |       1 |
+| P:C[Dosenbach2010, tangent]             |  0.987 | 0.249 |    0.504 |     1.45  |       0.004 |     0.003 |       3715 |       4887 |       1 |
+| P:C[Dosenbach2010, partial_correlation] |  0.874 | 0.247 |    0.406 |     1.338 |       0.004 |     0.003 |       3532 |       5360 |       1 |
+| P[Dosenbach2010]                        |  0.873 | 0.175 |    0.531 |     1.194 |       0.003 |     0.002 |       2931 |       4186 |       1 |
+| P:C[Gordon2014, partial_correlation]    |  0.746 | 0.249 |    0.318 |     1.256 |       0.004 |     0.003 |       3408 |       5267 |       1 |
+| C[precision]                            |  0.583 | 0.176 |    0.248 |     0.903 |       0.003 |     0.002 |       3343 |       4276 |       1 |
+| P:C[Gordon2014, precision]              |  0.157 | 0.248 |   -0.287 |     0.651 |       0.004 |     0.003 |       3516 |       4153 |       1 |
+| C[partial_correlation]                  |  0.113 | 0.175 |   -0.215 |     0.436 |       0.003 |     0.002 |       3114 |       5076 |       1 |
+| P[Gordon2014]                           | -0.008 | 0.178 |   -0.34  |     0.333 |       0.003 |     0.002 |       2791 |       4114 |       1 |
+| P:C[Dosenbach2010, covariance]          | -0.283 | 0.246 |   -0.729 |     0.199 |       0.004 |     0.003 |       3611 |       5076 |       1 |
+| P:C[Dosenbach2010, precision]           | -0.295 | 0.248 |   -0.764 |     0.165 |       0.004 |     0.003 |       3510 |       4848 |       1 |
+| C[tangent]                              | -0.307 | 0.174 |   -0.652 |    -0     |       0.003 |     0.002 |       3289 |       5000 |       1 |
+| C[covariance]                           | -0.376 | 0.175 |   -0.725 |    -0.061 |       0.003 |     0.002 |       3361 |       4674 |       1 |
 
-: A Bayesian model comparison analysis shows that the choice of parcellation atlas affects classification accuracy most. In general, choosing Dosenbach2010 atlas and precision connectivity metric leads to the highest classification accuracy. Results from a "y ~ P + C + P:C" model (which reads "accuracy ~ atlas * metric" ) are shown in the table. Note that the table shows contrasts against the baseline reference of correlation connectivity metric. {#tbl-acnets-bayesian-results}
+: A Bayesian model comparison analysis shows that the choice of parcellation atlas affects classification accuracy most. In general, choosing Dosenbach2010 atlas and precision connectivity metric leads to the highest classification accuracy. Results from a "y ~ P * C" model (which reads "accuracy ~ atlas * metric" ) are shown in the table. Note that the table shows contrasts against the baseline reference of correlation connectivity metric and DiFuMo64 atlas. {#tbl-acnets-bayesian-results}
 
 \normalsize
 
@@ -398,7 +398,7 @@ The results are shown in the @tbl-acnets-bayesian-results and @fig-acnets-bayesi
 ![](../resources/5_acnets/model_comparison.png)
 
 
-Comparing the choice of atlas and connectivity metric on classification performance. Error bars represent 2 standard deviations. We used full-rank coding of categorical variables with baseline reference being correlation connectivity metric ($C$=`correlation`).
+Comparing the choice of atlas and connectivity metric on classification performance. Error bars represent 2 standard deviations. We used full-rank coding of categorical variables with baseline reference being correlation for connectivity metrics ($C$=`correlation`) and DiFuMo for parcellation atlases ($P$=`DiFuMo64`). Intercept and baseline references are not shown.
 :::
 
 ### SHAP Analysis
