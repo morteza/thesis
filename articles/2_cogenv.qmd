@@ -1,6 +1,10 @@
 # CogEnv: A Reinforcement Learning Environment for Cognitive Tests
  
+Morteza Ansarinia, Brice Clocher, Aurélien Defossez, Emmanuel Schmück, and Pedro Cardoso-Leite
+
+
 ## Abstract {.unnumbered}
+
 Understanding human cognition involves developing computational models that mimic and possibly explain behavior; these are models that “act” like humans and produce similar outputs when facing the same inputs. To facilitate the development of such models and ultimately further our understanding of the human mind we created CogEnv—a reinforcement learning environment where artificial agents interact with and learn to perform cognitive tests and can then be directly compared to humans. By leveraging CogEnv, cognitive and AI scientists can join efforts to better understand human cognition: the relative performance profiles of human and artificial agents may provide new insights on the computational basis of human cognition and on what human abilities artificial agents may lack.
 
 
@@ -18,7 +22,7 @@ We simulate a real-time RL environment, where the environment, upon receiving an
 
 ::: {#fig-cogenv-figure1 layout-ncol=1}
 
-![](../resources/2_cogenv/figure1.png)
+![](../resources/2_cogenv/figure1.png){width=80%}
 
 Overall architecture of CogEnv. CogEnv communicates with AndroidEnv via Protocol Buffer messages and manages access to the Behaverse events. $O_t$ is the screenshot of the task at time t, $O^{\prime}_t$ is the extra observations extracted from the Behaverse events including information about the task and stimuli, $r_t$ is the reward, and $A_t$ is the agent's action.
 :::
@@ -37,7 +41,7 @@ Screenshot ($O_t$) of four Behaverse tasks. A) Digit Span (working memory), B) N
 
 
 ### Timing
-CogEnv supports both step-lock (where the environment pauses between two consecutive actions) and real-time mode (where the environment runs asynchronously from the agent). A real-time environment is necessary to study the timing of actions: in cognitive psychology, human behavior is typically evaluated in terms of both accuracy and speed.
+CogEnv supports both step-lock (i.e., turn-based, where the environment pauses between two consecutive actions) and real-time mode (where the environment runs asynchronously from the agent). A real-time environment is necessary to study the timing of actions: in cognitive psychology, human behavior is typically evaluated in terms of both accuracy and speed.
 
 ### Action space
 Each test defines a discrete action space that is in fact bounded tap gestures on the buttons of the graphical interface. The Action Coordinator component (see @fig-cogenv-figure1) automatically constructs a sequence of AndroidEnv gestures (TAP, TOUCH, and LIFT) that together perform the requested action as a set of movements in the emulated device.
@@ -56,7 +60,7 @@ Whatever the case may be, it is clear that the comparison of human versus artifi
 
 ::: {#fig-cogenv-figure3 layout-ncol=1}
 
-![](../resources/2_cogenv/figure3.png)
+![](../resources/2_cogenv/figure3.png){width=80%}
 
 
 Hypothetical scenarios when comparing the performance of humans versus computational agents (see text).

@@ -1,5 +1,6 @@
 # Training Cognition with Video Games
 
+Pedro Cardoso-Leite, Morteza Ansarinia, Emmanuel Schmück, and Daphne Bavelier
 
 ## Abstract {.unnumbered}
  

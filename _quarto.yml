@@ -29,6 +29,8 @@ format:
   html:
     theme: cosmo
   pdf:
+    output-file: "PhD Dissertation - Morteza Ansarinia"
+    output-ext:  "pdf"
     documentclass: report
     fontsize: 12pt
     papersize: a4paper
@@ -41,6 +43,7 @@ format:
       - right=2cm
       - top=2cm
       - bottom=2cm
+      - heightrounded
     include-in-header: 
       - text: |
           \usepackage{ragged2e}

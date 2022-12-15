@@ -1,6 +1,6 @@
 # A Formal Framework for Structured N-Back Stimuli Sequences
 
-Morteza Ansarinia, Dominic Mussack, Paul Schrater, Pedro Cardoso-Leite
+Morteza Ansarinia, Dominic Mussack, Paul Schrater, and Pedro Cardoso-Leite
 
 
 ## Abstract {.unnumbered}

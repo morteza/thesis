@@ -1,6 +1,6 @@
 # Behaverse Data Model
 
-Aurélien Defossez, Morteza Ansarinia, Brice Clocher, Emmanuel Schmück, Paul Schrater, Pedro Cardoso-Leite
+Aurélien Defossez, Morteza Ansarinia, Brice Clocher, Emmanuel Schmück, Paul Schrater, and Pedro Cardoso-Leite
 
 
 ## Introduction
