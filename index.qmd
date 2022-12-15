@@ -64,8 +64,8 @@ The thesis comprises five research articles. Each of these articles are summariz
 \singlespacing
 \small
 +--------------+-------------------------------------------------------------------------------------------------------+
-| **Title**    | Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific              |
-|              | Literature: The Example of Cognitive Control                                                          |
+| **Title**    | **Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific**          |
+|              | **Literature: The Example of Cognitive Control**                                                      |
 +--------------+-------------------------------------------------------------------------------------------------------+
 | **Challenge**| Gain clarity on what is meant by cognitive control in the scientific literature and how               |
 |              | it can be measured empirically.                                                                       |
@@ -111,7 +111,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 \newpage
 
 +--------------+-------------------------------------------------------------------------------------------------------+
-| **Title**    | CogEnv: A Virtual Environment for Contrasting Human and Artificial Agents across Cognitive Tests      |                                                          |
+| **Title**    | **CogEnv: A Virtual Environment for Contrasting Human and Artificial Agents across Cognitive Tests**  |
 +--------------+-------------------------------------------------------------------------------------------------------+
 | **Challenge**| Modeling the environment: develop a virtual environment that allows the direct comparison of human    |
 |              | versus artificial agents and thus supports the integration of cognitive control theories across       |
@@ -159,7 +159,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 \newpage
 
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Title**     | CogPonder: Towards a Computational Framework of General Cognitive Control                             |
+|**Title**     | **CogPonder: Towards a Computational Framework of General Cognitive Control**                         |
 +--------------+-------------------------------------------------------------------------------------------------------+
 |**Challenge** | Modeling the agent: developing a shared account of response times for human and artificial agents     |
 |              | using a new type of computational model that functionally decouples control from controlled processes.|
@@ -235,7 +235,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 
 
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Title**     | Training Cognition with Video Games                                                                   |
+|**Title**     | **Training Cognition with Video Games**                                                               |
 +--------------+-------------------------------------------------------------------------------------------------------+
 |**Challenge** | Clarifying the relationship between training cognitive control with action video games and its        |
 |              | transfer effects by reviewing behavioral and brain evidence.                                          |
@@ -292,60 +292,76 @@ The thesis comprises five research articles. Each of these articles are summariz
 
 
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Title**     |                              |
+|**Title**     | **Neural Correlates of Habitual Action Video Games Playing in Control-Related Brain Networks**        |
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Challenge** |  |
+|**Challenge** | Test the idea that action video game play affects neural functioning in ways that are compatible with |
+|              | cognitive control hypotheses according to which action video gaming improves cognitive control which  |
+|              | in turn explains improved performance across a wide range of cognitive tests (i.e., transfer).        |
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Context**   |             |
+|**Context**   | On the one hand, research shows that playing action video games improves cognitive performance across |
+|              | a wide range of cognitive tasks, presumably by enhancing people's cognitive control abilities         |
+|              | [@bediou2018]. On the other, the cognitive neuroscience literature has highlighted integration of     |
+|              | several functional brain networks as being important for cognitive control [@menon2022]. These two    |
+|              | sets of theories have not yet been empirically confronted despite there being great value to do so.   |
+|              | Indeed, there are competing hypotheses regarding the effects of action video gaming—some highlighting |
+|              | domain-general abilities (e.g., attention, cognitive control), others focusing on domain-specific ones|
+|              | (e.g., response speed). These alternative views make rather different predictions regarding changes   |
+|              | in brain function (e.g., changes in specific functional networks vs changes in specific areas).       |
+|              |                                                                                                       |
+|              |  Similarly, research on functional brain networks has highlighted numerous cognitive control networks.|
+|              |  There are however some inconsistencies across such theories. Studying the impact of playing action   |
+|              |  video games provides a means to empirically test those theories and improve our understanding of how |
+|              |  those networks work.                                                                                 |
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Why it**    |         |
-|**matters**   |                                                                |
+|**Why it**    | The study of the differences in functional brain networks between habitual action video game players  |
+|**matters**   | and non-video game players can advance our understanding of both the mechanisms underlying the action |
+|              | video game training effects and the neural mechanisms supporting cognitive control in general.        |
+|              |                                                                                                       |
+|              | Confirming that action video game play affects cognitive control (via its functional neural           |
+|              | underpinnings) has important implications for the study of cognitive training. It also has practical  |
+|              | value as it would offer cognitive neuroscientists a new tool to causally study cognitive control.     |
+|              | Finally, this type of work could lay a foundation towards bridging a gap between experimental         |
+|              | psychology, cognitive neuroscience and computational cognitive sciences (brain function may for       |
+|              | instance inspire new computational theories and behavioral experiments).                              |
 +--------------+-------------------------------------------------------------------------------------------------------+
-|**Method**    |                                             |
+|**Method**    | We curated a dataset collected by [@föcker2018]. The dataset comprises resting-state fMRI data        |
+|              | (7 minutes and 30 seconds, or 125 time points) and task-fMRI data from a total of 32 human subjects   |
+|              | (16 habitual action video gamers and 16 non-gamers). The original study focused on task-fMRI; here we |
+|              | analyze the resting-state data.                                                                       |
+|              |                                                                                                       |
+|              | We developed a machine learning pipeline to investigate the differences between habitual action video |
+|              | gamers and non-video gamers in terms of their functional resting-state brain connectivities, focusing |
+|              | in particular on networks associated with cognitive control. We used a robust approach to preprocess, |
+|              | remove confounds, parcellate, aggregate networks, and extract resting-state functional connectivity   |
+|              | measures from the BOLD signals. The whole pipeline was cross-validated, and several arbitrary choices |
+|              | in the preprocessing were considered as hyperparameters of the model (for example parcellation atlas  |
+|              | and connectivity measure). We trained a classifier to discriminate unseen participants as action      |
+|              | video gamers versus non-gamers based on their resting-state functional connectivities. We then        |
+|              | investigated what features were responsible for the model prediction accuracy by applying a           |
+|              | permutation feature importance test. Additionally, SHAP analyses were conducted to investigate the    |
+|              | contribution of each feature to the output (not the accuracy) of the model.                           | 
 +--------------+-------------------------------------------------------------------------------------------------------+
-| **Results**  |                                            |
+| **Results**  | Our model is able to classify unseen participants as action video game players based only on their    |
+|              | resting state functional connectivities with an accuracy of 72.6%. This high level of accuracy        |
+|              | demonstrates the value of resting state functional data to study action video gaming. Interestingly,  |
+|              | the performance of the classifier depended on the specifics of the method used (i.e., parcellation    |
+|              | technique, type of connectivity metric), supporting the utility of the robust/exhaustive methodology  |
+|              | employed in this study. Investigating why the classification was successful shows that there is in    |
+|              | fact no specialized network that differs among the two groups of participants. Instead, it is the     |
+|              | interplay between networks that matters most, and in particular the interplay between the             |
+|              | cingulo-opercular and the sensorimotor networks and between the frontoparietal and the sensorimotor   |
+|              | networks—a result that is robust to variations in parcellation and connectivity metric. These results |
+|              | do not support the view that individual networks are enhanced by action video game play and suggest   |
+|              | instead a mechanism that involves a reconfiguration of a collection of networks. These results        |
+|              | provide new insights and have clear implications for both theories of action video game training and  |
+|              | for cognitive neuroscientific theories of cognitive control in the human brain.                       |
 +--------------+-------------------------------------------------------------------------------------------------------+
-| **Output**   |                      |
+| **Output**   | The article is being prepared for journal submission. The code is available on                        |
+|              | (github.com/morteza/ACNets)[https://github.com/morteza/ACNets]. The method and results are described  |
+|              | in Chapter 5.                                                                                         |
 +--------------+-------------------------------------------------------------------------------------------------------+
 
 : TL;DR -- Chapter 5 (ACNets) information sheet {#tbl-tldr-acnets}
-
-
-
-```{=latex}
-\begin{table}[ht!]
-\small
-\renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{TL;DR -- Chapter 5 (ACNets) information sheet}
-\label{tbl-tldr-acnets}
-\begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
-\hline
-
-\textbf{Title} & {\bf
-    Neural correlates of habitual action video games playing in control-related brain networks.
-} \\ \hline
-\textbf{Challenge} & {
-    Test the idea that action video game play affects neural functioning in ways that are compatible with cognitive control hypotheses according to which action video gaming improves cognitive control which in turn explains improved performance across a wide range of cognitive tests (i.e., transfer).
-} \\ \hline
-\textbf{Context} & {
-    On the one hand, research shows that playing action video games improves cognitive performance across a wide range of cognitive tasks, presumably by enhancing people's cognitive control abilities (Bediou et al., 2018). On the other, the cognitive neuroscience literature has highlighted integration of several functional brain networks as being important for cognitive control [@menon2020]. These two sets of theories have not yet been empirically confronted despite there being great value to do so. Indeed, there are competing hypotheses regarding the effects of action video gaming—some highlighting domain-general abilities (e.g., attention, cognitive control), others focusing on domain-specific ones (e.g., response speed). These alternative views make rather different predictions regarding changes in brain function (e.g., changes in specific functional networks vs changes in specific areas). \newline Similarly, research on functional brain networks has highlighted numerous cognitive control networks. There are however some inconsistencies across such theories. Studying the impact of playing action video games provides a means to empirically test those theories and improve our understanding of how those networks work.
-} \\ \hline
-\textbf{Why it mattes} & {
-    The study of the differences in functional brain networks between habitual action video game players and non-video game players can advance our understanding of both the mechanisms underlying the action video game training effects and the neural mechanisms supporting cognitive control in general. \newline Confirming that action video game play affects cognitive control (via its functional neural underpinnings) has important implications for the study of cognitive training. It also has practical value as it would offer cognitive neuroscientists a new tool to causally study cognitive control. Finally, this type of work could lay a foundation towards bridging a gap between experimental psychology, cognitive neuroscience and computational cognitive sciences (brain function may for instance inspire new computational theories and behavioral experiments).
-} \\ \hline
-\textbf{Methods} & {
-    We curated a dataset collected by [@föcker2018]. The dataset comprises resting-state fMRI data (7 minutes and 30 seconds, or 125 time points) and task-fMRI data from a total of 32 human subjects (16 habitual action video gamers and 16 non-gamers). The original study focused on task-fMRI; here we analyze the resting-state data. \newline We developed a machine learning pipeline to investigate the differences between habitual action video gamers and non-video gamers in terms of their functional resting-state brain connectivities, focusing in particular on networks associated with cognitive control. We used a robust approach to preprocess, remove confounds, parcellate, aggregate networks, and extract resting-state functional connectivity measures from the BOLD signals. The whole pipeline was cross-validated, and several arbitrary choices in the preprocessing were considered as hyperparameters of the model (for example parcellation atlas and connectivity measure). We trained a classifier to discriminate unseen participants as action video gamers versus non-gamers based on their resting-state functional connectivities. We then investigated what features were responsible for the model prediction accuracy by applying a permutation feature importance test. Additionally, SHAP analyses were conducted to investigate the contribution of each feature to the output (not the accuracy) of the model.
-} \\ \hline
-\textbf{Results} & {
-    Our model is able to classify unseen participants as action video game players based only on their resting state functional connectivities with an accuracy of 72.6%. This high level of accuracy demonstrates the value of resting state functional data to study action video gaming. Interestingly, the performance of the classifier depended on the specifics of the method used (i.e., parcellation technique, type of connectivity metric), supporting the utility of the robust/exhaustive methodology employed in this study. Investigating why the classification was successful shows that there is in fact no specialized network that differs among the two groups of participants. Instead, it is the interplay between networks that matters most, and in particular the interplay between the cingulopercular and the sensorimotor networks and between the frontoparietal and the sensorimotor networks—a result that is robust to variations in parcellation and connectivity metric. These results do not support the view that individual networks are enhanced by action video game play and suggest instead a mechanism that involves a reconfiguration of a collection of networks. These results provide new insights and have clear implications for both theories of action video game training and for cognitive neuroscientific theories of cognitive control in the human brain. 
-} \\ \hline
-\textbf{Output} & {
-    The article is being prepared for journal submission. The code is available on \href{https://github.com/morteza/ACNets}{github.com/morteza/ACNets}. The method and results are described in Chapter 5.
-} \\ \hline
-
-\end{tabular}
-\end{table}
-```
 
 
 \normalsize
