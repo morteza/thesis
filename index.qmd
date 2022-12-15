@@ -60,7 +60,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 
 \newpage
 
-## TL;DR information sheets
+## Information sheets
 \singlespacing
 \small
 +--------------+-------------------------------------------------------------------------------------------------------+
@@ -106,7 +106,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 |              | The methods and implications are further described in Chapter 1.                                      |
 +--------------+-------------------------------------------------------------------------------------------------------+
 
-: Chapter 1 (CogText) information sheet {#tbl-tldr-cogtext}
+: TL;DR -- Chapter 1 (CogText) information sheet {#tbl-tldr-cogtext}
 
 \newpage
 
@@ -154,7 +154,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 |              | described in Chapter 2.                                                                               |
 +--------------+-------------------------------------------------------------------------------------------------------+
 
-: Chapter 2 (CogEnv) information sheet {#tbl-tldr-cogenv}
+: TL;DR -- Chapter 2 (CogEnv) information sheet {#tbl-tldr-cogenv}
 
 \newpage
 
@@ -226,7 +226,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 |              | proposed computational model of response time are further described in Chapter 3.                     |
 +--------------+-------------------------------------------------------------------------------------------------------+
 
-: Chapter 3 (CogPonder) information sheet {#tbl-tldr-cogponder}
+: TL;DR -- Chapter 3 (CogPonder) information sheet {#tbl-tldr-cogponder}
 
 
 
@@ -286,7 +286,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 |              | provided in Chapter 4.                                                                                |
 +--------------+-------------------------------------------------------------------------------------------------------+
 
-: Chapter 4 (Review) information sheet {#tbl-tldr-review}
+: TL;DR -- Chapter 4 (Review) information sheet {#tbl-tldr-review}
 
 \newpage
 
@@ -308,7 +308,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 | **Output**   |                      |
 +--------------+-------------------------------------------------------------------------------------------------------+
 
-: Chapter 5 (ACNets) information sheet {#tbl-tldr-acnets}
+: TL;DR -- Chapter 5 (ACNets) information sheet {#tbl-tldr-acnets}
 
 
 
@@ -316,7 +316,7 @@ The thesis comprises five research articles. Each of these articles are summariz
 \begin{table}[ht!]
 \small
 \renewcommand{\arraystretch}{1.5} %<- table vertical spacing
-\caption{Chapter 5 (ACNets) information sheet}
+\caption{TL;DR -- Chapter 5 (ACNets) information sheet}
 \label{tbl-tldr-acnets}
 \begin{tabular}{|>{\raggedright\arraybackslash\columncolor[gray]{.9}}p{.12\textwidth}|>{\raggedright\arraybackslash}p{0.88\textwidth}|}
 \hline
