@@ -1,0 +1,24 @@
+---
+title: "Testing"
+format: revealjs
+---
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+# Going to sleep {auto-animate=true}
+
+- Get in bed
+- Count sheep
+
+This is a test
+
+```{mermaid}
+graph TD
+    A-->B
+    A-->C
+    B-->D
+    C-->D
+```
