@@ -1,0 +1,58 @@
+project: 
+  type: book
+
+filters:
+  - filters/remove_titlepage.lua
+
+book:
+  title: "Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience"
+  output-file: "PhDDissertationMortezaAnsarinia"
+  author: "Morteza Ansarinia"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - articles/1_cogtext.qmd
+    - articles/2_cogenv.qmd
+    - articles/3_cogponder.qmd
+    - articles/4_review.qmd
+    - articles/5_acnets.qmd
+    - chapters/6_discussion.qmd
+    - chapters/7_references.qmd
+  appendices:
+    - articles/8_nback.qmd
+    - articles/9_behaverse.qmd
+    # - articles/10_seqgen.qmd
+    # - appendices/11_projects.qmd
+
+
+bibliography: references.bib
+csl: apa.csl
+
+format:
+  pdf:
+    documentclass: report
+    fontsize: 12pt
+    papersize: a4paper
+    # linestretch: 1
+    toc: true
+    lof: true
+    lot: true
+    geometry:
+      - left=3cm
+      - right=2cm
+      - top=2cm
+      - bottom=2cm
+      - heightrounded
+    include-in-header: 
+      - text: |
+          \usepackage{ragged2e}
+          \usepackage{setspace}
+          \usepackage{colortbl}
+          \doublespacing
+          \usepackage{sectsty}
+          \allsectionsfont{\singlespacing}
+
+    include-before-body: 
+      - file: chapters/cover.tex
+      - file: chapters/abstract.tex
+      - file: chapters/acknowledgments.tex

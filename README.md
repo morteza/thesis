@@ -10,13 +10,13 @@ You need quarto and other required packages to build the thesis. You can install
 ```bash
 mamba create -f environment.yml
 mamba activate thesis
-# brew install quarto
+# install quarto (e.g., on macOS `brew install quarto`)
 ```
 
-To render the thesis, run the following command:
+To render the thesis as PDF, run the following command:
 
 ```bash
-quarto render
+quarto render --profile thesis
 ```
 
 To render the defense slides, run the following command:

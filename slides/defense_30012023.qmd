@@ -3,7 +3,7 @@ title: "Testing"
 format: revealjs
 ---
 
-## Getting up
+## Towards a Computational Model of General [Cognitive Control]{.rn} Using [Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience]{.rn}
 
 - Turn off alarm
 - Get out of bed

@@ -1,5 +1,8 @@
 project:
   type: website
 
+filters:
+   - roughnotation
+
 format: revealjs
 search: false
