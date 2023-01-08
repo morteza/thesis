@@ -1,24 +1,37 @@
 ---
-title: "Testing"
-format: revealjs
+title: "PhD Defense"
+author: "Morteza Ansarinia"
+date: "2023-1-30"
+institute: "University of Luxembourg"
+
+format:
+    revealjs:
+        smaller: true
+        slide-number: c/t
 ---
 
-## Towards a Computational Model of General [Cognitive Control]{.rn} Using [Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience]{.rn}
+# Towards a Computational Model of General [Cognitive Control]{.rn} Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience
 
-- Turn off alarm
-- Get out of bed
+::: {.notes}
+Hellow
+:::
 
-# Going to sleep {auto-animate=true}
+## Summary
 
-- Get in bed
-- Count sheep
+## Introduction & problem definition
 
-This is a test
+## Article 1: CogText
 
-```{mermaid}
-graph TD
-    A-->B
-    A-->C
-    B-->D
-    C-->D
-```
+## Article 2: CogEnv
+
+## Article 3: CogPonder
+
+## Article 4: OxfordCh
+
+## Article 5: ACNets
+
+## General conclusion
+
+## Future works
+
+## Acknowledgements
