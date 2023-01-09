@@ -13,25 +13,88 @@ format:
 # Towards a Computational Model of General [Cognitive Control]{.rn} Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience
 
 ::: {.notes}
-Hellow
-:::
 
-## Summary
+My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
+
+:::
 
 ## Introduction & problem definition
 
-## Article 1: CogText
+# Defining Cognitive Control
+
+## Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
+
+Figures:
+
+- Descriptive plots
+- Pipeline
+- Formulas
+- Hypergraph
+- Construct hypernomy across diciplines
+- Task-task similarity
+- Task recommender UI
+
+## {visibility="uncounted"}
+
+![](../resources/1_cogtext/figure2.png)
+
+---
+
+![](../resources/1_cogtext/figure3.png){.absolute top=30% width=100%}
+
+# Modeling Cognitive Control
 
 ## Article 2: CogEnv
 
+Figures:
+
+- Architecture
+- Tasks
+- Agents playing tasks
+- Expected performance profiles
+
 ## Article 3: CogPonder
+
+Figures:
+
+- Before/after CogPonder wrap
+- Formulas
+- Stroop
+- N-back
+- RT distributions
+- CogPonder performing a task
+
+# Training Cognitive Control
 
 ## Article 4: OxfordCh
 
+Figures
+
+- Generes
+- Brain structures and functions
+
 ## Article 5: ACNets
+
+Figures
+
+- Formulas
+- Accuracies given parcellation and connectivity metric
+- Feature importaance
+- Atlases
+- Head motion
+- SHAP
 
 ## General conclusion
 
+## Summary
+
+Thesis structure
+
 ## Future works
+
+Figures:
+
+- CogPonder+CogEnv architecture
+
 
 ## Acknowledgements
