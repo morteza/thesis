@@ -4,5 +4,10 @@ project:
 filters:
    - roughnotation
 
-format: revealjs
+format:
+  revealjs: 
+    smaller: true
+    slide-number: c/t
+    slide-level: 0
+
 search: false

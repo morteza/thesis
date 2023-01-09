@@ -1,28 +1,56 @@
 ---
 title: "PhD Defense"
 author: "Morteza Ansarinia"
-date: "2023-1-30"
+date: 1/30/2023
+date-format: long
 institute: "University of Luxembourg"
 
 format:
     revealjs:
         smaller: true
         slide-number: c/t
+        slide-level: 0
 ---
 
-# Towards a Computational Model of General [Cognitive Control]{.rn} Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience
+Hello, and thanks for joining me today for my dissertation defense meeting. The presentation takes about 30 minutes and at the end there will be a Q & A.
 
-::: {.notes}
+Okay, without further ado, let's start...
 
-My thesis aims to further our understanding of higher-order cognition. More specifically, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
+---
 
-:::
+# Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience
+The title of my thesis is towards a computational model of general cognitive control using AI, Psychology, and neuroscience.
 
-## Introduction & problem definition
+=> ... describe cognitive control... describe multidisciplinary approach
+
+---
+
+# Introduction & problem definition
+Briefly, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
+
+=> ... introduce cognitive control...
+=> list challenges including defining, modeling, and training cognitive control
+
+---
 
 # Defining Cognitive Control
 
-## Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
+The first part of the thesis, that is the first chapter, involves defining cognitive control.
+
+---
+
+## Article 1: Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
+ 
+
+The paper addresses the challenge of Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
+
+Traditionally, theory and practice of Cognitive Control are linked via literature reviews by human domain experts. This approach, however, is inadequate to track the ever-growing literature. It may also be biased, and yield redundancies and confusion.
+
+Here we present an alternative approach. We performed automated text analyses on a large body of scientific texts to create a joint representation of tasks and constructs. More specifically, 385,705 scientific abstracts were first mapped into an embedding space using a transformers-based language model. Document embeddings were then used to identify a task-construct graph embedding that grounds constructs *on* tasks and supports nuanced meaning of the constructs by taking advantage of constrained random walks in the graph. This joint task-construct graph embedding, can be queried to generate task batteries targeting specific constructs, may reveal knowledge gaps in the literature, and inspire new tasks and novel hypotheses.
+
+
+
+---
 
 Figures:
 
@@ -33,18 +61,29 @@ Figures:
 - Construct hypernomy across diciplines
 - Task-task similarity
 - Task recommender UI
+ 
+---
 
-## {visibility="uncounted"}
-
-![](../resources/1_cogtext/figure2.png)
+resources/1_cogtext/figure2.png
 
 ---
 
-![](../resources/1_cogtext/figure3.png){.absolute top=30% width=100%}
+resources/1_cogtext/figure3.png
+ 
+---
 
 # Modeling Cognitive Control
+The second part of my thesis involves modeling cognitive control in a way that serves both human studies and artificial agents.
 
-## Article 2: CogEnv
+The two complementary articles suggest interoperable environment and agent architecture to study cognitive control.
+
+---
+
+## Article 2: CogEnv: A Virtual Environment for Contrasting Human and Artificial Agents across Cognitive Tests
+
+CogEnv is our response to the challenge of modeling the environment. We aimed to develop a virtual environment that allows the direct comparison of human versus artificial agents and thus supports the integration of cognitive control theories across psychology and artificial intelligence.
+
+---
 
 Figures:
 
@@ -53,7 +92,13 @@ Figures:
 - Agents playing tasks
 - Expected performance profiles
 
-## Article 3: CogPonder
+---
+
+## Article 3: CogPonder: Towards a Computational Framework of General Cognitive Control
+
+And then the second article aims at modeling the agent, to develop a shared account of response times for human and artificial agents using a new type of computational model that functionally decouples control from controlled processes.
+
+---
 
 Figures:
 
@@ -64,16 +109,29 @@ Figures:
 - RT distributions
 - CogPonder performing a task
 
+---
+
 # Training Cognitive Control
 
-## Article 4: OxfordCh
+The third
+
+---
+
+## Article 4: Training Cognition with Video Games
+
+Article four is a review paper that aims at clarifying the relationship between training cognitive control with action video games and its transfer effects by reviewing behavioral and brain evidence.
+
+
 
 Figures
 
 - Generes
 - Brain structures and functions
 
-## Article 5: ACNets
+---
+
+## Article 5: Neural Correlates of Habitual Action Video Games Playing in Control-Related Brain Networks
+In the last article of the thesis, we test the idea that action video game play affects neural functioning in ways that are compatible with cognitive control hypotheses according to which action video gaming improves cognitive control which in turn explains improved performance across a wide range of cognitive tests (i.e., transfer).
 
 Figures
 
@@ -84,17 +142,28 @@ Figures
 - Head motion
 - SHAP
 
-## General conclusion
+---
+ 
+# General conclusion
+
+---
 
 ## Summary
 
-Thesis structure
+Figures:
+thesis structure
+
+---
 
 ## Future works
 
 Figures:
 
 - CogPonder+CogEnv architecture
+- Multi-task
+- fMRI study
 
+---
 
 ## Acknowledgements
+
