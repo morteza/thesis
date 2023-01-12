@@ -4,6 +4,8 @@ channels:
   - defaults
 dependencies:
   - python=3.10
+  - ipykernel
+  - notebook
   - R
   - r-jsonlite
   - r-rmarkdown

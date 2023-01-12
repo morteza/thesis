@@ -41,10 +41,10 @@ The cingulo-opercular network (cf. CON in Dosenbach2010),
 The fronto-parietal network (cf.  FPN in Dosenbach2010), 
 DorsalAtt, (aka DAN); centered on the intraparietal cortex and superior frontal cortex, is involved in top-down goal-directed selection of stimuli and responses. Regions of the dorsal network show sustained activation when subjects are cued to attend to a feature of stimulus (attention set).
 VentralAtt, (aka VAN); centered on the temporoparietal cortex and inferior frontal cortex, is specialized for the detection of behaviorally relevant stimuli, particularly when they are salient or unexpected. 
-The default mode network (cf.  DMN in Dosenbach2010), 
-The cingulo-parietal network (aka CPN) includes regions in anterior cingulate cortex, ventral and dorsal parts of the precuneus, inferior temporal cortex, and lateral parietal cortex, and superior frontal cortex. This network has been  often observed when the subjects do not perform any task (i.e., resting).
-The sensorimotor network of the hand (SMN:hand),
-The sensorimotor networks of the mouth (SMN: mouth), 
+The default mode network (cf. DMN in Dosenbach2010), 
+The cingulo-parietal network (aka CPN) includes regions in anterior cingulate cortex, ventral and dorsal parts of the precuneus, inferior temporal cortex, and lateral parietal cortex, and superior frontal cortex. This network has been  often observed when the subjects do not perform any task [i.e., resting\; toro2008].
+The sensorimotor network of the hand (SMNhand),
+The sensorimotor networks of the mouth (SMNmouth), 
 The salience network (SN) includes a set of regions with hubs in dorsal anterior cingulate and ventral anterior insular cortices. It receives inputs from limbic and sensory regions and is often attributed to monitoring and dynamic switching.
 The auditory network includes regions in superior temporal gyrus, and is thought to process auditory information.
 The visual network is located in the occipital lobe, and is thought to process sensory inputs originating from the eyes.
