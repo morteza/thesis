@@ -12,76 +12,129 @@ format:
         slide-level: 0
 ---
 
-Hello, and thanks for joining me today for my dissertation defense meeting. The presentation takes about 30 minutes and at the end there will be a Q & A.
-
-Okay, without further ado, let's start...
-
----
-
 # Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience
-The title of my thesis is towards a computational model of general cognitive control using AI, Psychology, and neuroscience.
 
-=> ... describe cognitive control... describe multidisciplinary approach
+Good morning, and thanks for joining me today.
+My name is Morteza and I am here to present my thesis.
+The presentation itself takes about 30 minutes and at the end there will be a Q & A.
 
 ---
 
-# Introduction & problem definition
-Briefly, I'm interested in our ability to be goal-driven and which enables us to produce complex, meaningful, context-dependent behavior, in uncertain environments, inhibit prepotent responses, monitor and manage the cross-talk between conflicting tasks.
+The thesis is entitled "Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience". The keyword here is the cognitive control and general view of it, that I suggest cognitive control is a general phenomena.
+By general view I mean it involves many cognitive constructs, different aspects of it are engaged differently in different contexts, and its functioning is distributed across multiple large-scale brain networks. In short, CC is not an isolated process.
 
-=> ... introduce cognitive control...
-=> list challenges including defining, modeling, and training cognitive control
+---
+
+The main goals of my research were to clarify the definition of cognitive control in a way that serves computational accounts of it in cognitive training programs.
+During my presentation today, I will cover the following three topics and corresponding challenges:
+how to define CC,
+how to model CC, and
+how CC is generalized in the brain and cognitive system, and hence how to train CC
+Additionally, I will be discussing some technical details...
+
+Okay
+
+---
+
+I like to begin by a brief description of what I mean by cognitive control.
+
+One ability that is of utmost importance to human functioning is to exercise cognitive control which enables pursuing goals in a changing world, avoiding prepotent responses, and effectively generalizing prior experiences to new situations.
+
+This higher-order function is often called cognitive control and may be interchangeable by other terms such as executive functions, self-regulation, and other ones. While I refer to cognitive control, I don't make any distinction between it and the others.
+
+Wh CC is important?
+
+Due to its ubiquitous presence in everything we do, cognitive control plays a crucial role in our daily lives, long-term achievements, and health. Accordingly, the possibility to enhance cognitive control in a way that transfers to real life situations could have important implications.
+
+Progress towards developing effective training programs is however limited by the lack of a formal, quantitative definition of cognitive control.
+
+The main challenges that this thesis aims to address are (a) to gain greater clarity on the cognitive control constructs (what it is and how to measure it), and (b) to understand what features of the cognitive system (i.e., the agent) and what features of the task (i.e., the environment) determine cognitive control, its functioning, and generalization.
+
+I will discuss these points in three parts: defining CC, modeling CC, and training CC
+
+---
+
+## Multidisciplinary approach
+
+This thesis relies on the multidisciplinary synergy within cognitive sciences, primarily between artificial intelligence, psychology, and cognitive neuroscience. This synergy is apparent at several levels.
+First, we apply artificial intelligence techniques as mere tools in our toolbox to interpret human data. In this sense, modern machine learning models provide new insights on human cognition as they are applied to behavioral data, scientific documents, and neuroimaging data.
+Second, a richer form of interdisciplinary synergy allows us to build bridges between disciplines, to develop new computational models that instantiate cognitive control and generalize across tasks, furthering our understanding of cognitive control in humans.
 
 ---
 
 # Defining Cognitive Control
 
-The first part of the thesis, that is the first chapter, involves defining cognitive control.
+The first article, that is the first chapter, involves defining cognitive control.
 
+Control in general, and CC in particular, have been the focus of research for many decades. For CC, researchers developed many constructs and quantified it with many tasks. The relationship between them is still unclear. For example...
 ---
 
 ## Article 1: Linking Theories and Methods in Cognitive Sciences via Joint Embedding of the Scientific Literature: The Example of Cognitive Control
- 
 
-The paper addresses the challenge of Gain clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
+The paper addresses the challenge of gaining clarity on what is meant by cognitive control in the scientific literature and how it can be measured empirically.
+
 
 Traditionally, theory and practice of Cognitive Control are linked via literature reviews by human domain experts. This approach, however, is inadequate to track the ever-growing literature. It may also be biased, and yield redundancies and confusion.
 
-Here we present an alternative approach. We performed automated text analyses on a large body of scientific texts to create a joint representation of tasks and constructs. More specifically, 385,705 scientific abstracts were first mapped into an embedding space using a transformers-based language model. Document embeddings were then used to identify a task-construct graph embedding that grounds constructs *on* tasks and supports nuanced meaning of the constructs by taking advantage of constrained random walks in the graph. This joint task-construct graph embedding, can be queried to generate task batteries targeting specific constructs, may reveal knowledge gaps in the literature, and inspire new tasks and novel hypotheses.
+In this figure for example we see the growth of research and how tasks are defined after the constructs (CogText Figure1)
+
+Our paper presents an alternative approach to manual reviews.
 
 
+
+
+
+
+
+We performed automated text analyses on a large body of scientific texts to create a joint representation of tasks and constructs.
+More specifically, as shown in this pipeline we used GPT-3 embedding, which was free back then, to encode half a million documents, and then transform the embeddings into another space that is semantically more useful. We then created a graph and used the graph embedding to compare constructs and ground them on tasks. We also grounded tasks on constructs.
+task-construct graph embedding grounds constructs *on* tasks and supports nuanced meaning of the constructs by taking advantage of constrained random walks in the graph.
+Formulas
+This joint task-construct graph embedding, can be queried to generate task batteries targeting specific constructs, may reveal knowledge gaps in the literature, and inspire new tasks and novel hypotheses.
+Give some examples...
+For example, this figure (CogText Figure 2-hypergraph) shows two impediments to define CC.
 
 ---
 
-Figures:
-
-- Descriptive plots
-- Pipeline
-- Formulas
-- Hypergraph
-- Construct hypernomy across diciplines
-- Task-task similarity
-- Task recommender UI
- 
----
-
+TODO:
 resources/1_cogtext/figure2.png
 
 ---
 
+TODO:
 resources/1_cogtext/figure3.png
+
+---
+
+Constructs hypernomy, ....
+Task impurity
+The solutions we propose for this is using a battery of tasks to quantify CC rather than experiments with only a single task. As shown in this figure this is in fact very rare in the literature (CogText Figure 1-D).
+We also created a quantified measure of task-task similarity when they are grounded on constructs. This may inform creating task batteries (Figure 4).
+Figure: Task-task similarity
+The knowledge graph can also be queried to  inform which tasks might be better suited for a list of targeted constructs...
+Figures: Task recommender UI
+
+---
+
+Second we measured construct hypernomy across disciplines and it seems that different fields operationalize constructs differently as the tasks are different (as shown in spikes in these figures).
+
+CogText Figure: Construct hypernomy across disciplines
  
 ---
 
 # Modeling Cognitive Control
-The second part of my thesis involves modeling cognitive control in a way that serves both human studies and artificial agents.
-
-The two complementary articles suggest interoperable environment and agent architecture to study cognitive control.
+The next part of my thesis involves modeling cognitive control in a way that serves both human studies and artificial agents.
+From the previous project, we now know a proper study of CC requires a battery of tasks.
+And with the advent of machine learning, specifically RL, we can rely on artificial agents to perform tasks that are commonly used in human studies.
+The two complementary articles together suggest that interoperable environments and agent architectures between human and artificial agents may benefit the study of cognitive control.
 
 ---
 
 ## Article 2: CogEnv: A Virtual Environment for Contrasting Human and Artificial Agents across Cognitive Tests
 
-CogEnv is our response to the challenge of modeling the environment. We aimed to develop a virtual environment that allows the direct comparison of human versus artificial agents and thus supports the integration of cognitive control theories across psychology and artificial intelligence.
+The first step is an environment where humans and artificial agents can perform cognitive control tasks.
+CogEnv is our response to the challenge of modeling the environment.
+We aimed to develop a virtual environment that allows the direct comparison of human versus artificial agents and thus supports the integration of cognitive control theories across psychology and artificial intelligence.
 
 ---
 
@@ -96,7 +149,7 @@ Figures:
 
 ## Article 3: CogPonder: Towards a Computational Framework of General Cognitive Control
 
-And then the second article aims at modeling the agent, to develop a shared account of response times for human and artificial agents using a new type of computational model that functionally decouples control from controlled processes.
+And then the next article aims at modeling the agent, to develop a shared account of response times for human and artificial agents using a new type of computational model that functionally decouples control from controlled processes.
 
 ---
 
@@ -112,26 +165,24 @@ Figures:
 ---
 
 # Training Cognitive Control
-
-The third
-
----
-
-## Article 4: Training Cognition with Video Games
-
-Article four is a review paper that aims at clarifying the relationship between training cognitive control with action video games and its transfer effects by reviewing behavioral and brain evidence.
-
-
-
-Figures
-
-- Generes
-- Brain structures and functions
-
----
-
-## Article 5: Neural Correlates of Habitual Action Video Games Playing in Control-Related Brain Networks
-In the last article of the thesis, we test the idea that action video game play affects neural functioning in ways that are compatible with cognitive control hypotheses according to which action video gaming improves cognitive control which in turn explains improved performance across a wide range of cognitive tests (i.e., transfer).
+Now, up to this point the main strategy was to use a battery of tasks and consider cognitive control as a general ability that spans multiple tasks. This view is mainly observed in the cognitive training literature.
+The possibility to enhance cognitive control has given rise to a body of research on cognitive training that mainly relies on the transfer effect hypothesis to explain the learning process.
+From prior research in cognitive training, we know that not all interventions transfer to new situations. For example N-back, etc...
+A second avenue is however using complex tasks, such as video games, to tap into and train cognitive control. This may benefit from and contribute to the proposed broad view of cognitive control.
+It has been shown video games for their ubiquity and complexity can impact cognitive systems.
+However, the available research highlights that not all video games have similar cognitive impact; action video games as defined by first and third person shooter games have been associated with greater cognitive enhancement, especially when it comes to top-down attention, than puzzle or life-simulation games. The enhancement is often attributed to cognitive and attentional control.
+What is important regarding the AVP environment is that the state of affairs suggests specific game mechanics need to be embodied in a video game for it to enhance cognition. In the case of action video games those mechanics include ...
+But it's not quite clear how these mechanics engage CC in a way that transfers to other situations.
+One way to test whether action video games impact cognitive systems is by contrasting habitual action video gamers against non-gamers.
+The study of differences in functional brain networks between action video game players and non-video game players can advance our understanding of the mechanisms underlying the training effects and the neural mechanisms supporting cognitive control in general.
+distributed set of networks or isolated networks...
+We show that it is possible to reliably classify new participants as habitual action video game players or non-video game players based on their resting-state functional connectivity. 
+An analysis of the features that are most important for this classification accuracy reveals that what differentiates habitual video game players from non-video game players is not the connectivity within specialized functional brain networks, but rather the relationships between distributed networks. It supports current theories of action video game training that attribute their benefits to domain-general abilities such as cognitive and attentional control.
+The results also show that the most important connectivities involve control-related and sensorimotor networks, specifically, the relationships between the cingulo-opercular and the sensorimotor networks, and between the fronto-parietal and the sensorimotor networks.
+Because these results suggest that action video game play affects multiple aspects of cognitive control, they have important implications for the study of cognitive training. It also may support the general and context-dependent view of cognitive control. For example, action video games impact both moment-to-moment control and maintenance of the task.
+In fact AVGP may be a good replacement for a battery of tasks in the study of cognitive control.
+It also implies that we don't actually need a comprehensive battery of tasks; resting-state data could also be a valuable tool for studying cognitive training effects and their potential for transfer, potentially leading to the development of more effective cognitive training programs.
+Additionally, these results have practical value for cognitive scientists studying cognitive control, as they imply that action video game training may be a new tool for causally studying cognitive control.
 
 Figures
 
@@ -140,15 +191,21 @@ Figures
 - Feature importaance
 - Atlases
 - Head motion
+model comparison
 - SHAP
 
 ---
  
-# General conclusion
+# General discussion
+
 
 ---
 
 ## Summary
+
+Progress towards developing effective cognitive control training programs is however limited by the lack of a formal, quantitative definition of cognitive control.
+The main challenges that this thesis aims to address are (a) to gain greater clarity on the cognitive control constructs (what it is and how to measure it), and (b) to understand what features of the cognitive system (i.e., the agent) and what features of the task (i.e., the environment) determine cognitive control, its functioning, and generalization.
+Regarding the first point we used text mining on a large scientific text cohort and grounded cognitive control tasks and constructs on the same representation.
 
 Figures:
 thesis structure
@@ -162,6 +219,13 @@ Figures:
 - CogPonder+CogEnv architecture
 - Multi-task
 - fMRI study
+
+## Conclusion
+
+Taken together, the current work explores approaches from a variety of cognitive science disciplines that aim to better understand the concept of cognitive control.
+I presented cases in which neuroscience, experimental psychology, and artificial intelligence can collaborate to advance our understanding of cognitive control and the challenge of generalizing this capacity to new contexts (i.e., transfer effect).
+In the age of ubiquitous computing and large datasets, bridging the gap between behavior, brain, and computation has the potential to fundamentally transform our understanding of the human mind and inspire the development of truly intelligent artificial agents.
+
 
 ---
 
