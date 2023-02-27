@@ -16,7 +16,7 @@ One productive strategy has been to develop cognitive architectures [e.g., ACT-R
 Despite the relevance and potential of RL to model cognition, there is currently no easy way to train RL models on the same cognitive tests that are used to assess humans. Here we present CogEnv, a configurable multi-task environment for RL agents to emulate cognitive tests. Under the hood, CogEnv uses DeepMind’s AndroidEnv [@toyama2021] to run the Behaverse cognitive assessment battery (see \href{https://behaverse.org}{behaverse.org}). Behaverse tasks are customizable at many levels, allowing the construction of a large number of randomized trials for training RL agents. In the following sections, we present the technical details of CogEnv and its ability to run RL agents on cognitive tests.
 
 
-## Technical Specification
+## Technical specification
 We simulate a real-time RL environment, where the environment, upon receiving an observation, invokes a callback method in the agent. We use AndroidEnv to run and manage the Behaverse cognitive assessment battery in a virtual Android device. A set of task-specific parsers then decodes screenshots, event streams, and system logs to extract numerical rewards and symbolic observations (see @fig-cogenv-figure1). The reward and the observed state are then sent to the agent via the callback. CogEnv then waits for the agent to respond with an action, and issues a timeout if no response occurred within a duration specified by the cognitive test.
 
 
