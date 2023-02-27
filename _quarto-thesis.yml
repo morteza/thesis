@@ -48,6 +48,7 @@ format:
           \usepackage{ragged2e}
           \usepackage{setspace}
           \usepackage{colortbl}
+          \usepackage{pdfpages}
           \doublespacing
           \usepackage{sectsty}
           \allsectionsfont{\singlespacing}
