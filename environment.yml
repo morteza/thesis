@@ -4,8 +4,9 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - ipykernel
   - notebook
+  - ipykernel
+  # - quarto  # not working yet with tinytex, install it manually
   - R
   - r-jsonlite
   - r-rmarkdown

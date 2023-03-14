@@ -5,19 +5,27 @@
 
 ## Setup
 
-You need quarto and other required packages to build the thesis. You can install them using the following command:
+You need quarto and other required packages to build the thesis. You can install them using the following commands:
 
 ```bash
-mamba create -f environment.yml
+mamba env create -f environment.yml
 mamba activate thesis
-# install quarto (e.g., on macOS `brew install quarto`)
+# quarto on conda raises error (missing tlmgr), so install it manually.
+# manually install quarto and tinytex (e.g., `brew install quarto` on macOS, and then `quarto install tinytex`).
 ```
+
+## Rendering Thesis
 
 To render the thesis as PDF, run the following command:
 
 ```bash
 quarto render --profile thesis
 ```
+
+The output PDF will be in `_book/` folder.
+
+
+## Rendering Slides
 
 To render the defense slides, run the following command:
 
