@@ -27,12 +27,11 @@ The output PDF will be in `_book/` folder.
 
 ## Rendering Slides
 
-> [!NOTE]
-> See the [annotated_defense_slides.pdf](https://github.com/morteza/thesis/blob/main/slides/annotated_defense_slides.pdf) file for the final slides and speaker notes.
-
-
 To render the defense slides, run the following command:
 
 ```bash
 quarto render slides --profile slides
 ```
+
+> [!NOTE]
+> See the [annotated_defense_slides.pdf](https://github.com/morteza/thesis/blob/main/slides/annotated_defense_slides.pdf) file for the final slides and speaker notes.
