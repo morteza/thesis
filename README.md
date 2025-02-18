@@ -1,6 +1,6 @@
 # Morty's Thesis
 
-**Title:** Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience
+**Title:** Towards a Computational Model of General Cognitive Control Using Artificial Intelligence, Experimental Psychology and Cognitive Neuroscience ([pdf](https://github.com/morteza/thesis/blob/main/PhD_Dissertation_Morteza_Ansarinia.pdf) &bull; [slides](https://github.com/morteza/thesis/blob/main/slides/annotated_defense_slides.pdf))
 
 
 ## Setup
@@ -32,6 +32,3 @@ To render the defense slides, run the following command:
 ```bash
 quarto render slides --profile slides
 ```
-
-> [!NOTE]
-> See the [annotated_defense_slides.pdf](https://github.com/morteza/thesis/blob/main/slides/annotated_defense_slides.pdf) file for the final slides and speaker notes.
